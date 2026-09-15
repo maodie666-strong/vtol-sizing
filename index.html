@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>垂直起降飞行器总体参数快速权衡工具</title>
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --panel: #ffffff;
+    --line: #e3e6ea;
+    --line-strong: #cdd3da;
+    --text: #1b1f24;
+    --text-2: #5b6570;
+    --text-3: #8b949e;
+    --blue: #185fa5;
+    --blue-2: #378add;
+    --blue-bg: #e8f1fb;
+    --purple: #534ab7;
+    --teal: #1d9e75;
+    --amber: #ba7517;
+    --coral: #d85a30;
+    --red: #a32d2d;
+    --radius: 10px;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 14px/1.6 system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
+    padding: 18px 26px 16px;
+  }
+  header h1 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: .01em; }
+  header .sub { margin: 5px 0 0; color: var(--text-2); font-size: 13px; }
+  header .meta {
+    margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .chip {
+    font-size: 11.5px; padding: 3px 9px; border-radius: 999px;
+    background: var(--blue-bg); color: var(--blue); white-space: nowrap;
+  }
+  .chip.gray { background: #eef0f3; color: var(--text-2); }
+
+  main { display: flex; align-items: flex-start; gap: 18px; padding: 18px 26px 40px; }
+  @media (max-width: 1080px) { main { flex-direction: column; } }
+
+  aside {
+    flex: 0 0 336px; width: 336px;
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 4px 16px 16px;
+    position: sticky; top: 14px; max-height: calc(100vh - 28px); overflow-y: auto;
+  }
+  @media (max-width: 1080px) { aside { position: static; width: 100%; flex: none; } }
+
+  .group { padding-top: 14px; }
+  .group + .group { border-top: 1px solid var(--line); }
+  .group h3 {
+    margin: 0 0 10px; font-size: 12px; font-weight: 600; color: var(--text-3);
+    letter-spacing: .06em; text-transform: uppercase;
+  }
+  .ctrl { margin-bottom: 13px; }
+  .ctrl .row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+  .ctrl .name { font-size: 13px; color: var(--text-2); }
+  .ctrl .val { font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--blue); }
+  .ctrl .val .u { font-family: inherit; font-weight: 400; color: var(--text-3); font-size: 11.5px; margin-left: 2px; }
+  input[type=range] {
+    -webkit-appearance: none; appearance: none; width: 100%; height: 3px;
+    background: var(--line-strong); border-radius: 2px; outline: none; margin: 0;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 15px; height: 15px; border-radius: 50%;
+    background: var(--blue); cursor: pointer; border: 2px solid #fff;
+    box-shadow: 0 0 0 1px var(--line-strong);
+  }
+  input[type=range]::-moz-range-thumb {
+    width: 13px; height: 13px; border-radius: 50%; background: var(--blue);
+    cursor: pointer; border: 2px solid #fff;
+  }
+
+  .actions { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+  button {
+    font: inherit; font-size: 13px; padding: 7px 13px; cursor: pointer;
+    background: #fff; color: var(--text); border: 1px solid var(--line-strong);
+    border-radius: 7px; transition: background .12s, border-color .12s;
+  }
+  button:hover { background: #f2f5f8; border-color: var(--blue-2); }
+  button.primary { background: var(--blue); color: #fff; border-color: var(--blue); }
+  button.primary:hover { background: #14507f; }
+  .presets { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+  .presets button { font-size: 12px; padding: 5px 10px; }
+
+  section.results { flex: 1 1 auto; min-width: 0; }
+
+  .warn {
+    background: #fdf3e7; border: 1px solid #f0d9b5; color: #7a4b0a;
+    padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: 14px;
+  }
+  .warn.err { background: #fdeceb; border-color: #f2c9c7; color: var(--red); }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 13px 15px;
+  }
+  .card.hero { border-color: var(--blue-2); background: var(--blue-bg); }
+  .card .k { font-size: 12px; color: var(--text-2); margin-bottom: 4px; }
+  .card.hero .k { color: var(--blue); }
+  .card .v { font-family: var(--mono); font-size: 24px; font-weight: 600; line-height: 1.15; letter-spacing: -.02em; }
+  .card.hero .v { color: var(--blue); }
+  .card .u { font-size: 12px; color: var(--text-3); font-weight: 400; margin-left: 3px; }
+  .card .x { font-size: 11.5px; color: var(--text-3); margin-top: 4px; }
+
+  .box {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 15px 17px; margin-bottom: 16px;
+  }
+  .box h2 { margin: 0 0 3px; font-size: 14px; font-weight: 600; }
+  .box .hint { margin: 0 0 13px; font-size: 12px; color: var(--text-3); }
+
+  .stack { display: flex; height: 30px; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); }
+  .stack .seg { height: 100%; transition: width .18s ease; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; }
+  .legend .item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-2); }
+  .legend .sw { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+  .legend .num { font-family: var(--mono); color: var(--text); font-weight: 600; }
+
+  table.kv { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.kv td { padding: 6px 0; border-bottom: 1px solid var(--line); }
+  table.kv tr:last-child td { border-bottom: none; }
+  table.kv td:first-child { color: var(--text-2); }
+  table.kv td:last-child { text-align: right; font-family: var(--mono); font-weight: 600; }
+  table.kv td .u { font-family: inherit; font-weight: 400; color: var(--text-3); font-size: 11.5px; margin-left: 3px; }
+
+  .tornado .trow { display: grid; grid-template-columns: 118px 1fr 62px; align-items: center; gap: 10px; margin-bottom: 7px; }
+  .tornado .tname { font-size: 12px; color: var(--text-2); text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tornado .ttrack { height: 15px; background: #f0f2f5; border-radius: 3px; position: relative; }
+  .tornado .tbar { height: 100%; border-radius: 3px; transition: width .18s ease; }
+  .tornado .tval { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--text); }
+
+  .chart { width: 100%; display: block; }
+  .chart text { font-family: var(--mono); }
+  .tip { font-size: 12px; color: var(--text-3); margin-top: 8px; }
+
+  footer { padding: 0 26px 34px; color: var(--text-3); font-size: 12px; }
+  footer code { font-family: var(--mono); background: #eef0f3; padding: 1px 5px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>垂直起降飞行器总体参数快速权衡工具</h1>
+  <p class="sub">概念设计阶段：给定任务剖面，求解满足要求的最小起飞重量，并给出重量构成、功率需求、能量分配与参数敏感性排序</p>
+  <div class="meta">
+    <span class="chip">零第三方依赖</span>
+    <span class="chip">动量理论 + 品质因数</span>
+    <span class="chip">重量—能量闭合迭代</span>
+    <span class="chip gray" id="solverInfo">—</span>
+  </div>
+</header>
+
+<main>
+  <aside>
+    <div class="group">
+      <h3>预置方案</h3>
+      <div class="presets" id="presets"></div>
+    </div>
+    <div id="panel"></div>
+    <div class="actions">
+      <button class="primary" id="btnReset">恢复默认</button>
+      <button id="btnExport">导出结果 CSV</button>
+    </div>
+  </aside>
+
+  <section class="results" id="results"></section>
+</main>
+
+<footer>
+  物理模型与 <code>vtol_sizing/</code> 下的 Python 内核同源，已通过 63 项跨语言数值一致性验证（容差 1e-9）。
+  本页为概念设计阶段的一阶估算工具，用于方案比较与趋势判断，不能替代详细设计。
+</footer>
+
+<script src="vtol-web/model.js"></script>
+<script>
+'use strict';
+
+/* ============================================================ 控件定义 */
+var GROUPS = [
+  { title: '旋翼系统', controls: [
+    { k: 'nRotor',               label: '旋翼数量',      min: 2,    max: 12,   step: 1,    unit: '个',  d: 0 },
+    { k: 'rotorRadius',          label: '桨半径',        min: 0.3,  max: 1.8,  step: 0.01, unit: 'm',   d: 2 },
+    { k: 'fm',                   label: '品质因数 FM',   min: 0.5,  max: 0.85, step: 0.01, unit: '',    d: 2 },
+    { k: 'etaMotor',             label: '电机效率',      min: 0.7,  max: 0.97, step: 0.01, unit: '',    d: 2 },
+    { k: 'etaTransmission',      label: '传动效率',      min: 0.85, max: 1.0,  step: 0.01, unit: '',    d: 2 }
+  ]},
+  { title: '机翼', controls: [
+    { k: 'wingArea',             label: '机翼参考面积',  min: 1,    max: 20,   step: 0.1,  unit: 'm²',  d: 1 },
+    { k: 'aspectRatio',          label: '展弦比',        min: 4,    max: 14,   step: 0.1,  unit: '',    d: 1 },
+    { k: 'cd0',                  label: '零升阻力系数',  min: 0.015, max: 0.06, step: 0.001, unit: '',  d: 3 },
+    { k: 'oswaldE',              label: '奥斯瓦尔德因子', min: 0.6,  max: 0.95, step: 0.01, unit: '',    d: 2 }
+  ]},
+  { title: '重量估算', controls: [
+    { k: 'structureFraction',    label: '结构重量系数',  min: 0.18, max: 0.42, step: 0.01, unit: '',    d: 2 },
+    { k: 'payloadMass',          label: '有效载荷',      min: 0,    max: 400,  step: 5,    unit: 'kg',  d: 0 },
+    { k: 'avionicsMass',         label: '航电与系统',    min: 5,    max: 80,   step: 1,    unit: 'kg',  d: 0 },
+    { k: 'motorSpecificPower',   label: '电机功率密度',  min: 2000, max: 9000, step: 100,  unit: 'W/kg', d: 0 },
+    { k: 'rotorSpecificThrust',  label: '旋翼推力密度',  min: 120,  max: 400,  step: 5,    unit: 'N/kg', d: 0 }
+  ]},
+  { title: '电池', controls: [
+    { k: 'batterySpecificEnergy', label: '系统比能量',   min: 150,  max: 450,  step: 5,    unit: 'Wh/kg', d: 0 },
+    { k: 'batteryUsableFraction', label: '可用放电深度', min: 0.6,  max: 0.95, step: 0.01, unit: '',    d: 2 }
+  ]},
+  { title: '任务剖面', controls: [
+    { k: 'rangeKm',              label: '任务航程',      min: 10,   max: 300,  step: 5,    unit: 'km',  d: 0 },
+    { k: 'cruiseSpeed',          label: '巡航速度',      min: 25,   max: 90,   step: 1,    unit: 'm/s', d: 0 },
+    { k: 'hoverTimeS',           label: '悬停总时间',    min: 20,   max: 300,  step: 5,    unit: 's',   d: 0 },
+    { k: 'climbAltitude',        label: '爬升高度',      min: 50,   max: 1000, step: 25,   unit: 'm',   d: 0 },
+    { k: 'reserveFraction',      label: '能量储备系数',  min: 0,    max: 0.4,  step: 0.01, unit: '',    d: 2 }
+  ]}
+];
+
+var PRESETS = [
+  { name: '小型物流机', patch: {
+      nRotor: 4, rotorRadius: 0.55, wingArea: 1.4, aspectRatio: 7.0,
+      payloadMass: 20, avionicsMass: 8, rangeKm: 30, cruiseSpeed: 32,
+      hoverTimeS: 40, climbAltitude: 150, batterySpecificEnergy: 240,
+      structureFraction: 0.30, fm: 0.68 }},
+  { name: '中型载货 eVTOL', patch: {
+      nRotor: 8, rotorRadius: 0.90, wingArea: 6.0, aspectRatio: 8.0,
+      payloadMass: 200, avionicsMass: 25, rangeKm: 100, cruiseSpeed: 55,
+      hoverTimeS: 60, climbAltitude: 300, batterySpecificEnergy: 250,
+      structureFraction: 0.30, fm: 0.72 }},
+  { name: '载人 eVTOL', patch: {
+      nRotor: 8, rotorRadius: 1.30, wingArea: 10.0, aspectRatio: 9.0,
+      payloadMass: 360, avionicsMass: 45, rangeKm: 160, cruiseSpeed: 65,
+      hoverTimeS: 90, climbAltitude: 450, batterySpecificEnergy: 290,
+      structureFraction: 0.27, fm: 0.76 }}
+];
+
+var COLORS = {
+  structure: '#378add',
+  propulsion: '#534ab7',
+  rotor: '#1d9e75',
+  avionics: '#ba7517',
+  payload: '#8b949e',
+  battery: '#185fa5'
+};
+var MASS_LABELS = {
+  structure: '结构', propulsion: '动力系统', rotor: '旋翼系统',
+  avionics: '航电系统', payload: '有效载荷', battery: '电池'
+};
+var ENERGY_COLORS = { hover: '#ba7517', climb: '#d85a30', cruise: '#185fa5' };
+var ENERGY_LABELS = { hover: '悬停段', climb: '爬升段', cruise: '巡航段' };
+
+var cfg = VTOL.defaultConfig();
+var inputs = {};
+var rafId = null;
+
+/* ============================================================ 数值格式 */
+function fmt(v, d) {
+  if (!isFinite(v)) return '—';
+  return v.toFixed(d === undefined ? 1 : d);
+}
+function num(v, d) {
+  var s = fmt(v, d);
+  var p = s.split('.');
+  p[0] = p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return p.join('.');
+}
+
+/* ============================================================ 构建控件 */
+function buildPanel() {
+  var host = document.getElementById('panel');
+  var html = '';
+  GROUPS.forEach(function (g) {
+    html += '<div class="group"><h3>' + g.title + '</h3>';
+    g.controls.forEach(function (c) {
+      html +=
+        '<div class="ctrl">' +
+          '<div class="row">' +
+            '<span class="name">' + c.label + '</span>' +
+            '<span class="val" id="val-' + c.k + '">—</span>' +
+          '</div>' +
+          '<input type="range" id="in-' + c.k + '" min="' + c.min + '" max="' + c.max +
+                 '" step="' + c.step + '" value="' + cfg[c.k] + '">' +
+        '</div>';
+    });
+    html += '</div>';
+  });
+  host.innerHTML = html;
+
+  GROUPS.forEach(function (g) {
+    g.controls.forEach(function (c) {
+      var el = document.getElementById('in-' + c.k);
+      inputs[c.k] = { el: el, def: c };
+      el.addEventListener('input', function () {
+        cfg[c.k] = parseFloat(el.value);
+        scheduleUpdate();
+      });
+      el.addEventListener('change', function () { cfg[c.k] = parseFloat(el.value); update(); });
+    });
+  });
+  syncControls();
+}
+
+function syncControls() {
+  GROUPS.forEach(function (g) {
+    g.controls.forEach(function (c) {
+      var v = cfg[c.k];
+      var el = document.getElementById('in-' + c.k);
+      if (el) el.value = v;
+      var lab = document.getElementById('val-' + c.k);
+      if (lab) lab.innerHTML = fmt(v, c.d) + (c.unit ? '<span class="u">' + c.unit + '</span>' : '');
+    });
+  });
+}
+
+function buildPresets() {
+  var host = document.getElementById('presets');
+  host.innerHTML = PRESETS.map(function (p, i) {
+    return '<button data-preset="' + i + '">' + p.name + '</button>';
+  }).join('');
+  host.addEventListener('click', function (e) {
+    var idx = e.target.getAttribute && e.target.getAttribute('data-preset');
+    if (idx === null || idx === undefined) return;
+    var patch = PRESETS[parseInt(idx, 10)].patch;
+    cfg = VTOL.withParams(VTOL.defaultConfig(), patch);
+    syncControls();
+    update();
+  });
+}
+
+function scheduleUpdate() {
+  if (rafId !== null) return;
+  rafId = requestAnimationFrame(function () { rafId = null; update(); });
+}
+
+/* ============================================================ 堆叠条 */
+function stackedBar(segments, colors, labels, total, unit) {
+  var bar = '<div class="stack">';
+  segments.forEach(function (s) {
+    var pct = total > 0 ? (s.v / total) * 100 : 0;
+    bar += '<div class="seg" style="width:' + pct.toFixed(3) + '%;background:' + colors[s.k] + '"></div>';
+  });
+  bar += '</div><div class="legend">';
+  segments.forEach(function (s) {
+    var pct = total > 0 ? (s.v / total) * 100 : 0;
+    bar += '<span class="item"><span class="sw" style="background:' + colors[s.k] + '"></span>' +
+           labels[s.k] + ' <span class="num">' + num(s.v, 1) + unit + '</span>' +
+           ' <span style="color:var(--text-3)">' + fmt(pct, 1) + '%</span></span>';
+  });
+  bar += '</div>';
+  return bar;
+}
+
+/* ============================================================ 折线图 */
+function lineChart(points, opts) {
+  opts = opts || {};
+  var W = 680, H = 250;
+  var PL = 62, PR = 18, PT = 16, PB = 38;
+  var iw = W - PL - PR, ih = H - PT - PB;
+  if (!points.length) return '';
+
+  var xs = points.map(function (p) { return p.x; });
+  var ys = points.map(function (p) { return p.y; });
+  var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs);
+  var y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+  var pad = (y1 - y0) * 0.12 || 1;
+  y0 -= pad; y1 += pad;
+
+  function sx(v) { return PL + (v - x0) / (x1 - x0 || 1) * iw; }
+  function sy(v) { return PT + ih - (v - y0) / (y1 - y0 || 1) * ih; }
+
+  var s = '<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" role="img">';
+  s += '<title>' + (opts.title || '参数扫描曲线') + '</title>';
+
+  // 横向网格与 y 轴刻度
+  for (var i = 0; i <= 4; i++) {
+    var yv = y0 + (y1 - y0) * i / 4;
+    var py = sy(yv);
+    s += '<line x1="' + PL + '" y1="' + py.toFixed(1) + '" x2="' + (W - PR) + '" y2="' + py.toFixed(1) +
+         '" stroke="#eef0f3" stroke-width="1"/>';
+    s += '<text x="' + (PL - 8) + '" y="' + (py + 4).toFixed(1) + '" font-size="11" fill="#8b949e" text-anchor="end">' +
+         fmt(yv, opts.yDecimals === undefined ? 0 : opts.yDecimals) + '</text>';
+  }
+
+  // x 轴刻度
+  for (var j = 0; j <= 4; j++) {
+    var xv = x0 + (x1 - x0) * j / 4;
+    s += '<text x="' + sx(xv).toFixed(1) + '" y="' + (H - PB + 18) + '" font-size="11" fill="#8b949e" text-anchor="middle">' +
+         fmt(xv, opts.xDecimals === undefined ? 2 : opts.xDecimals) + '</text>';
+  }
+
+  // 坐标轴
+  s += '<line x1="' + PL + '" y1="' + (PT + ih) + '" x2="' + (W - PR) + '" y2="' + (PT + ih) +
+       '" stroke="#cdd3da" stroke-width="1"/>';
+  s += '<line x1="' + PL + '" y1="' + PT + '" x2="' + PL + '" y2="' + (PT + ih) +
+       '" stroke="#cdd3da" stroke-width="1"/>';
+
+  // 轴标签
+  s += '<text x="' + (W - PR) + '" y="' + (H - 4) + '" font-size="11" fill="#5b6570" text-anchor="end">' +
+       (opts.xLabel || '') + '</text>';
+  s += '<text x="' + 6 + '" y="' + (PT + 11) + '" font-size="11" fill="#5b6570">' + (opts.yLabel || '') + '</text>';
+
+  // 曲线
+  var d = points.map(function (p, i) {
+    return (i === 0 ? 'M' : 'L') + sx(p.x).toFixed(1) + ' ' + sy(p.y).toFixed(1);
+  }).join(' ');
+  s += '<path d="' + d + '" fill="none" stroke="#185fa5" stroke-width="2" stroke-linejoin="round"/>';
+
+  // 当前工作点
+  if (opts.marker) {
+    var mx = sx(opts.marker.x), my = sy(opts.marker.y);
+    s += '<line x1="' + mx.toFixed(1) + '" y1="' + PT + '" x2="' + mx.toFixed(1) + '" y2="' + (PT + ih) +
+         '" stroke="#d85a30" stroke-width="1" stroke-dasharray="4 3"/>';
+    s += '<circle cx="' + mx.toFixed(1) + '" cy="' + my.toFixed(1) + '" r="4.5" fill="#d85a30" stroke="#fff" stroke-width="2"/>';
+    s += '<text x="' + (mx + 9).toFixed(1) + '" y="' + (my - 8).toFixed(1) + '" font-size="11.5" fill="#d85a30" font-weight="600">' +
+         opts.marker.label + '</text>';
+  }
+  s += '</svg>';
+  return s;
+}
+
+/* ============================================================ 主渲染 */
+function update() {
+  var res = VTOL.size(cfg);
+  var sens = VTOL.sensitivity(cfg, 0.10);
+
+  document.getElementById('solverInfo').textContent =
+    res.converged ? ('重量闭合已收敛 · ' + res.iterations + ' 次迭代')
+                  : ('未收敛 · ' + res.iterations + ' 次迭代');
+
+  var html = '';
+
+  if (res.warning) {
+    html += '<div class="warn' + (res.converged ? '' : ' err') + '">' + res.warning + '</div>';
+  }
+
+  // ---- 关键指标卡片
+  var total = res.mtow;
+  var hoverEnd = (res.massBreakdown.battery * cfg.batterySpecificEnergy * cfg.batteryUsableFraction)
+               * 3600 / res.hoverPower / 60;
+  html += '<div class="cards">' +
+    card('起飞重量 MTOW', num(total, 1), 'kg', '结构 + 动力 + 旋翼 + 航电 + 载荷 + 电池', true) +
+    card('电池重量', num(res.massBreakdown.battery, 1), 'kg',
+         '占起飞重量 ' + fmt(res.massBreakdown.battery / total * 100, 1) + '%') +
+    card('装机功率', num(res.installedPower / 1000, 1), 'kW',
+         '峰值 ' + num(res.maxShaftPower / 1000, 1) + ' kW × 裕度 ' + fmt(cfg.powerMargin, 2)) +
+    card('巡航升阻比', num(res.liftToDrag, 2), '',
+         '巡航升力系数 ' + fmt(res.clCruise, 3)) +
+    card('纯悬停航时', num(hoverEnd, 1), 'min', '仅悬停，不含巡航段') +
+    '</div>';
+
+  // ---- 重量构成
+  var massSeg = Object.keys(MASS_LABELS).map(function (k) {
+    return { k: k, v: res.massBreakdown[k] };
+  });
+  html += '<div class="box"><h2>重量构成</h2>' +
+    '<p class="hint">电池重量由任务能量需求反推，是重量闭合的驱动量</p>' +
+    stackedBar(massSeg, COLORS, MASS_LABELS, total, ' kg') + '</div>';
+
+  // ---- 能量分配
+  var eTotal = res.energyBreakdown.hover + res.energyBreakdown.climb + res.energyBreakdown.cruise;
+  var eSeg = ['hover', 'climb', 'cruise'].map(function (k) {
+    return { k: k, v: res.energyBreakdown[k] / 1000 };
+  });
+  html += '<div class="box"><h2>能量分配</h2>' +
+    '<p class="hint">任务消耗 ' + num(eTotal / 1000, 2) + ' kWh，含 ' + fmt(cfg.reserveFraction * 100, 0) +
+    '% 储备后需装机 ' + num(res.requiredEnergy / 1000, 2) + ' kWh</p>' +
+    stackedBar(eSeg, ENERGY_COLORS, ENERGY_LABELS, eTotal / 1000, ' kWh') + '</div>';
+
+  // ---- 关键参数
+  var tb = res.timeBreakdown;
+  html += '<div class="box"><h2>关键参数</h2><p class="hint">用于判断方案是否落在工程可行区间</p>' +
+    '<table class="kv">' +
+    row('翼载（W/S）', num(res.wingLoading, 1), 'N/m²') +
+    row('桨盘载荷', num(res.diskLoading, 1), 'N/m²') +
+    row('桨盘总面积', num(cfg.nRotor * Math.PI * cfg.rotorRadius * cfg.rotorRadius, 2), 'm²') +
+    row('悬停电功率', num(res.hoverPower / 1000, 2), 'kW') +
+    row('爬升电功率', num(res.climbPower / 1000, 2), 'kW') +
+    row('巡航电功率', num(res.cruisePower / 1000, 2), 'kW') +
+    row('诱导阻力占比', fmt(res.inducedRatio * 100, 1), '%') +
+    row('巡航段时长', num(tb.cruise / 60, 1), 'min') +
+    row('爬升段时长', num(tb.climb, 0), 's') +
+    row('单位载荷航程代价', num(res.requiredEnergy / Math.max(cfg.payloadMass, 0.001), 1), 'Wh/kg') +
+    row('结构功重比', num(total / (res.installedPower / 1000), 2), 'kg/kW') +
+    '</table></div>';
+
+  // ---- 敏感性
+  var top = sens.slice(0, 9);
+  var maxSwing = top.length ? top[0].swingPct : 1;
+  html += '<div class="box tornado"><h2>参数敏感性</h2>' +
+    '<p class="hint">每个参数施加 ±10% 扰动，观察起飞重量的相对变化 —— 这是"该优先优化什么"的答案</p>';
+  top.forEach(function (s) {
+    var w = Math.max(maxSwing > 0 ? (s.swingPct / maxSwing) * 100 : 0, 2);
+    var col = s.direction === '+1' ? '#d85a30' : (s.direction === '-1' ? '#378add' : '#8b949e');
+    var mark = s.direction === '+1' ? '↑' : (s.direction === '-1' ? '↓' : '·');
+    html += '<div class="trow">' +
+      '<span class="tname" title="' + s.label + '">' + s.label + '</span>' +
+      '<div class="ttrack"><div class="tbar" style="width:' + w.toFixed(1) + '%;background:' + col + '"></div></div>' +
+      '<span class="tval">' + fmt(s.swingPct, 2) + '% ' + mark + '</span>' +
+      '</div>';
+  });
+  html += '<p class="tip">↑ 表示该参数增大使起飞重量上升；↓ 表示下降。当前最敏感参数：' +
+    (top[0] ? top[0].label + '（' + fmt(top[0].swingPct, 2) + '%）' : '—') + '</p></div>';
+
+  // ---- 桨半径扫描
+  var r0 = Math.max(cfg.rotorRadius * 0.55, 0.15);
+  var r1 = cfg.rotorRadius * 1.55;
+  var radii = VTOL.linspace(r0, r1, 21);
+  var scan = VTOL.sweep1d(cfg, 'rotorRadius', radii);
+  var pts = scan.filter(function (s) { return s.converged && isFinite(s.mtow); })
+                 .map(function (s) { return { x: s.value, y: s.mtow }; });
+  var best = null;
+  if (pts.length) {
+    best = pts.reduce(function (a, b) { return b.y < a.y ? b : a; });
+  }
+  html += '<div class="box"><h2>桨半径扫描</h2>' +
+    '<p class="hint">桨盘越大悬停越省功率，但旋翼系统与机翼的代价也在变 —— 这条曲线就是总体设计里的取舍</p>' +
+    lineChart(pts, {
+      xLabel: '桨半径 (m)', yLabel: 'MTOW (kg)',
+      title: '起飞重量随桨半径的变化',
+      marker: { x: cfg.rotorRadius, y: res.mtow, label: '当前 ' + fmt(res.mtow, 0) + ' kg' }
+    }) +
+    (best ? '<p class="tip">扫描区间内最优桨半径约 <b>' + fmt(best.x, 2) +
+            ' m</b>（MTOW ' + num(best.y, 1) + ' kg）；当前设置 ' + fmt(cfg.rotorRadius, 2) +
+            ' m，与之相差 ' + fmt(best.y - res.mtow, 1) + ' kg。</p>' : '') +
+    '</div>';
+
+  document.getElementById('results').innerHTML = html;
+}
+
+function card(k, v, u, x, hero) {
+  return '<div class="card' + (hero ? ' hero' : '') + '">' +
+    '<div class="k">' + k + '</div>' +
+    '<div class="v">' + v + (u ? '<span class="u">' + u + '</span>' : '') + '</div>' +
+    '<div class="x">' + x + '</div></div>';
+}
+
+function row(k, v, u) {
+  return '<tr><td>' + k + '</td><td>' + v + (u ? '<span class="u">' + u + '</span>' : '') + '</td></tr>';
+}
+
+/* ============================================================ 导出 */
+function exportCSV() {
+  var res = VTOL.size(cfg);
+  var lines = [];
+
+  lines.push('# 垂直起降飞行器总体参数快速权衡工具 - 结果导出');
+  lines.push('# 导出时间,' + new Date().toLocaleString('zh-CN'));
+  lines.push('');
+  lines.push('分类,项目,数值,单位');
+
+  var order = [
+    ['nRotor', '旋翼数量', '个'], ['rotorRadius', '桨半径', 'm'], ['fm', '品质因数', ''],
+    ['etaMotor', '电机效率', ''], ['etaTransmission', '传动效率', ''],
+    ['wingArea', '机翼面积', 'm2'], ['aspectRatio', '展弦比', ''],
+    ['cd0', '零升阻力系数', ''], ['oswaldE', '奥斯瓦尔德因子', ''],
+    ['structureFraction', '结构重量系数', ''], ['payloadMass', '有效载荷', 'kg'],
+    ['avionicsMass', '航电与系统', 'kg'], ['motorSpecificPower', '电机功率密度', 'W/kg'],
+    ['rotorSpecificThrust', '旋翼推力密度', 'N/kg'],
+    ['batterySpecificEnergy', '系统比能量', 'Wh/kg'], ['batteryUsableFraction', '可用放电深度', ''],
+    ['rangeKm', '任务航程', 'km'], ['cruiseSpeed', '巡航速度', 'm/s'],
+    ['hoverTimeS', '悬停总时间', 's'], ['climbAltitude', '爬升高度', 'm'],
+    ['reserveFraction', '能量储备系数', '']
+  ];
+  order.forEach(function (o) {
+    lines.push('输入,' + o[1] + ',' + cfg[o[0]] + ',' + o[2]);
+  });
+
+  lines.push('');
+  lines.push('结果,起飞重量 MTOW,' + res.mtow.toFixed(4) + ',kg');
+  Object.keys(MASS_LABELS).forEach(function (k) {
+    lines.push('重量构成,' + MASS_LABELS[k] + ',' + res.massBreakdown[k].toFixed(4) + ',kg');
+  });
+  lines.push('功率,悬停电功率,' + (res.hoverPower / 1000).toFixed(4) + ',kW');
+  lines.push('功率,爬升电功率,' + (res.climbPower / 1000).toFixed(4) + ',kW');
+  lines.push('功率,巡航电功率,' + (res.cruisePower / 1000).toFixed(4) + ',kW');
+  lines.push('功率,装机功率,' + (res.installedPower / 1000).toFixed(4) + ',kW');
+  lines.push('参数,翼载,' + res.wingLoading.toFixed(4) + ',N/m2');
+  lines.push('参数,桨盘载荷,' + res.diskLoading.toFixed(4) + ',N/m2');
+  lines.push('参数,巡航升力系数,' + res.clCruise.toFixed(4) + ',');
+  lines.push('参数,巡航升阻比,' + res.liftToDrag.toFixed(4) + ',');
+  lines.push('能量,悬停段,' + (res.energyBreakdown.hover / 1000).toFixed(4) + ',kWh');
+  lines.push('能量,爬升段,' + (res.energyBreakdown.climb / 1000).toFixed(4) + ',kWh');
+  lines.push('能量,巡航段,' + (res.energyBreakdown.cruise / 1000).toFixed(4) + ',kWh');
+  lines.push('能量,需装机,' + (res.requiredEnergy / 1000).toFixed(4) + ',kWh');
+  lines.push('求解,迭代次数,' + res.iterations + ',');
+  lines.push('求解,是否收敛,' + (res.converged ? '是' : '否') + ',');
+
+  lines.push('');
+  lines.push('敏感性排行（±10% 扰动对 MTOW 的影响）,参数,变化幅度 %,方向');
+  VTOL.sensitivity(cfg, 0.10).forEach(function (s, i) {
+    lines.push((i + 1) + ',' + s.label + ',' + s.swingPct.toFixed(3) + ',' +
+      (s.direction === '+1' ? '增大' : s.direction === '-1' ? '减小' : '—'));
+  });
+
+  var blob = new Blob(['\ufeff' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'vtol_sizing_result.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+}
+
+/* ============================================================ 初始化 */
+document.getElementById('btnReset').addEventListener('click', function () {
+  cfg = VTOL.defaultConfig();
+  syncControls();
+  update();
+});
+document.getElementById('btnExport').addEventListener('click', exportCSV);
+
+buildPresets();
+buildPanel();
+update();
+
+// 供控制台调试
+window.VTOL_APP = { getConfig: function () { return cfg; }, model: VTOL };
+</script>
+</body>
+</html>

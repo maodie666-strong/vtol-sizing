@@ -1,0 +1,144 @@
+{
+  "case1": {
+    "iterations": 18,
+    "converged": true,
+    "mtow": 581.9671308429467,
+    "mass_breakdown": {
+      "structure": 174.59013925288403,
+      "propulsion": 25.58901555693424,
+      "rotor": 29.677169411141115,
+      "avionics": 25.0,
+      "payload": 200.0,
+      "battery": 127.11079152936082
+    },
+    "hover_power_w": 97126.21698521893,
+    "climb_power_w": 111696.05290601794,
+    "cruise_power_w": 35219.77320963892,
+    "installed_power_w": 147136.83945237185,
+    "wing_loading": 951.1913272801639,
+    "disk_loading": 280.3459288199609,
+    "cl_cruise": 0.5387677739207228,
+    "lift_to_drag": 12.695743938048548,
+    "induced_ratio": 0.34019656061005105,
+    "energy_breakdown_wh": {
+      "hover": 1618.770283086982,
+      "climb": 3102.668136278276,
+      "cruise": 17787.764247292387
+    },
+    "mission_energy_wh": 27011.043199989173,
+    "required_energy_wh": 31777.697882340206
+  },
+  "case2": {
+    "endurance_min": 26.383466293773225
+  },
+  "sensitivity_order": [
+    "eta_motor",
+    "structure_fraction",
+    "battery_specific_energy",
+    "battery_usable_fraction",
+    "cruise_prop_efficiency",
+    "eta_transmission",
+    "cruise_speed",
+    "cd0",
+    "fm",
+    "rotor_radius",
+    "aspect_ratio",
+    "oswald_e",
+    "wing_area",
+    "rotor_specific_thrust",
+    "thrust_to_weight",
+    "motor_specific_power",
+    "n_rotor",
+    "avionics_mass",
+    "climb_altitude",
+    "climb_rate",
+    "cruise_altitude",
+    "power_margin"
+  ],
+  "sensitivity_swing": {
+    "eta_motor": 9.682310394300993,
+    "structure_fraction": 8.224249622608585,
+    "battery_specific_energy": 6.465771498024384,
+    "battery_usable_fraction": 6.465771498024345,
+    "cruise_prop_efficiency": 4.991049190555854,
+    "eta_transmission": 4.096405920502628,
+    "cruise_speed": 3.268888586258067,
+    "cd0": 2.85056081337965,
+    "fm": 2.5893880221716628,
+    "rotor_radius": 2.286489036232395,
+    "aspect_ratio": 1.684184938103872,
+    "oswald_e": 1.684184938103872,
+    "wing_area": 1.4703446955478567,
+    "rotor_specific_thrust": 1.4340847446391038,
+    "thrust_to_weight": 1.2884135792637395,
+    "motor_specific_power": 1.240209400766184,
+    "n_rotor": 1.0902833585916345,
+    "avionics_mass": 1.0710348117565447,
+    "climb_altitude": 0.758256551868574,
+    "climb_rate": 0.5723477893351777,
+    "cruise_altitude": 0.06699832682087935,
+    "power_margin": 0.0
+  },
+  "scan_rotor_radius": [
+    {
+      "radius": 0.6,
+      "mtow": 652.3292487895535
+    },
+    {
+      "radius": 0.65,
+      "mtow": 633.3426546910022
+    },
+    {
+      "radius": 0.7,
+      "mtow": 618.5783174274
+    },
+    {
+      "radius": 0.75,
+      "mtow": 606.7374686062421
+    },
+    {
+      "radius": 0.8,
+      "mtow": 597.0142973660509
+    },
+    {
+      "radius": 0.85,
+      "mtow": 588.8789013078076
+    },
+    {
+      "radius": 0.9,
+      "mtow": 581.9671308429467
+    },
+    {
+      "radius": 0.95,
+      "mtow": 576.0195681394291
+    },
+    {
+      "radius": 1.0,
+      "mtow": 570.8461797173818
+    },
+    {
+      "radius": 1.05,
+      "mtow": 566.3041955255969
+    },
+    {
+      "radius": 1.1,
+      "mtow": 562.2843161259393
+    },
+    {
+      "radius": 1.15,
+      "mtow": 558.7011905128472
+    },
+    {
+      "radius": 1.2000000000000002,
+      "mtow": 555.48731975298
+    },
+    {
+      "radius": 1.25,
+      "mtow": 552.5884957293242
+    },
+    {
+      "radius": 1.3,
+      "mtow": 549.960713047235
+    }
+  ]
+}
