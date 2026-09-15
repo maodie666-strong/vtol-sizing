@@ -11,6 +11,22 @@
 
 ## 快速开始
 
+### 方式一：Web 交互界面（推荐演示用）
+
+直接双击打开 `index.html`，或起一个本地服务：
+
+```bash
+python -m http.server 8765
+# 浏览器打开 http://127.0.0.1:8765/
+```
+
+拖动滑块实时看结果变化：21 个参数分 5 组，3 个预置方案（小型物流机 / 中型载货 eVTOL / 载人 eVTOL），
+输出指标卡片、重量构成、能量分配、关键参数表、敏感性 tornado 图、桨半径扫描曲线，结果可导出 CSV。
+
+界面**完全离线可用**——图表是手绘 SVG，不依赖任何 CDN，面试演示不怕断网。
+
+### 方式二：Python 命令行
+
 ```bash
 python demo.py
 ```
@@ -37,9 +53,15 @@ print(res.lift_to_drag)       # 巡航升阻比
 
 ```
 vtol-sizing/
-├── demo.py                    演示脚本（四个案例）
+├── index.html                 Web 交互界面（单文件，零依赖）
+├── demo.py                    Python 演示脚本（四个案例）
 ├── README.md
 ├── output/                    扫描结果 CSV
+├── vtol-web/
+│   ├── model.js               Python 内核的 JS 移植版（UMD，浏览器/Node 双用）
+│   ├── verify.js              跨语言数值一致性验证
+│   ├── dump_reference.py      从 Python 导出全精度基准
+│   └── reference.json         基准数据
 └── vtol_sizing/
     ├── __init__.py
     ├── atmosphere.py          ISA 标准大气
@@ -50,6 +72,25 @@ vtol-sizing/
     ├── sizing.py              总体参数求解、重量闭合、结果数据结构
     └── sweep.py               参数扫描与敏感性分析
 ```
+
+---
+
+## 跨语言数值一致性验证
+
+Web 界面用的是 `vtol-web/model.js`，它是 Python 内核的移植版。为了保证两边**永远算出同一个数**，
+建立了一套跨语言回归测试：
+
+```bash
+python vtol-web/dump_reference.py   # 1) 从 Python 导出全精度基准 → reference.json
+node vtol-web/verify.js             # 2) 用 JS 复算并逐项比对
+```
+
+当前结果：**63 项全部通过，相对误差 0.0e+0（容差 1e-9）**。
+
+覆盖范围：案例 1 的全部重量构成 / 四个功率点 / 气动系数 / 能量分配、
+案例 2 的悬停航时、22 项参数敏感性排序与幅度、15 点桨半径扫描。
+
+这套测试的价值在于：改动物理模型时，只要两边同步改，回归测试会立刻指出不一致的项。
 
 ---
 
@@ -131,8 +172,10 @@ MTOW = W_struct(MTOW) + W_prop + W_rotor + W_avionics + W_payload + W_battery(MT
 
 ## 后续路线
 
-- [ ] **P1**（已完成）内核：气动 / 重量 / 能量模型 + 重量闭合求解
-- [ ] **P2** 参数扫描与敏感性分析（已完成基础版），补 Pareto 前沿与二维等值线
-- [ ] **P3** Web 交互界面：滑块调参、实时曲线、方案对比、报告导出
+- [x] **P1** 内核：气动 / 重量 / 能量模型 + 重量闭合求解
+- [x] **P2** 参数扫描与敏感性分析（基础版）
+- [x] **P3** Web 交互界面：滑块调参、实时曲线、敏感性 tornado、结果导出
+- [x] **P3.5** JS 内核移植 + 63 项跨语言数值一致性验证
 - [ ] **P4** 代理模型加速：用神经网络拟合「参数 → 性能」，把全参数扫描从秒级压到毫秒级
 - [ ] **P5** 用公开 eVTOL 机型数据做系统性标定，量化各模型的预测误差
+- [ ] **P6** 二维参数扫描（翼载 × 桨盘载荷）等值线图，输出 Pareto 前沿
