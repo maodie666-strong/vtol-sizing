@@ -186,33 +186,45 @@ def main() -> None:
     rule()
     print(f"  平均 R² = {r2.mean():.5f}")
 
-    rule("4. 加速比")
-    # 精确求解：随机抽 200 组参数实际跑一遍
+    rule("4. 速度对比")
+    # ---------------------------------------------------------------- 口径说明
+    # 这里必须让两边口径一致，否则数字会骗人：
+    #   - 两边都按「逐次调用」计时，且都**不含**配置对象/输入向量的构造开销；
+    #   - 早期版本把「逐个调用的精确求解」和「批量摊薄的代理推理」相比，
+    #     还顺手把 dataclass 的构造开销算进了精确求解，得出过偏高的比值。
+    #     那个数字不能写进任何材料里。
     from dataclasses import replace
     from vtol_sizing import VTOLConfig, size
 
     rng2 = np.random.default_rng(99)
     sample_idx = rng2.choice(n, size=200, replace=False)
     Xs = X[sample_idx]
+    # 先把配置对象都建好，让计时只覆盖求解本身
+    cfgs = [
+        replace(VTOLConfig(), **{
+            nm: (int(round(v)) if nm == "n_rotor" else float(v))
+            for nm, v in zip(PARAM_NAMES, row)
+        })
+        for row in Xs
+    ]
 
     t0 = time.perf_counter()
-    for row in Xs:
-        ov = {nm: (int(round(v)) if nm == "n_rotor" else float(v))
-              for nm, v in zip(PARAM_NAMES, row)}
-        size(replace(VTOLConfig(), **ov))
-    exact_total = time.perf_counter() - t0
-    exact_per = exact_total / Xs.shape[0]
+    for c in cfgs:
+        size(c)
+    exact_per = (time.perf_counter() - t0) / len(cfgs)
 
+    # 代理模型也逐次调用（每次只喂一行），与上一行口径一致
     Xs_std = (Xs - x_mean) / x_std
     t0 = time.perf_counter()
-    for _ in range(20):
-        net.predict(Xs_std)
-    surro_total = (time.perf_counter() - t0) / 20.0
-    surro_per = surro_total / Xs.shape[0]
+    for i in range(Xs_std.shape[0]):
+        net.predict(Xs_std[i:i + 1])
+    surro_per = (time.perf_counter() - t0) / Xs_std.shape[0]
 
-    print(f"  精确求解   {exact_per * 1000:>9.3f} ms/次  （200 次共 {exact_total:.3f} s）")
-    print(f"  代理模型   {surro_per * 1e6:>9.1f} μs/次  （批量 {Xs.shape[0]} 组）")
-    print(f"  加速比     {exact_per / max(surro_per, 1e-12):>9.0f} ×")
+    print(f"  精确求解   {exact_per * 1000:>9.3f} ms/次  （{len(cfgs)} 次逐次调用，不含配置构造）")
+    print(f"  代理模型   {surro_per * 1e6:>9.1f} μs/次  （{Xs_std.shape[0]} 次逐次推理）")
+    print(f"  加速比     {exact_per / max(surro_per, 1e-12):>9.2f} ×")
+    print("  注：本项目的精确求解器是自研解析模型，本身就便宜，因此这里只快了几倍；")
+    print("      代理模型的真正收益要在它替换 CFD 之类的昂贵求解器时才体现出来。")
 
     rule("5. 导出权重")
     os.makedirs(WEB_DIR, exist_ok=True)

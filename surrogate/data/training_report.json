@@ -45,8 +45,8 @@
     }
   },
   "speedup": {
-    "exact_ms_per_call": 0.10591899999781162,
-    "surrogate_us_per_call": 3.118775000075402,
-    "ratio": 33.961731768162444
+    "exact_ms_per_call": 0.11904699999831792,
+    "surrogate_us_per_call": 45.098000000507454,
+    "ratio": 2.6397401214461476
   }
 }

@@ -37,3 +37,6 @@ Thumbs.db
 
 # 代理模型训练数据缓存（可由 python surrogate/train.py 重新生成，不入库）
 surrogate/data/dataset_*.npz
+
+# 软件著作权登记材料（个人申请材料，含生成的 PDF/截图，不入公开仓库）
+软著申请/

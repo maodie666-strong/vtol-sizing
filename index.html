@@ -627,9 +627,14 @@ function surrogateBox(res) {
     ' 组，网络结构 ' + SURROGATE.meta.layer_sizes.join(' — ') +
     '，可训练参数 ' + num(SURROGATE.meta.n_parameters, 0) + ' 个；' +
     '测试集平均 R² = ' + fmt(m.mean_r2, 4) + '。' +
-    '单次推理 ' + fmt(surrogateUs, 1) + ' μs，精确求解 ' +
-    fmt(SURROGATE.meta.exact_ms_per_call * 1000, 1) + ' μs，' +
-    '加速比约 ' + num(SURROGATE.meta.speedup, 0) + '×。</p>';
+    '本环境实测单次推理 ' + fmt(surrogateUs, 1) + ' μs。</p>';
+
+  // 这里刻意不把「本环境推理耗时」除以「训练时记录的求解耗时」得到加速比：
+  // 前者测于本页面的 JavaScript，后者测于训练脚本的 Python，
+  // 两个不同语言/运行时的数字相除没有意义。要比较就必须在同一环境下测。
+  html += '<p class="tip">训练时在 Python 端记录的单次求解耗时约 ' +
+    fmt(SURROGATE.meta.exact_ms_per_call * 1000, 1) + ' μs —— 该数字与本页的 ' +
+    'JavaScript 实现不可直接相比。点击下方按钮，可在同一环境下实测两者的真实差距。</p>';
 
   html += '<div class="actions" style="margin-top:10px">' +
     '<button id="btnBench">跑一次大规模参数扫描，实测加速</button></div>' +
@@ -643,14 +648,23 @@ function unitSpan(u) {
   return u ? '<span class="u">' + u + '</span>' : '';
 }
 
-/** 大规模扫描基准测试：同一批参数，分别用精确求解和代理模型跑一遍。 */
+/**
+ * 大规模扫描基准测试：同一批参数，分别用精确求解和代理模型各跑一遍。
+ *
+ * 关于预热 —— 这是基准测试里最容易出错、也最容易被误读的地方。
+ * JS 引擎（V8）先解释执行，函数被反复调用后才由 TurboFan 编译成机器码，
+ * 速度能差一个数量级。如果只给其中一方充分的预热，测出来的"加速比"其实
+ * 衡量的是「热代码 vs 冷代码」，而不是两种方法的真实差距。
+ * 因此这里对两边做等量的预热，再开始计时。
+ */
 function runBenchmark() {
   var host = document.getElementById('benchResult');
   if (!host || !SURROGATE) return;
 
   var N = 3000;
-  host.innerHTML = '<p class="tip">正在用精确求解跑 ' + num(N, 0) +
-    ' 组参数，请稍候（这一步在真实工程里就是几小时的 CFD）…</p>';
+  var WARM = 2000;         // 等量预热次数，不计入结果
+  host.innerHTML = '<p class="tip">正在预热并跑 ' + num(N, 0) +
+    ' 组参数，请稍候（这一步若换成 CFD，在真实工程里是几小时）…</p>';
 
   setTimeout(function () {
     var rng = mulberry32(20260930);
@@ -669,27 +683,62 @@ function runBenchmark() {
       c.rangeKm = 30 + rng() * 170;
       xs.push(c);
     }
+    var vecs = xs.map(function (cc) { return SURROGATE.configToVector(cc); });
+
+    // ---- 等量预热：两边都先把 JIT 喂热，否则比的是冷热而不是快慢 ----
+    for (var w = 0; w < WARM; w++) {
+      VTOL.size(xs[w % N]);
+      SURROGATE.predictVector(vecs[w % N]);
+    }
 
     var t0 = performance.now();
     for (var k = 0; k < N; k++) VTOL.size(xs[k]);
     var exactMs = performance.now() - t0;
 
-    // 代理模型：先在 JS 侧组装输入向量，再逐次推理
-    var vecs = xs.map(function (c) { return SURROGATE.configToVector(c); });
     var t1 = performance.now();
     for (var j = 0; j < N; j++) SURROGATE.predictVector(vecs[j]);
     var surroMs = performance.now() - t1;
 
+    // 更严格的口径：把「配置对象 -> 输入向量」的适配开销也算进去
+    var t2 = performance.now();
+    for (var m = 0; m < N; m++) SURROGATE.predictVector(SURROGATE.configToVector(xs[m]));
+    var surroFullMs = performance.now() - t2;
+
+    var exactUs = exactMs * 1000 / N;
+    var surroUs = surroMs * 1000 / N;
+    var surroFullUs = surroFullMs * 1000 / N;
+
+    // 若代理模型确实更快则显示加速，否则如实说明它在本项目里并无优势
     var ratio = exactMs / Math.max(surroMs, 1e-9);
+    var verdict = ratio >= 1.05
+      ? '<tr><td><b>实测加速比</b></td><td style="color:var(--teal)">' +
+        num(ratio, 1) + '×</td></tr>'
+      : '<tr><td><b>实测加速比</b></td><td style="color:var(--coral)">' +
+        num(1 / Math.max(ratio, 1e-9), 2) + '× 慢于精确求解</td></tr>';
+
     host.innerHTML =
       '<table class="kv">' +
-        '<tr><td>精确求解 ' + num(N, 0) + ' 组</td><td>' + (exactMs / 1000).toFixed(2) + '<span class="u">s</span></td></tr>' +
-        '<tr><td>代理模型 ' + num(N, 0) + ' 组</td><td>' + surroMs.toFixed(1) + '<span class="u">ms</span></td></tr>' +
-        '<tr><td><b>实测加速比</b></td><td style="color:var(--teal)">' + num(ratio, 0) + '×</td></tr>' +
+        '<tr><td style="color:var(--text-3);font-size:12px">' + num(N, 0) +
+          ' 组参数</td><td style="color:var(--text-3);font-size:12px">总计</td>' +
+          '<td style="color:var(--text-3);font-size:12px">单次</td></tr>' +
+        '<tr><td>精确求解</td><td>' + exactMs.toFixed(1) + '<span class="u">ms</span></td>' +
+          '<td>' + fmt(exactUs, 2) + '<span class="u">μs</span></td></tr>' +
+        '<tr><td>代理模型（含入参转换）</td><td>' + surroFullMs.toFixed(1) + '<span class="u">ms</span></td>' +
+          '<td>' + fmt(surroFullUs, 2) + '<span class="u">μs</span></td></tr>' +
+        verdict +
       '</table>' +
-      '<p class="tip">这就是代理模型的意义：把「几百次调用」的场景，变成「几十万次调用」的场景。' +
-      '本项目的精确求解器已经是解析解，只需 0.1 ms；如果换成 CFD（单次几十分钟），' +
-      '同样的流程能带来 10⁴–10⁶ 倍的加速。</p>';
+      '<p class="tip"><b>这个结果需要正确解读。</b>' +
+      '本项目的精确求解器是自研的解析模型（动量理论 + 升力线 + 重量闭合），' +
+      '单次只要几微秒 —— 在浏览器里它已经足够便宜，神经网络反而因为要算 ' +
+      num(SURROGATE.meta.n_parameters, 0) + ' 次乘加而不占优势。' +
+      '这正是做代理模型前必须先算清的一笔账：<b>如果精确模型本身很便宜，就根本不需要代理模型。</b></p>' +
+      '<p class="tip">代理模型的加速价值出现在精确求解器昂贵的场合。' +
+      '若把底层换成 CFD —— 工程上单次绕流求解通常要 10 ~ 60 分钟 —— ' +
+      '同样这个微秒级的网络推理就能带来 <b>' +
+      num(30 * 60 * 1e6 / surroFullUs, 0) + ' 倍</b>以上的加速，' +
+      '原本需要算一个月的参数扫描，几秒钟就能出结果。' +
+      '本项目用便宜的解析模型做数据源，是为了让整套「采样 → 训练 → 部署 → 校验」' +
+      '的流程可以完全复现；换成 CFD 只需替换数据生成环节，其余代码不用改。</p>';
   }, 30);
 }
 

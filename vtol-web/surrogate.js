@@ -37,23 +37,45 @@
     this.outputNames = payload.outputs.map(function (o) { return o.name; });
     this.outputMeta = payload.outputs;
 
-    // 预转置权重：JSON 里是 [输入维][输出维]，但推理时的内层循环
-    // 沿着输出维跑，转置成 [输出维][输入维] 后内存连续，快很多。
-    this.Wt = [];
+    // ---------------------------------------------------------- 权重预处理
+    // JSON 里权重存成 [输入维][输出维]（numpy 的行主序）。推理时需要的是
+    // 「第 k 个输出神经元对全部输入的点积」，也就是要沿着输入维连续取值。
+    //
+    // 这里做两件事：
+    //   1) 转置成 [输出维][输入维]，并**展平成一个连续的 Float64Array**。
+    //      展平后每次取值都是 TypedArray 的下标访问，比先取 rows[k]（对象属性）、
+    //      再取 row[m]（又一层）少一次指针跳转，也更容易被 JIT 优化成线性内存访问。
+    //   2) 预分配两块缓冲区轮流复用。原来每层都 new 一次 Float64Array，
+    //      高频调用时会把时间耗在分配与 GC 上。
+    //
+    // 注意：转置改变的只是存储布局，累加顺序没有变，因此计算结果与 Python
+    // 训练端保持逐位一致（由 verify_surrogate.js 守门）。
+    this.Wflat = [];
     this.b = [];
+    this.inDims = [];
+    this.outDims = [];
+    var maxDim = 1;
     for (var i = 0; i < this.nLayers; i++) {
       var W = payload.network.weights[i];
       var outDim = this.layerSizes[i + 1];
       var inDim = this.layerSizes[i];
-      var rows = new Array(outDim);
+      var flat = new Float64Array(outDim * inDim);
       for (var k = 0; k < outDim; k++) {
-        var row = new Float64Array(inDim);
-        for (var m = 0; m < inDim; m++) row[m] = W[m][k];
-        rows[k] = row;
+        var base = k * inDim;
+        var col = W;
+        for (var m = 0; m < inDim; m++) flat[base + m] = col[m][k];
       }
-      this.Wt.push(rows);
+      this.Wflat.push(flat);
       this.b.push(Float64Array.from(payload.network.biases[i]));
+      this.inDims.push(inDim);
+      this.outDims.push(outDim);
+      if (outDim > maxDim) maxDim = outDim;
+      if (inDim > maxDim) maxDim = inDim;
     }
+
+    // 两块乒乓缓冲区，避免 predictVector 内部反复分配
+    this._bufA = new Float64Array(maxDim);
+    this._bufB = new Float64Array(maxDim);
   }
 
   /** 参数是否落在训练区间内。返回越界参数的中文标签列表。 */
@@ -68,30 +90,47 @@
     return bad;
   };
 
-  /** 最底层接口：输入原始物理量向量，输出原始物理量向量。 */
+  /**
+   * 最底层接口：输入原始物理量向量，输出原始物理量向量。
+   *
+   * 性能要点（这段代码是全局被调用最密集的地方）：
+   *   - 输入归一化与逐层前向都在复用的缓冲区里完成，全程只有最后一次
+   *     输出需要分配数组；
+   *   - 层间用双缓冲交替，省掉每层一次 new Float64Array；
+   *   - 内层点积把长度与权重起始偏移提到循环外，避免重复的属性查找。
+   *
+   * 返回的 Float64Array 是新分配的对象（调用方可能长期持有），
+   * 但每层缓冲区都是复用的，因此热路径上不再有中间分配。
+   */
   Surrogate.prototype.predictVector = function (xRaw) {
     var xm = this.norm.x_mean, xs = this.norm.x_std;
-    var a = new Float64Array(xRaw.length);
-    for (var j = 0; j < xRaw.length; j++) a[j] = (xRaw[j] - xm[j]) / xs[j];
+    var a = this._bufA, b = this._bufB;
+    var n = this.layerSizes[0];
+    for (var j = 0; j < n; j++) a[j] = (xRaw[j] - xm[j]) / xs[j];
 
-    for (var i = 0; i < this.nLayers; i++) {
-      var rows = this.Wt[i], bias = this.b[i];
-      var outDim = rows.length;
-      var z = new Float64Array(outDim);
-      var isHidden = i < this.nLayers - 1;
+    var nLayers = this.nLayers;
+    for (var i = 0; i < nLayers; i++) {
+      var W = this.Wflat[i], bias = this.b[i];
+      var outDim = this.outDims[i], inDim = this.inDims[i];
+      var isHidden = i < nLayers - 1;
       for (var k = 0; k < outDim; k++) {
-        var row = rows[k], s = bias[k];
-        for (var m = 0; m < a.length; m++) s += a[m] * row[m];
-        z[k] = (isHidden && s < 0) ? 0 : s;   // 隐层 ReLU，输出层线性
+        var base = k * inDim;
+        var s = bias[k];
+        for (var m = 0; m < inDim; m++) s += a[m] * W[base + m];
+        b[k] = (isHidden && s < 0) ? 0 : s;   // 隐层 ReLU，输出层线性
       }
-      a = z;
+      var t = a; a = b; b = t;               // 交换缓冲区，a 持有本层输出
     }
 
     var ym = this.norm.y_mean, ys = this.norm.y_std;
-    var out = new Float64Array(a.length);
-    for (var q = 0; q < a.length; q++) {
-      var v = a[q] * ys[q] + ym[q];
-      out[q] = this.logSpace ? Math.exp(v) : v;
+    var nOut = this.layerSizes[nLayers];
+    // 输出仍返回新数组：调用方可能长期持有它，复用会破坏语义。
+    // 这个 6 元素的小分配相对矩阵乘的开销可以忽略。
+    var out = new Float64Array(nOut);
+    if (this.logSpace) {
+      for (var q = 0; q < nOut; q++) out[q] = Math.exp(a[q] * ys[q] + ym[q]);
+    } else {
+      for (var q2 = 0; q2 < nOut; q2++) out[q2] = a[q2] * ys[q2] + ym[q2];
     }
     return out;
   };
