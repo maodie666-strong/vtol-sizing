@@ -1,0 +1,52 @@
+{
+  "data": {
+    "n_samples": 5000,
+    "n_params": 10,
+    "n_outputs": 6,
+    "discarded": 1274,
+    "generation_seconds": 0.6377095000007102,
+    "seconds_per_sample": 0.00012754190000014204
+  },
+  "training": {
+    "best_epoch": 802,
+    "best_val_loss": 0.004192122231531517,
+    "epochs_run": 952
+  },
+  "metrics": {
+    "mtow": {
+      "r2": 0.9939247608833671,
+      "mape_pct": 1.1384421955095345,
+      "worst_pct": 13.451496296350554
+    },
+    "battery_mass": {
+      "r2": 0.9953215713565159,
+      "mape_pct": 2.3513599003486343,
+      "worst_pct": 22.302459533055583
+    },
+    "hover_power": {
+      "r2": 0.991159272742367,
+      "mape_pct": 1.955065479926529,
+      "worst_pct": 20.532546257554852
+    },
+    "installed_power": {
+      "r2": 0.9916191815249485,
+      "mape_pct": 1.9896860612626663,
+      "worst_pct": 19.863783238773163
+    },
+    "required_energy": {
+      "r2": 0.9952535638309539,
+      "mape_pct": 2.2779755527867036,
+      "worst_pct": 22.10296692891605
+    },
+    "lift_to_drag": {
+      "r2": 0.9903305690743021,
+      "mape_pct": 1.4427401732079717,
+      "worst_pct": 19.445636792020874
+    }
+  },
+  "speedup": {
+    "exact_ms_per_call": 0.10591899999781162,
+    "surrogate_us_per_call": 3.118775000075402,
+    "ratio": 33.961731768162444
+  }
+}

@@ -245,18 +245,31 @@ def evaluate(cfg: VTOLConfig, mtow: float) -> dict[str, Any]:
 
 
 def size(cfg: VTOLConfig) -> SizingResult:
-    """求解满足任务剖面的最小起飞重量（重量闭合不动点迭代）。"""
+    """求解满足任务剖面的最小起飞重量（重量闭合不动点迭代）。
+
+    两类失败都会被转成 `converged=False` 的结果，而不是抛异常：
+      - **方案不可行**：需求超出物理边界（例如巡航升力系数超过机翼能力），
+        evaluate 内部抛出 ValueError；
+      - **迭代发散**：数学上可行但重量闭合不收敛，例如任务需求远超能量边界。
+    调用方只需检查 `converged` 字段。
+    """
     mtow = cfg.mtow_guess
     residual = float("nan")
     last: dict[str, Any] = {}
 
     for iteration in range(1, cfg.max_iter + 1):
-        last = evaluate(cfg, mtow)
+        try:
+            last = evaluate(cfg, mtow)
+        except ValueError as exc:
+            return _infeasible_result(cfg, f"方案不可行：{exc}", iteration)
+
         residual = last["total_mass"] - mtow
         mtow += cfg.relax * residual
 
         if not math.isfinite(mtow) or mtow <= 0.0:
-            return _failure_result(cfg, "迭代发散：任务需求超出能量可行性边界", iteration, residual)
+            return _infeasible_result(
+                cfg, "迭代发散：任务需求超出能量可行性边界", iteration
+            )
 
         if abs(residual) / max(mtow, 1e-9) < cfg.tol:
             last = evaluate(cfg, mtow)
@@ -270,6 +283,46 @@ def size(cfg: VTOLConfig) -> SizingResult:
 
     warning = f"达到最大迭代次数 {cfg.max_iter} 仍未收敛（残余 {residual:.3e} kg）"
     return _make_result(cfg, False, cfg.max_iter, residual, warning, mtow, last)
+
+
+def _infeasible_result(cfg: VTOLConfig, warning: str, iteration: int) -> SizingResult:
+    """构造「方案不可行」的结果。
+
+    注意：这里**不能**再调用 evaluate —— 它正是抛异常的那个函数。
+    因此所有物理量一律填 NaN，并由 converged=False 标记为无效。
+    """
+    nan = float("nan")
+    return SizingResult(
+        converged=False,
+        iterations=iteration,
+        residual=nan,
+        warning=warning,
+        config=cfg,
+        mtow=nan,
+        mass_breakdown={
+            "structure": nan,
+            "propulsion": nan,
+            "rotor": nan,
+            "avionics": nan,
+            "payload": nan,
+            "battery": nan,
+        },
+        hover_power=nan,
+        climb_power=nan,
+        cruise_power=nan,
+        max_shaft_power=nan,
+        installed_power=nan,
+        wing_loading=nan,
+        disk_loading=nan,
+        thrust_to_weight=cfg.thrust_to_weight,
+        cl_cruise=nan,
+        lift_to_drag=nan,
+        induced_ratio=nan,
+        energy_breakdown={"hover": nan, "climb": nan, "cruise": nan},
+        mission_energy=nan,
+        required_energy=nan,
+        time_breakdown={"hover": cfg.hover_time_s, "climb": nan, "cruise": nan},
+    )
 
 
 def _make_result(
@@ -305,13 +358,6 @@ def _make_result(
         required_energy=data["required_energy"],
         time_breakdown=data["time_breakdown"],
     )
-
-
-def _failure_result(
-    cfg: VTOLConfig, warning: str, iteration: int, residual: float
-) -> SizingResult:
-    data = evaluate(cfg, cfg.mtow_guess)
-    return _make_result(cfg, False, iteration, residual, warning, float("nan"), data)
 
 
 def with_params(cfg: VTOLConfig, **overrides: Any) -> VTOLConfig:

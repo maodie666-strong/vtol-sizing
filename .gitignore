@@ -34,3 +34,6 @@ Thumbs.db
 # 临时文件
 *.log
 *.tmp
+
+# 代理模型训练数据缓存（可由 python surrogate/train.py 重新生成，不入库）
+surrogate/data/dataset_*.npz

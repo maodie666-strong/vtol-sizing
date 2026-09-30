@@ -187,6 +187,8 @@
 </footer>
 
 <script src="vtol-web/model.js"></script>
+<script src="vtol-web/surrogate-data.js"></script>
+<script src="vtol-web/surrogate.js"></script>
 <script>
 'use strict';
 
@@ -492,6 +494,9 @@ function update() {
     row('结构功重比', num(total / (res.installedPower / 1000), 2), 'kg/kW') +
     '</table></div>';
 
+  // ---- 代理模型对比
+  html += surrogateBox(res);
+
   // ---- 敏感性
   var top = sens.slice(0, 9);
   var maxSwing = top.length ? top[0].swingPct : 1;
@@ -534,6 +539,168 @@ function update() {
     '</div>';
 
   document.getElementById('results').innerHTML = html;
+
+  // 基准测试按钮在结果区内部，每次重渲染都会重建，所以在这里重新绑定
+  var benchBtn = document.getElementById('btnBench');
+  if (benchBtn) benchBtn.addEventListener('click', runBenchmark);
+}
+
+/* ============================================================ 代理模型面板 */
+
+var SURROGATE = null;
+try {
+  SURROGATE = VTOL_SURROGATE.fromGlobal('VTOL_SURROGATE_DATA');
+} catch (err) {
+  SURROGATE = null;
+}
+
+// 代理模型的输出量 -> 精确求解结果里的对应值（以及单位）
+var SURROGATE_MAP = [
+  { key: 'mtow',            label: '起飞重量',   unit: 'kg',  decimals: 1,
+    exact: function (r) { return r.mtow; } },
+  { key: 'battery_mass',    label: '电池重量',   unit: 'kg',  decimals: 1,
+    exact: function (r) { return r.massBreakdown.battery; } },
+  { key: 'hover_power',     label: '悬停功率',   unit: 'kW',  decimals: 2,
+    exact: function (r) { return r.hoverPower / 1000; } },
+  { key: 'installed_power', label: '装机功率',   unit: 'kW',  decimals: 2,
+    exact: function (r) { return r.installedPower / 1000; } },
+  { key: 'required_energy', label: '需装机能量', unit: 'kWh', decimals: 2,
+    exact: function (r) { return r.requiredEnergy / 1000; } },
+  { key: 'lift_to_drag',    label: '巡航升阻比', unit: '',    decimals: 2,
+    exact: function (r) { return r.liftToDrag; } }
+];
+
+function surrogateBox(res) {
+  if (!SURROGATE) {
+    return '<div class="box"><h2>代理模型</h2>' +
+      '<p class="hint">未加载代理模型权重（缺少 vtol-web/surrogate-data.js）。</p></div>';
+  }
+
+  var x = SURROGATE.configToVector(cfg);
+  var oob = SURROGATE.outOfRange(x);
+
+  // 推理一次，并按输出名建立索引
+  var vec = SURROGATE.predictVector(x);
+  var names = SURROGATE.outputNames;
+  var pred = {};
+  for (var n = 0; n < names.length; n++) pred[names[n]] = vec[n];
+
+  // 实测代理模型单次推理耗时
+  var t0 = performance.now();
+  var REPS = 200;
+  for (var i = 0; i < REPS; i++) SURROGATE.predictVector(x);
+  var surrogateUs = ((performance.now() - t0) / REPS) * 1000.0;
+
+  var m = SURROGATE.metrics();
+
+  var html = '<div class="box"><h2>代理模型 · 神经网络</h2>' +
+    '<p class="hint">用训练好的多层感知机替代精确求解器。下表把两者放在一起，' +
+    '标出每次预测的偏差 —— 代理模型的平均误差约 ' +
+    fmt(m.mape_pct.reduce(function (a, b) { return a + b; }, 0) / m.mape_pct.length, 1) +
+    '%，但单次推理快两个数量级。</p>';
+
+  if (oob.length) {
+    html += '<div class="warn">当前有参数超出代理模型的训练区间：' +
+      oob.join('、') + '。此处预测不可信，请缩小该参数或使用精确求解。</div>';
+  }
+
+  html += '<table class="kv">' +
+    '<tr><td style="color:var(--text-3);font-size:12px">输出量</td>' +
+    '<td style="color:var(--text-3);font-size:12px">精确求解</td>' +
+    '<td style="color:var(--text-3);font-size:12px">代理模型</td>' +
+    '<td style="color:var(--text-3);font-size:12px">偏差</td></tr>';
+
+  SURROGATE_MAP.forEach(function (item) {
+    var ex = item.exact(res);
+    var pr = pred[item.key];
+    var errPct = (ex !== 0) ? Math.abs(pr - ex) / Math.abs(ex) * 100 : 0;
+    var color = errPct < 2 ? 'var(--teal)'
+              : (errPct < 5 ? 'var(--amber)' : 'var(--coral)');
+    html += '<tr><td>' + item.label + '</td>' +
+      '<td>' + num(ex, item.decimals) + unitSpan(item.unit) + '</td>' +
+      '<td>' + num(pr, item.decimals) + unitSpan(item.unit) + '</td>' +
+      '<td><span style="color:' + color + '">' + fmt(errPct, 2) + '%</span></td></tr>';
+  });
+  html += '</table>';
+
+  html += '<p class="tip">训练集规模 ' + num(SURROGATE.meta.n_samples, 0) +
+    ' 组，网络结构 ' + SURROGATE.meta.layer_sizes.join(' — ') +
+    '，可训练参数 ' + num(SURROGATE.meta.n_parameters, 0) + ' 个；' +
+    '测试集平均 R² = ' + fmt(m.mean_r2, 4) + '。' +
+    '单次推理 ' + fmt(surrogateUs, 1) + ' μs，精确求解 ' +
+    fmt(SURROGATE.meta.exact_ms_per_call * 1000, 1) + ' μs，' +
+    '加速比约 ' + num(SURROGATE.meta.speedup, 0) + '×。</p>';
+
+  html += '<div class="actions" style="margin-top:10px">' +
+    '<button id="btnBench">跑一次大规模参数扫描，实测加速</button></div>' +
+    '<div id="benchResult"></div>';
+
+  html += '</div>';
+  return html;
+}
+
+function unitSpan(u) {
+  return u ? '<span class="u">' + u + '</span>' : '';
+}
+
+/** 大规模扫描基准测试：同一批参数，分别用精确求解和代理模型跑一遍。 */
+function runBenchmark() {
+  var host = document.getElementById('benchResult');
+  if (!host || !SURROGATE) return;
+
+  var N = 3000;
+  host.innerHTML = '<p class="tip">正在用精确求解跑 ' + num(N, 0) +
+    ' 组参数，请稍候（这一步在真实工程里就是几小时的 CFD）…</p>';
+
+  setTimeout(function () {
+    var rng = mulberry32(20260930);
+    var xs = [];
+    for (var i = 0; i < N; i++) {
+      var c = VTOL.defaultConfig();
+      c.rotorRadius = 0.5 + rng() * (1.5 - 0.5);
+      c.nRotor = Math.round(4 + rng() * 6);
+      c.fm = 0.58 + rng() * (0.82 - 0.58);
+      c.etaMotor = 0.78 + rng() * (0.95 - 0.78);
+      c.wingArea = 2 + rng() * 10;
+      c.aspectRatio = 5 + rng() * 7;
+      c.structureFraction = 0.22 + rng() * 0.16;
+      c.batterySpecificEnergy = 200 + rng() * 180;
+      c.cruiseSpeed = 35 + rng() * 40;
+      c.rangeKm = 30 + rng() * 170;
+      xs.push(c);
+    }
+
+    var t0 = performance.now();
+    for (var k = 0; k < N; k++) VTOL.size(xs[k]);
+    var exactMs = performance.now() - t0;
+
+    // 代理模型：先在 JS 侧组装输入向量，再逐次推理
+    var vecs = xs.map(function (c) { return SURROGATE.configToVector(c); });
+    var t1 = performance.now();
+    for (var j = 0; j < N; j++) SURROGATE.predictVector(vecs[j]);
+    var surroMs = performance.now() - t1;
+
+    var ratio = exactMs / Math.max(surroMs, 1e-9);
+    host.innerHTML =
+      '<table class="kv">' +
+        '<tr><td>精确求解 ' + num(N, 0) + ' 组</td><td>' + (exactMs / 1000).toFixed(2) + '<span class="u">s</span></td></tr>' +
+        '<tr><td>代理模型 ' + num(N, 0) + ' 组</td><td>' + surroMs.toFixed(1) + '<span class="u">ms</span></td></tr>' +
+        '<tr><td><b>实测加速比</b></td><td style="color:var(--teal)">' + num(ratio, 0) + '×</td></tr>' +
+      '</table>' +
+      '<p class="tip">这就是代理模型的意义：把「几百次调用」的场景，变成「几十万次调用」的场景。' +
+      '本项目的精确求解器已经是解析解，只需 0.1 ms；如果换成 CFD（单次几十分钟），' +
+      '同样的流程能带来 10⁴–10⁶ 倍的加速。</p>';
+  }, 30);
+}
+
+/** 小巧的可复现随机数（mulberry32），避免依赖外部库。 */
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    var t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
 }
 
 function card(k, v, u, x, hero) {

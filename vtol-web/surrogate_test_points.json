@@ -1,0 +1,4425 @@
+{
+ "param_names": [
+  "rotor_radius",
+  "n_rotor",
+  "fm",
+  "eta_motor",
+  "wing_area",
+  "aspect_ratio",
+  "structure_fraction",
+  "battery_specific_energy",
+  "cruise_speed",
+  "range_km"
+ ],
+ "output_names": [
+  "mtow",
+  "battery_mass",
+  "hover_power",
+  "installed_power",
+  "required_energy",
+  "lift_to_drag"
+ ],
+ "log_space": true,
+ "cases": [
+  {
+   "inputs": {
+    "rotor_radius": 1.4559330413369733,
+    "n_rotor": 6.0,
+    "fm": 0.5947001262039258,
+    "eta_motor": 0.9163581092289587,
+    "wing_area": 8.278766662178265,
+    "aspect_ratio": 6.751910813149072,
+    "structure_fraction": 0.2667869768703004,
+    "battery_specific_energy": 262.0355045725598,
+    "cruise_speed": 36.23052419578106,
+    "range_km": 116.58128901725371
+   },
+   "expected": {
+    "mtow": 557.9831190782072,
+    "battery_mass": 132.24740989260243,
+    "hover_power": 77.63216994078796,
+    "installed_power": 122.89799835672139,
+    "required_energy": 34.48708649316105,
+    "lift_to_drag": 11.910490231058965
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7753581956755093,
+    "n_rotor": 7.0,
+    "fm": 0.7760289422407658,
+    "eta_motor": 0.7987167612215513,
+    "wing_area": 3.7884921329153265,
+    "aspect_ratio": 11.871258735455141,
+    "structure_fraction": 0.31604605071946,
+    "battery_specific_energy": 283.42721543933055,
+    "cruise_speed": 35.166406686943446,
+    "range_km": 90.43881325317662
+   },
+   "expected": {
+    "mtow": 700.7120946255487,
+    "battery_mass": 171.065232978359,
+    "hover_power": 166.63248545124506,
+    "installed_power": 273.45134821503007,
+    "required_energy": 48.859717535342476,
+    "lift_to_drag": 10.469228598119553
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.457370258717232,
+    "n_rotor": 9.0,
+    "fm": 0.7464635392670551,
+    "eta_motor": 0.8326702916115639,
+    "wing_area": 9.144362596369895,
+    "aspect_ratio": 6.952371478061611,
+    "structure_fraction": 0.2988980408451019,
+    "battery_specific_energy": 352.25794083981475,
+    "cruise_speed": 57.791715052381676,
+    "range_km": 195.94813969081937
+   },
+   "expected": {
+    "mtow": 767.508517239639,
+    "battery_mass": 247.73070633049068,
+    "hover_power": 89.52098722361187,
+    "installed_power": 156.79355467585867,
+    "required_energy": 86.81237707989183,
+    "lift_to_drag": 11.084553887848442
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3572512172452167,
+    "n_rotor": 6.0,
+    "fm": 0.6882796947483611,
+    "eta_motor": 0.8105592960117358,
+    "wing_area": 2.548563353259661,
+    "aspect_ratio": 10.165342627522978,
+    "structure_fraction": 0.34456892869030725,
+    "battery_specific_energy": 264.25286160505516,
+    "cruise_speed": 64.17766255328094,
+    "range_km": 56.22539299559108
+   },
+   "expected": {
+    "mtow": 512.0252113311634,
+    "battery_mass": 62.92567622670332,
+    "hover_power": 71.91918124569231,
+    "installed_power": 126.83030275092565,
+    "required_energy": 16.717672645657572,
+    "lift_to_drag": 15.122169100213462
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.9762820453946078,
+    "n_rotor": 6.0,
+    "fm": 0.7329061961000292,
+    "eta_motor": 0.8232957317029114,
+    "wing_area": 5.582881146360839,
+    "aspect_ratio": 10.71745859860837,
+    "structure_fraction": 0.2763777753786104,
+    "battery_specific_energy": 300.5976233079527,
+    "cruise_speed": 49.323941162320125,
+    "range_km": 113.74802988346774
+   },
+   "expected": {
+    "mtow": 527.2507755510599,
+    "battery_mass": 101.62149166968338,
+    "hover_power": 95.24068979290853,
+    "installed_power": 157.37657050174198,
+    "required_energy": 30.603412265701987,
+    "lift_to_drag": 14.885722976742484
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.6017026933917369,
+    "n_rotor": 5.0,
+    "fm": 0.5855136434420045,
+    "eta_motor": 0.9137583952132029,
+    "wing_area": 8.541974181861468,
+    "aspect_ratio": 7.144675667472287,
+    "structure_fraction": 0.28812138111024593,
+    "battery_specific_energy": 376.2756530887343,
+    "cruise_speed": 58.29313557073745,
+    "range_km": 66.11489127860531
+   },
+   "expected": {
+    "mtow": 553.7479311652456,
+    "battery_mass": 91.29039777122942,
+    "hover_power": 207.96262069200375,
+    "installed_power": 291.2293092735498,
+    "required_energy": 33.944419702394306,
+    "lift_to_drag": 9.517525184251177
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4700436502262977,
+    "n_rotor": 8.0,
+    "fm": 0.6236305066156435,
+    "eta_motor": 0.8578673891334258,
+    "wing_area": 5.674284436537946,
+    "aspect_ratio": 7.030131883504078,
+    "structure_fraction": 0.30029173513530333,
+    "battery_specific_energy": 285.62274348095605,
+    "cruise_speed": 44.58240188196304,
+    "range_km": 57.06441283311446
+   },
+   "expected": {
+    "mtow": 452.2850584221378,
+    "battery_mass": 54.672335812191086,
+    "hover_power": 49.81204664126159,
+    "installed_power": 88.64748536772755,
+    "required_energy": 15.490895223606104,
+    "lift_to_drag": 12.53339831511027
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.9214320783983279,
+    "n_rotor": 5.0,
+    "fm": 0.6645832773529604,
+    "eta_motor": 0.8784676094736794,
+    "wing_area": 4.678018493537211,
+    "aspect_ratio": 10.196770327811537,
+    "structure_fraction": 0.2607558063205039,
+    "battery_specific_energy": 255.00141547489585,
+    "cruise_speed": 55.82163037998785,
+    "range_km": 58.156049798520385
+   },
+   "expected": {
+    "mtow": 463.94811239667183,
+    "battery_mass": 68.51995149050416,
+    "hover_power": 94.76886611469634,
+    "installed_power": 144.70805367763725,
+    "required_energy": 17.40190150482769,
+    "lift_to_drag": 13.683163102958197
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0472735975313494,
+    "n_rotor": 4.0,
+    "fm": 0.8123466726181479,
+    "eta_motor": 0.8683824796463233,
+    "wing_area": 3.394128665624356,
+    "aspect_ratio": 11.533579070842707,
+    "structure_fraction": 0.22896746377120197,
+    "battery_specific_energy": 269.1382408473888,
+    "cruise_speed": 56.365552483127246,
+    "range_km": 150.38338550917345
+   },
+   "expected": {
+    "mtow": 522.7678233493492,
+    "battery_mass": 126.88374610393065,
+    "hover_power": 92.875921067819,
+    "installed_power": 143.54714235378123,
+    "required_energy": 34.19344131186168,
+    "lift_to_drag": 16.010475319681174
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7346450826847885,
+    "n_rotor": 5.0,
+    "fm": 0.8007975927810677,
+    "eta_motor": 0.8702549658762979,
+    "wing_area": 11.308200119509308,
+    "aspect_ratio": 10.386506201862026,
+    "structure_fraction": 0.25149034336249954,
+    "battery_specific_energy": 284.56100766577435,
+    "cruise_speed": 59.87523378592431,
+    "range_km": 60.97689382687983
+   },
+   "expected": {
+    "mtow": 535.0696617149367,
+    "battery_mass": 115.84434755242076,
+    "hover_power": 123.89510592457269,
+    "installed_power": 185.96145590606162,
+    "required_energy": 32.82821343229753,
+    "lift_to_drag": 7.432228803432542
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.002575242876267,
+    "n_rotor": 9.0,
+    "fm": 0.7840768677817149,
+    "eta_motor": 0.8164003572787117,
+    "wing_area": 3.100719742358849,
+    "aspect_ratio": 7.129687745221658,
+    "structure_fraction": 0.22186377732946375,
+    "battery_specific_energy": 246.7541780145997,
+    "cruise_speed": 48.26139662987268,
+    "range_km": 34.37130214084943
+   },
+   "expected": {
+    "mtow": 381.28143659059657,
+    "battery_mass": 39.04042425199585,
+    "hover_power": 44.21566698780016,
+    "installed_power": 78.46025008290253,
+    "required_energy": 9.632760801455422,
+    "lift_to_drag": 12.327929981146873
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0826972317671528,
+    "n_rotor": 7.0,
+    "fm": 0.6224694450800106,
+    "eta_motor": 0.8222493718404399,
+    "wing_area": 6.514296183644221,
+    "aspect_ratio": 7.911850434894211,
+    "structure_fraction": 0.31938201886528855,
+    "battery_specific_energy": 324.0276347196915,
+    "cruise_speed": 57.79547360706996,
+    "range_km": 110.55869227250238
+   },
+   "expected": {
+    "mtow": 621.1781534777521,
+    "battery_mass": 130.19161520421434,
+    "hover_power": 121.08607018330629,
+    "installed_power": 202.6546535876795,
+    "required_energy": 42.23186548124816,
+    "lift_to_drag": 12.267135334021232
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8035128023769645,
+    "n_rotor": 9.0,
+    "fm": 0.756091091073369,
+    "eta_motor": 0.8786617177276084,
+    "wing_area": 4.271434684723239,
+    "aspect_ratio": 5.42909622906535,
+    "structure_fraction": 0.2516870608303094,
+    "battery_specific_energy": 289.24781690971906,
+    "cruise_speed": 65.90566822393775,
+    "range_km": 42.961428844658606
+   },
+   "expected": {
+    "mtow": 418.26244510882754,
+    "battery_mass": 50.43378945017603,
+    "hover_power": 61.60641990982441,
+    "installed_power": 96.55928735228825,
+    "required_energy": 14.48908152409267,
+    "lift_to_drag": 9.849970761616069
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.5246236664522416,
+    "n_rotor": 9.0,
+    "fm": 0.6171689214860411,
+    "eta_motor": 0.8083847723691352,
+    "wing_area": 6.007099475288439,
+    "aspect_ratio": 9.80160383148186,
+    "structure_fraction": 0.3713972335052985,
+    "battery_specific_energy": 282.451130410597,
+    "cruise_speed": 68.34186149334107,
+    "range_km": 90.92321633424424
+   },
+   "expected": {
+    "mtow": 1157.669342013211,
+    "battery_mass": 287.3557379736249,
+    "hover_power": 569.9863263347548,
+    "installed_power": 889.9550764686632,
+    "required_energy": 79.96384912540138,
+    "lift_to_drag": 14.558962209111902
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2373696615230751,
+    "n_rotor": 8.0,
+    "fm": 0.8144186999736677,
+    "eta_motor": 0.8668907652466916,
+    "wing_area": 9.251790349972524,
+    "aspect_ratio": 10.911577113788354,
+    "structure_fraction": 0.36362677507969543,
+    "battery_specific_energy": 362.34054729112586,
+    "cruise_speed": 58.92355411725377,
+    "range_km": 64.33326221921294
+   },
+   "expected": {
+    "mtow": 534.2861808538282,
+    "battery_mass": 70.90284859156463,
+    "hover_power": 56.59541821573624,
+    "installed_power": 94.44386236880254,
+    "required_energy": 25.740634950869445,
+    "lift_to_drag": 9.0413075124671
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8359166766049988,
+    "n_rotor": 8.0,
+    "fm": 0.6281578073503415,
+    "eta_motor": 0.7919742818499157,
+    "wing_area": 11.532727756368173,
+    "aspect_ratio": 5.338302208517796,
+    "structure_fraction": 0.3243790788568229,
+    "battery_specific_energy": 205.82369732102845,
+    "cruise_speed": 38.64666115882561,
+    "range_km": 37.375984954209095
+   },
+   "expected": {
+    "mtow": 626.982589806013,
+    "battery_mass": 118.60046142894132,
+    "hover_power": 157.16899559929863,
+    "installed_power": 267.33465633310755,
+    "required_energy": 24.411403362635347,
+    "lift_to_drag": 10.63157496259204
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.9750214059405715,
+    "n_rotor": 9.0,
+    "fm": 0.7079252909688452,
+    "eta_motor": 0.8802324121458017,
+    "wing_area": 8.45987222942749,
+    "aspect_ratio": 11.272701732531237,
+    "structure_fraction": 0.2922221693057732,
+    "battery_specific_energy": 329.8433522458886,
+    "cruise_speed": 56.55952634704101,
+    "range_km": 48.2261046438443
+   },
+   "expected": {
+    "mtow": 450.02383593849083,
+    "battery_mass": 53.335473123691116,
+    "hover_power": 59.989849743311716,
+    "installed_power": 96.83153611339499,
+    "required_energy": 17.512466072649083,
+    "lift_to_drag": 9.092297881086038
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.319341956785593,
+    "n_rotor": 4.0,
+    "fm": 0.6442156464611157,
+    "eta_motor": 0.9409179668144825,
+    "wing_area": 8.227729397736546,
+    "aspect_ratio": 6.785383263834728,
+    "structure_fraction": 0.28380219730721673,
+    "battery_specific_energy": 349.19857422435666,
+    "cruise_speed": 50.91147180008879,
+    "range_km": 156.9962486256103
+   },
+   "expected": {
+    "mtow": 586.8604261277824,
+    "battery_mass": 138.29795634664913,
+    "hover_power": 102.48242897055722,
+    "installed_power": 148.71426426975736,
+    "required_energy": 48.28337545560943,
+    "lift_to_drag": 11.50189908997744
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.178567155824866,
+    "n_rotor": 9.0,
+    "fm": 0.6528177674961079,
+    "eta_motor": 0.8867536321989729,
+    "wing_area": 11.631100626658018,
+    "aspect_ratio": 8.516512761568427,
+    "structure_fraction": 0.3062911269939806,
+    "battery_specific_energy": 371.26175198319214,
+    "cruise_speed": 41.23436056980032,
+    "range_km": 129.91052884555998
+   },
+   "expected": {
+    "mtow": 535.2864526208022,
+    "battery_mass": 99.60398576473425,
+    "hover_power": 69.31246949123387,
+    "installed_power": 113.06824769551056,
+    "required_energy": 37.002094313899235,
+    "lift_to_drag": 12.063318725179993
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7970010851258515,
+    "n_rotor": 9.0,
+    "fm": 0.7901080332421777,
+    "eta_motor": 0.9171163791854482,
+    "wing_area": 6.308183460885629,
+    "aspect_ratio": 11.294848185194722,
+    "structure_fraction": 0.24317177729905723,
+    "battery_specific_energy": 294.8512205813884,
+    "cruise_speed": 61.44292848571075,
+    "range_km": 140.3001544876658
+   },
+   "expected": {
+    "mtow": 546.9046750161286,
+    "battery_mass": 139.12350765610688,
+    "hover_power": 83.09100553289467,
+    "installed_power": 122.68411248039668,
+    "required_energy": 41.035798178793364,
+    "lift_to_drag": 11.551728184896024
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.1297914140419234,
+    "n_rotor": 4.0,
+    "fm": 0.686105859509993,
+    "eta_motor": 0.8405888147170466,
+    "wing_area": 7.623360937072083,
+    "aspect_ratio": 8.589713316744296,
+    "structure_fraction": 0.2608717976549034,
+    "battery_specific_energy": 334.7421321715658,
+    "cruise_speed": 54.88543726865791,
+    "range_km": 65.76569044368215
+   },
+   "expected": {
+    "mtow": 465.0491675072972,
+    "battery_mass": 70.8266711569657,
+    "hover_power": 87.38612901442136,
+    "installed_power": 141.3100142683947,
+    "required_energy": 23.591111567708964,
+    "lift_to_drag": 10.200339396904884
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0610520247474748,
+    "n_rotor": 6.0,
+    "fm": 0.6218137294473525,
+    "eta_motor": 0.9337896529299048,
+    "wing_area": 4.298402547795662,
+    "aspect_ratio": 11.196742279139261,
+    "structure_fraction": 0.2351886707422326,
+    "battery_specific_energy": 360.327457856814,
+    "cruise_speed": 43.17449010441918,
+    "range_km": 142.0097644896261
+   },
+   "expected": {
+    "mtow": 440.65445838764924,
+    "battery_mass": 70.71002777454464,
+    "hover_power": 70.98999774614407,
+    "installed_power": 106.48519774273366,
+    "required_energy": 25.447223152732644,
+    "lift_to_drag": 15.935922876766982
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7601684518337338,
+    "n_rotor": 5.0,
+    "fm": 0.8072208991660195,
+    "eta_motor": 0.92735543647154,
+    "wing_area": 4.261748548542384,
+    "aspect_ratio": 8.936897990118794,
+    "structure_fraction": 0.36684931826384404,
+    "battery_specific_energy": 303.99683533641405,
+    "cruise_speed": 35.87175398826592,
+    "range_km": 33.07852462359708
+   },
+   "expected": {
+    "mtow": 508.57847973905996,
+    "battery_mass": 52.88385491109117,
+    "hover_power": 105.24075912365623,
+    "installed_power": 147.2297248617159,
+    "required_energy": 15.987023820061413,
+    "lift_to_drag": 10.599886579331017
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.485021033196297,
+    "n_rotor": 7.0,
+    "fm": 0.6736310754352707,
+    "eta_motor": 0.9198414591593276,
+    "wing_area": 8.81445109401527,
+    "aspect_ratio": 10.812485699255884,
+    "structure_fraction": 0.3438930029006415,
+    "battery_specific_energy": 302.86447021265235,
+    "cruise_speed": 62.44145561297195,
+    "range_km": 164.99321224900982
+   },
+   "expected": {
+    "mtow": 787.3406174388211,
+    "battery_mass": 220.1026125829893,
+    "hover_power": 103.64062710454408,
+    "installed_power": 160.65637564972093,
+    "required_energy": 67.2566484052618,
+    "lift_to_drag": 11.54287693187619
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4580137480525548,
+    "n_rotor": 5.0,
+    "fm": 0.7024977888093491,
+    "eta_motor": 0.9255808251368188,
+    "wing_area": 4.3835856546745235,
+    "aspect_ratio": 9.673889623495551,
+    "structure_fraction": 0.31271952646185236,
+    "battery_specific_energy": 239.02625948754059,
+    "cruise_speed": 41.90744584478917,
+    "range_km": 49.60308205810746
+   },
+   "expected": {
+    "mtow": 453.32925416709367,
+    "battery_mass": 50.477530750959716,
+    "hover_power": 52.48887648646987,
+    "installed_power": 81.63123438264887,
+    "required_energy": 11.98677590728668,
+    "lift_to_drag": 14.532452391999337
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.1648615231793769,
+    "n_rotor": 6.0,
+    "fm": 0.7455833499366781,
+    "eta_motor": 0.8092044852169903,
+    "wing_area": 3.493750016462374,
+    "aspect_ratio": 9.004885170765952,
+    "structure_fraction": 0.2258848020223695,
+    "battery_specific_energy": 342.84959836243524,
+    "cruise_speed": 63.555997761709904,
+    "range_km": 156.14246808873196
+   },
+   "expected": {
+    "mtow": 497.92377418936303,
+    "battery_mass": 115.55513750661322,
+    "hover_power": 74.3760068361701,
+    "installed_power": 129.2073682383643,
+    "required_energy": 39.52329415592177,
+    "lift_to_drag": 13.653242139135225
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2122912223098214,
+    "n_rotor": 7.0,
+    "fm": 0.7525584496150524,
+    "eta_motor": 0.9144514375860322,
+    "wing_area": 9.784617276655942,
+    "aspect_ratio": 5.499450133913339,
+    "structure_fraction": 0.2641078104743439,
+    "battery_specific_energy": 354.2747843953874,
+    "cruise_speed": 63.4376354880071,
+    "range_km": 173.61124059276872
+   },
+   "expected": {
+    "mtow": 704.7794981064366,
+    "battery_mass": 232.18365936731826,
+    "hover_power": 97.71049561846675,
+    "installed_power": 148.1844719809925,
+    "required_energy": 82.65759991988483,
+    "lift_to_drag": 8.735394114419702
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.788703477879457,
+    "n_rotor": 5.0,
+    "fm": 0.7080662558000639,
+    "eta_motor": 0.9095959688708923,
+    "wing_area": 3.670556273436942,
+    "aspect_ratio": 11.707887206081992,
+    "structure_fraction": 0.32923058447369646,
+    "battery_specific_energy": 333.17239427398704,
+    "cruise_speed": 57.229344162214446,
+    "range_km": 114.38983667052638
+   },
+   "expected": {
+    "mtow": 561.6621743037051,
+    "battery_mass": 90.36007968401984,
+    "hover_power": 134.78463273047902,
+    "installed_power": 194.27074223091225,
+    "required_energy": 30.0548870861847,
+    "lift_to_drag": 15.990118097603792
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0937794262993987,
+    "n_rotor": 9.0,
+    "fm": 0.6045617382691213,
+    "eta_motor": 0.8113117534496324,
+    "wing_area": 9.550989601735857,
+    "aspect_ratio": 10.775721142728177,
+    "structure_fraction": 0.30491404805947764,
+    "battery_specific_energy": 292.8223729491048,
+    "cruise_speed": 54.65838217268315,
+    "range_km": 75.53269215472797
+   },
+   "expected": {
+    "mtow": 558.5779217362148,
+    "battery_mass": 108.52118697251987,
+    "hover_power": 94.46625022002422,
+    "installed_power": 166.12214884483856,
+    "required_energy": 31.45746217855417,
+    "lift_to_drag": 10.366517798751069
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2382999824106307,
+    "n_rotor": 8.0,
+    "fm": 0.8059486011341968,
+    "eta_motor": 0.9425902404810595,
+    "wing_area": 10.521876584962353,
+    "aspect_ratio": 7.482234802162525,
+    "structure_fraction": 0.3557746090598871,
+    "battery_specific_energy": 236.6104437229625,
+    "cruise_speed": 60.2950309154248,
+    "range_km": 58.685034395131204
+   },
+   "expected": {
+    "mtow": 597.1665031373011,
+    "battery_mass": 115.93042247008566,
+    "hover_power": 63.22890361283188,
+    "installed_power": 96.60100124975715,
+    "required_energy": 27.20445405074637,
+    "lift_to_drag": 8.205453041958268
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0500253325811575,
+    "n_rotor": 9.0,
+    "fm": 0.5889128574195743,
+    "eta_motor": 0.7819619753209051,
+    "wing_area": 3.146566994707091,
+    "aspect_ratio": 7.0311736383072,
+    "structure_fraction": 0.289149662208855,
+    "battery_specific_energy": 344.9863001628238,
+    "cruise_speed": 59.50355984136706,
+    "range_km": 145.01481739647537
+   },
+   "expected": {
+    "mtow": 689.648793416234,
+    "battery_mass": 184.45648130254193,
+    "hover_power": 142.80811869375833,
+    "installed_power": 253.30655935929116,
+    "required_energy": 63.760150199251655,
+    "lift_to_drag": 11.661264774487682
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7140107294092499,
+    "n_rotor": 8.0,
+    "fm": 0.6601210337019326,
+    "eta_motor": 0.8803343278016491,
+    "wing_area": 5.6558979984625175,
+    "aspect_ratio": 10.511003227715232,
+    "structure_fraction": 0.35780449131447445,
+    "battery_specific_energy": 373.54947485288255,
+    "cruise_speed": 57.5652454736126,
+    "range_km": 91.130503531666
+   },
+   "expected": {
+    "mtow": 587.0755809201355,
+    "battery_mass": 85.70583724695956,
+    "hover_power": 139.29316082120454,
+    "installed_power": 209.82917221980034,
+    "required_energy": 31.66227265134378,
+    "lift_to_drag": 13.587385623775456
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3146475408660938,
+    "n_rotor": 10.0,
+    "fm": 0.7157955758024079,
+    "eta_motor": 0.8288026457760249,
+    "wing_area": 4.168455647041053,
+    "aspect_ratio": 5.402775745499731,
+    "structure_fraction": 0.27165824532783567,
+    "battery_specific_energy": 297.05708558786836,
+    "cruise_speed": 52.39816771593572,
+    "range_km": 73.65408520708738
+   },
+   "expected": {
+    "mtow": 463.1288875676812,
+    "battery_mass": 74.26164290800898,
+    "hover_power": 46.098869920855336,
+    "installed_power": 84.89021585868623,
+    "required_energy": 21.959352741600426,
+    "lift_to_drag": 10.985436220523765
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.662632856274459,
+    "n_rotor": 6.0,
+    "fm": 0.795648554682694,
+    "eta_motor": 0.8518391955315652,
+    "wing_area": 4.566326316767277,
+    "aspect_ratio": 8.741044975520326,
+    "structure_fraction": 0.28970619560807764,
+    "battery_specific_energy": 326.4088565684899,
+    "cruise_speed": 43.64046439928532,
+    "range_km": 152.23149014975144
+   },
+   "expected": {
+    "mtow": 772.632942108091,
+    "battery_mass": 227.1775979592292,
+    "hover_power": 222.5328423981394,
+    "installed_power": 333.9673383271812,
+    "required_energy": 73.91997845535495,
+    "lift_to_drag": 11.530675602718286
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4265135942624956,
+    "n_rotor": 10.0,
+    "fm": 0.6173124139250125,
+    "eta_motor": 0.8733593280622345,
+    "wing_area": 8.263029966740284,
+    "aspect_ratio": 8.191360634915997,
+    "structure_fraction": 0.2510337087516035,
+    "battery_specific_energy": 365.3228522624063,
+    "cruise_speed": 43.09778906169099,
+    "range_km": 158.28139794291744
+   },
+   "expected": {
+    "mtow": 495.5490252622716,
+    "battery_mass": 104.35765287198736,
+    "hover_power": 51.83522539650312,
+    "installed_power": 91.5433262476998,
+    "required_energy": 38.42448206284539,
+    "lift_to_drag": 12.82740323293126
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.6695631468001125,
+    "n_rotor": 9.0,
+    "fm": 0.7139540864449656,
+    "eta_motor": 0.8622706561792951,
+    "wing_area": 8.523919831713041,
+    "aspect_ratio": 11.923752496257059,
+    "structure_fraction": 0.22175160727679663,
+    "battery_specific_energy": 239.7494298800108,
+    "cruise_speed": 40.230506101051446,
+    "range_km": 139.8330453905479
+   },
+   "expected": {
+    "mtow": 571.0250820928752,
+    "battery_mass": 155.61573796556033,
+    "hover_power": 125.99150160528842,
+    "installed_power": 193.4149809148108,
+    "required_energy": 37.328708202689434,
+    "lift_to_drag": 15.749506702853271
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.270759631913312,
+    "n_rotor": 7.0,
+    "fm": 0.5826083868972398,
+    "eta_motor": 0.8025684681102532,
+    "wing_area": 11.154211166522119,
+    "aspect_ratio": 9.611387125556917,
+    "structure_fraction": 0.3238965686891673,
+    "battery_specific_energy": 262.221171440033,
+    "cruise_speed": 53.554764076957056,
+    "range_km": 183.902133656654
+   },
+   "expected": {
+    "mtow": 1265.3362203389681,
+    "battery_mass": 475.2368360162623,
+    "hover_power": 321.9449573303291,
+    "installed_power": 540.3624030060856,
+    "required_energy": 124.59516634940898,
+    "lift_to_drag": 13.863771384987567
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2059627382043658,
+    "n_rotor": 8.0,
+    "fm": 0.7657294217289269,
+    "eta_motor": 0.8849832977652792,
+    "wing_area": 6.0230562055833,
+    "aspect_ratio": 8.226637114755633,
+    "structure_fraction": 0.2640725459676199,
+    "battery_specific_energy": 294.00539648746627,
+    "cruise_speed": 45.29043680051879,
+    "range_km": 156.38587266002483
+   },
+   "expected": {
+    "mtow": 555.2084893543685,
+    "battery_mass": 135.803255481933,
+    "hover_power": 64.39813103818283,
+    "installed_power": 104.65305424074285,
+    "required_energy": 40.15107600974499,
+    "lift_to_drag": 13.592502296412015
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0182338682830667,
+    "n_rotor": 9.0,
+    "fm": 0.7626022620240999,
+    "eta_motor": 0.8897338222372466,
+    "wing_area": 3.081954606881378,
+    "aspect_ratio": 10.182627127873653,
+    "structure_fraction": 0.23597856493653974,
+    "battery_specific_energy": 272.0455114791338,
+    "cruise_speed": 70.15324318950132,
+    "range_km": 180.42329404839515
+   },
+   "expected": {
+    "mtow": 578.5176599943651,
+    "battery_mass": 165.09781509076547,
+    "hover_power": 76.54024004609757,
+    "installed_power": 120.77847391662911,
+    "required_energy": 44.86040275513522,
+    "lift_to_drag": 14.53740072243379
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.1430799230365931,
+    "n_rotor": 8.0,
+    "fm": 0.5955057626304107,
+    "eta_motor": 0.9443121520805386,
+    "wing_area": 2.0219810974608095,
+    "aspect_ratio": 9.450791213188417,
+    "structure_fraction": 0.3332679548551461,
+    "battery_specific_energy": 319.1341529351553,
+    "cruise_speed": 71.4201450596573,
+    "range_km": 106.49782453148863
+   },
+   "expected": {
+    "mtow": 527.3235916225265,
+    "battery_mass": 79.59103190532346,
+    "hover_power": 77.18802729637962,
+    "installed_power": 116.69392948454708,
+    "required_energy": 25.254432069666876,
+    "lift_to_drag": 14.505255097495178
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0890383588947277,
+    "n_rotor": 9.0,
+    "fm": 0.6762931179685209,
+    "eta_motor": 0.8560844008196615,
+    "wing_area": 11.974582984783503,
+    "aspect_ratio": 5.1732631101977296,
+    "structure_fraction": 0.2554736008459665,
+    "battery_specific_energy": 343.2256932760597,
+    "cruise_speed": 48.362935576097854,
+    "range_km": 91.01540389928505
+   },
+   "expected": {
+    "mtow": 502.64017696942494,
+    "battery_mass": 102.88630281793485,
+    "hover_power": 68.08868302047254,
+    "installed_power": 114.54913718531573,
+    "required_energy": 35.06599382862946,
+    "lift_to_drag": 8.602149538848124
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.9732143354941426,
+    "n_rotor": 9.0,
+    "fm": 0.7568891634009742,
+    "eta_motor": 0.847150836518522,
+    "wing_area": 10.145065667343216,
+    "aspect_ratio": 9.838864413554033,
+    "structure_fraction": 0.3616727139088126,
+    "battery_specific_energy": 291.9772189434969,
+    "cruise_speed": 69.31786448528405,
+    "range_km": 113.56084305547152
+   },
+   "expected": {
+    "mtow": 885.7167657842406,
+    "battery_mass": 244.8544637944145,
+    "hover_power": 161.34234217614954,
+    "installed_power": 256.3354238398075,
+    "required_energy": 71.96143631854282,
+    "lift_to_drag": 9.626969302881179
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.1505589845817399,
+    "n_rotor": 8.0,
+    "fm": 0.6529460508565389,
+    "eta_motor": 0.9104985160924933,
+    "wing_area": 5.6238451336845525,
+    "aspect_ratio": 8.344832598792063,
+    "structure_fraction": 0.2476509751990626,
+    "battery_specific_energy": 200.77898764429725,
+    "cruise_speed": 59.93858847309259,
+    "range_km": 151.443851608816
+   },
+   "expected": {
+    "mtow": 741.9677151858157,
+    "battery_mass": 263.6039600925385,
+    "hover_power": 120.10396086800102,
+    "installed_power": 183.21405740467875,
+    "required_energy": 53.167090169747446,
+    "lift_to_drag": 13.579851740347422
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3483374274791362,
+    "n_rotor": 8.0,
+    "fm": 0.6534550476128255,
+    "eta_motor": 0.8981829844188778,
+    "wing_area": 10.662472090863368,
+    "aspect_ratio": 6.237856658499125,
+    "structure_fraction": 0.3162631965720958,
+    "battery_specific_energy": 279.9188777986539,
+    "cruise_speed": 38.2250475305398,
+    "range_km": 54.2009833242418
+   },
+   "expected": {
+    "mtow": 468.77542071432924,
+    "battery_mass": 57.83720356847438,
+    "hover_power": 52.0496664120414,
+    "installed_power": 86.26363925008253,
+    "required_energy": 16.07623727585445,
+    "lift_to_drag": 11.391223017272516
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.6445040975130425,
+    "n_rotor": 8.0,
+    "fm": 0.6001090082088585,
+    "eta_motor": 0.8723261302716134,
+    "wing_area": 10.960689138467853,
+    "aspect_ratio": 8.039260108488545,
+    "structure_fraction": 0.34238217697952766,
+    "battery_specific_energy": 255.42069956099613,
+    "cruise_speed": 59.839333317748924,
+    "range_km": 99.61722992252331
+   },
+   "expected": {
+    "mtow": 1014.3332606208145,
+    "battery_mass": 294.1592493308568,
+    "hover_power": 388.10169100178314,
+    "installed_power": 567.7837957993614,
+    "required_energy": 74.70190252714298,
+    "lift_to_drag": 11.619353507668606
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7913067912162023,
+    "n_rotor": 8.0,
+    "fm": 0.793804695020802,
+    "eta_motor": 0.9316856739696577,
+    "wing_area": 9.059423050546734,
+    "aspect_ratio": 11.243506274808201,
+    "structure_fraction": 0.3337945732175529,
+    "battery_specific_energy": 378.8319200096727,
+    "cruise_speed": 41.083574328565646,
+    "range_km": 58.35302318578597
+   },
+   "expected": {
+    "mtow": 453.08850113449876,
+    "battery_mass": 40.24793039372215,
+    "hover_power": 66.8806124503722,
+    "installed_power": 97.4933152493154,
+    "required_energy": 15.258333993917288,
+    "lift_to_drag": 13.433988432070075
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0067161189511449,
+    "n_rotor": 6.0,
+    "fm": 0.7651289796788755,
+    "eta_motor": 0.8825044935671194,
+    "wing_area": 11.894973581395297,
+    "aspect_ratio": 11.271699794459284,
+    "structure_fraction": 0.3461974389017201,
+    "battery_specific_energy": 205.49613391474034,
+    "cruise_speed": 39.35729469064205,
+    "range_km": 115.25408446921165
+   },
+   "expected": {
+    "mtow": 778.6689733485721,
+    "battery_mass": 206.66116935556772,
+    "hover_power": 150.63874550806776,
+    "installed_power": 227.07935293738737,
+    "required_energy": 42.99772718232914,
+    "lift_to_drag": 15.48670224153084
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.772439674379981,
+    "n_rotor": 9.0,
+    "fm": 0.6714151450908077,
+    "eta_motor": 0.8478762001128037,
+    "wing_area": 6.046005705018288,
+    "aspect_ratio": 11.077502627703153,
+    "structure_fraction": 0.29908495112346883,
+    "battery_specific_energy": 374.45616185333574,
+    "cruise_speed": 62.97774353901372,
+    "range_km": 132.94779459029888
+   },
+   "expected": {
+    "mtow": 578.2584922181969,
+    "battery_mass": 119.89198475395305,
+    "hover_power": 120.34852361041331,
+    "installed_power": 191.21689308456138,
+    "required_energy": 44.7161249637011,
+    "lift_to_drag": 12.00197041852305
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.1501223339645814,
+    "n_rotor": 4.0,
+    "fm": 0.6006488917662165,
+    "eta_motor": 0.8435659361241961,
+    "wing_area": 4.245593990319001,
+    "aspect_ratio": 9.047340904324912,
+    "structure_fraction": 0.32395602977652727,
+    "battery_specific_energy": 379.72767294503774,
+    "cruise_speed": 42.33182660333097,
+    "range_km": 136.21060058528133
+   },
+   "expected": {
+    "mtow": 666.976935106374,
+    "battery_mass": 144.22075575219176,
+    "hover_power": 168.19636479086154,
+    "installed_power": 265.8998432290746,
+    "required_energy": 54.902227059545915,
+    "lift_to_drag": 11.919478627736057
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.118863926452815,
+    "n_rotor": 6.0,
+    "fm": 0.6868206271596461,
+    "eta_motor": 0.9329367692175057,
+    "wing_area": 5.793367432127924,
+    "aspect_ratio": 8.865630610890012,
+    "structure_fraction": 0.37530662700814343,
+    "battery_specific_energy": 336.821267450015,
+    "cruise_speed": 64.88696981960209,
+    "range_km": 79.31006475735981
+   },
+   "expected": {
+    "mtow": 577.4447745570161,
+    "battery_mass": 82.03681324371635,
+    "hover_power": 90.36274267306749,
+    "installed_power": 133.59978964708162,
+    "required_energy": 27.453400369095036,
+    "lift_to_drag": 11.279971985168935
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3877850974092207,
+    "n_rotor": 5.0,
+    "fm": 0.6526512367422654,
+    "eta_motor": 0.9328346306750421,
+    "wing_area": 9.509793867282703,
+    "aspect_ratio": 10.773080798636528,
+    "structure_fraction": 0.2836479889932023,
+    "battery_specific_energy": 325.73349687777284,
+    "cruise_speed": 42.11406164276697,
+    "range_km": 46.52201780488622
+   },
+   "expected": {
+    "mtow": 414.4170261029297,
+    "battery_mass": 37.25077206711094,
+    "hover_power": 50.796051977069006,
+    "installed_power": 78.98840478135314,
+    "required_energy": 12.035995273344396,
+    "lift_to_drag": 12.03524802932311
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.153702310311881,
+    "n_rotor": 7.0,
+    "fm": 0.6892413957193786,
+    "eta_motor": 0.8081996312134924,
+    "wing_area": 8.424927608547726,
+    "aspect_ratio": 6.9244621252005505,
+    "structure_fraction": 0.2633685358127822,
+    "battery_specific_energy": 205.72919732004905,
+    "cruise_speed": 74.09067231177256,
+    "range_km": 155.70517502510114
+   },
+   "expected": {
+    "mtow": 1502.063458448509,
+    "battery_mass": 698.0301018516483,
+    "hover_power": 389.83100758208985,
+    "installed_power": 633.6478819600949,
+    "required_energy": 144.91445186366056,
+    "lift_to_drag": 12.20332453598065
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2087414750651784,
+    "n_rotor": 8.0,
+    "fm": 0.5963854692643981,
+    "eta_motor": 0.8260911353168022,
+    "wing_area": 3.921183212601632,
+    "aspect_ratio": 10.223002688093167,
+    "structure_fraction": 0.3128332322322186,
+    "battery_specific_energy": 253.06190926995743,
+    "cruise_speed": 60.410456207199445,
+    "range_km": 107.69625069349875
+   },
+   "expected": {
+    "mtow": 610.0996253530825,
+    "battery_mass": 131.46837102239576,
+    "hover_power": 102.70739093577598,
+    "installed_power": 176.68318407130172,
+    "required_energy": 33.19769576387796,
+    "lift_to_drag": 14.921279708297774
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.9774640765608447,
+    "n_rotor": 4.0,
+    "fm": 0.7826387271909321,
+    "eta_motor": 0.8415700741246476,
+    "wing_area": 10.70778214055283,
+    "aspect_ratio": 8.608555898539947,
+    "structure_fraction": 0.3634100487938303,
+    "battery_specific_energy": 323.70606220340903,
+    "cruise_speed": 42.43995577291436,
+    "range_km": 124.2563432431921
+   },
+   "expected": {
+    "mtow": 737.027526270212,
+    "battery_mass": 156.49754117757365,
+    "hover_power": 175.75501278923244,
+    "installed_power": 274.11826648502574,
+    "required_energy": 50.822652478043224,
+    "lift_to_drag": 13.627915775062855
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.460105107876677,
+    "n_rotor": 5.0,
+    "fm": 0.7564789635507969,
+    "eta_motor": 0.8205176135911811,
+    "wing_area": 9.65334735768506,
+    "aspect_ratio": 5.964995801017271,
+    "structure_fraction": 0.3017874241216244,
+    "battery_specific_energy": 369.0914254805515,
+    "cruise_speed": 37.819707733000136,
+    "range_km": 153.8243405953857
+   },
+   "expected": {
+    "mtow": 623.8401902498535,
+    "battery_mass": 151.4652200767232,
+    "hover_power": 87.26685804335891,
+    "installed_power": 150.72311360509775,
+    "required_energy": 56.24392706678096,
+    "lift_to_drag": 11.370912493005132
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3940065009272027,
+    "n_rotor": 9.0,
+    "fm": 0.6033381743951326,
+    "eta_motor": 0.8023396010079106,
+    "wing_area": 3.602306859382062,
+    "aspect_ratio": 7.784815205173389,
+    "structure_fraction": 0.3429587244736951,
+    "battery_specific_energy": 301.6415977971487,
+    "cruise_speed": 53.9526160550237,
+    "range_km": 76.21056997624552
+   },
+   "expected": {
+    "mtow": 543.1796660932037,
+    "battery_mass": 82.84504438857108,
+    "hover_power": 71.82184631962352,
+    "installed_power": 134.5147637612369,
+    "required_energy": 24.977032557865492,
+    "lift_to_drag": 13.0544182016103
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3142015906651094,
+    "n_rotor": 6.0,
+    "fm": 0.7482017617887812,
+    "eta_motor": 0.9092122456268696,
+    "wing_area": 11.564148620432471,
+    "aspect_ratio": 6.389098788705792,
+    "structure_fraction": 0.3420139840871793,
+    "battery_specific_energy": 275.7045635066819,
+    "cruise_speed": 48.90958492645596,
+    "range_km": 33.820196331502714
+   },
+   "expected": {
+    "mtow": 477.07780068345454,
+    "battery_mass": 50.995302160212304,
+    "hover_power": 54.6636364586292,
+    "installed_power": 86.4102859669401,
+    "required_energy": 13.905171832183104,
+    "lift_to_drag": 8.718001786764294
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.6058963173542793,
+    "n_rotor": 6.0,
+    "fm": 0.6094656422943687,
+    "eta_motor": 0.9342577311499118,
+    "wing_area": 3.505117948708671,
+    "aspect_ratio": 10.432503558906461,
+    "structure_fraction": 0.3207232794497753,
+    "battery_specific_energy": 216.71555114283015,
+    "cruise_speed": 67.01133250378514,
+    "range_km": 75.00927192304225
+   },
+   "expected": {
+    "mtow": 721.1615009809291,
+    "battery_mass": 167.29756553232627,
+    "hover_power": 263.00849580911705,
+    "installed_power": 358.9270644958679,
+    "required_energy": 35.91847209244809,
+    "lift_to_drag": 15.231420413298107
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.525005096692374,
+    "n_rotor": 8.0,
+    "fm": 0.6572903622178362,
+    "eta_motor": 0.8394498679655298,
+    "wing_area": 4.933215299620788,
+    "aspect_ratio": 7.0246887334536074,
+    "structure_fraction": 0.3233561648207793,
+    "battery_specific_energy": 370.68055089206274,
+    "cruise_speed": 56.223944220673,
+    "range_km": 39.31357930696322
+   },
+   "expected": {
+    "mtow": 524.4774457858905,
+    "battery_mass": 58.184681128805636,
+    "hover_power": 168.41652125741862,
+    "installed_power": 258.9938169978285,
+    "required_energy": 21.412190039629284,
+    "lift_to_drag": 12.013432941153201
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3012272013111856,
+    "n_rotor": 6.0,
+    "fm": 0.8005896829110064,
+    "eta_motor": 0.8562086590104412,
+    "wing_area": 5.524575399249274,
+    "aspect_ratio": 9.504038713788306,
+    "structure_fraction": 0.32173749461377754,
+    "battery_specific_energy": 293.77711703437114,
+    "cruise_speed": 74.45917598242502,
+    "range_km": 86.04806147796441
+   },
+   "expected": {
+    "mtow": 577.9431679395736,
+    "battery_mass": 115.02663604059227,
+    "hover_power": 72.55461116081878,
+    "installed_power": 119.3855359240023,
+    "required_energy": 34.01131067318279,
+    "lift_to_drag": 9.846062873060744
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.244443465067125,
+    "n_rotor": 8.0,
+    "fm": 0.8092445196321691,
+    "eta_motor": 0.8127073794997055,
+    "wing_area": 4.433804622067823,
+    "aspect_ratio": 11.09515545384661,
+    "structure_fraction": 0.3514061282967503,
+    "battery_specific_energy": 340.19124592086837,
+    "cruise_speed": 36.37083194772419,
+    "range_km": 78.76552143626948
+   },
+   "expected": {
+    "mtow": 514.6874143248925,
+    "battery_mass": 63.87029470867519,
+    "hover_power": 56.99854727211684,
+    "installed_power": 102.79492900336372,
+    "required_energy": 21.902261810099816,
+    "lift_to_drag": 13.890699638397868
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8538986292571985,
+    "n_rotor": 7.0,
+    "fm": 0.818460227745045,
+    "eta_motor": 0.8822123907873095,
+    "wing_area": 2.4795730872835247,
+    "aspect_ratio": 11.049321466262878,
+    "structure_fraction": 0.2733994889716311,
+    "battery_specific_energy": 274.6484232082968,
+    "cruise_speed": 55.473714874872584,
+    "range_km": 138.50173753156426
+   },
+   "expected": {
+    "mtow": 563.3345495475277,
+    "battery_mass": 127.83526330088299,
+    "hover_power": 93.16040541636114,
+    "installed_power": 142.36111889281557,
+    "required_energy": 35.058187696053125,
+    "lift_to_drag": 14.884759331382547
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.1548896194385305,
+    "n_rotor": 5.0,
+    "fm": 0.7899783141074233,
+    "eta_motor": 0.8841818835445883,
+    "wing_area": 8.260149354389522,
+    "aspect_ratio": 6.695905923237634,
+    "structure_fraction": 0.26092235452334855,
+    "battery_specific_energy": 364.59882933160475,
+    "cruise_speed": 36.6222947814887,
+    "range_km": 83.07472460502261
+   },
+   "expected": {
+    "mtow": 429.27014742691426,
+    "battery_mass": 55.31386527333312,
+    "hover_power": 56.25473075791717,
+    "installed_power": 88.88049548565169,
+    "required_energy": 20.233079754554023,
+    "lift_to_drag": 12.22706016138269
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3475664563090062,
+    "n_rotor": 8.0,
+    "fm": 0.6730405088988392,
+    "eta_motor": 0.8293814701196534,
+    "wing_area": 11.192498544040522,
+    "aspect_ratio": 11.497584123441372,
+    "structure_fraction": 0.323226728011572,
+    "battery_specific_energy": 203.91156980957956,
+    "cruise_speed": 58.78742297328729,
+    "range_km": 143.9586075257826
+   },
+   "expected": {
+    "mtow": 1120.4458849950668,
+    "battery_mass": 415.6989779696684,
+    "hover_power": 200.78528714259602,
+    "installed_power": 334.68214106615335,
+    "required_energy": 84.35348524521373,
+    "lift_to_drag": 13.443219179889049
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.9901882174321329,
+    "n_rotor": 7.0,
+    "fm": 0.7856983872357992,
+    "eta_motor": 0.9277110701699756,
+    "wing_area": 11.465331516970444,
+    "aspect_ratio": 11.08404626047197,
+    "structure_fraction": 0.28103435829619505,
+    "battery_specific_energy": 286.57203389829283,
+    "cruise_speed": 67.07648682307793,
+    "range_km": 53.2742317362233
+   },
+   "expected": {
+    "mtow": 520.738097038347,
+    "battery_mass": 104.5723372783511,
+    "hover_power": 71.42092014680806,
+    "installed_power": 105.87274588561111,
+    "required_energy": 30.06818772369766,
+    "lift_to_drag": 5.868632027701351
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7203691721596489,
+    "n_rotor": 6.0,
+    "fm": 0.6873982405428596,
+    "eta_motor": 0.9031768432291891,
+    "wing_area": 9.301804294341299,
+    "aspect_ratio": 7.456161705016978,
+    "structure_fraction": 0.24458813200925333,
+    "battery_specific_energy": 250.54840321863372,
+    "cruise_speed": 58.173297423664195,
+    "range_km": 50.53701340409462
+   },
+   "expected": {
+    "mtow": 498.1368889986893,
+    "battery_mass": 95.80705424133082,
+    "hover_power": 116.05391596324762,
+    "installed_power": 168.77490173871294,
+    "required_energy": 24.00068785739117,
+    "lift_to_drag": 8.350844094622103
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4067845193234332,
+    "n_rotor": 9.0,
+    "fm": 0.675503310841154,
+    "eta_motor": 0.8575022674488103,
+    "wing_area": 10.798161478656676,
+    "aspect_ratio": 11.348155396669007,
+    "structure_fraction": 0.2399042171644381,
+    "battery_specific_energy": 306.3225823275728,
+    "cruise_speed": 56.44171466702078,
+    "range_km": 125.52094648089262
+   },
+   "expected": {
+    "mtow": 572.6627932880034,
+    "battery_mass": 165.4767144368049,
+    "hover_power": 64.90259650326905,
+    "installed_power": 113.29257743175981,
+    "required_energy": 50.40220296048138,
+    "lift_to_drag": 9.158342735611198
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4798444381973934,
+    "n_rotor": 4.0,
+    "fm": 0.6161635907366695,
+    "eta_motor": 0.836313371526093,
+    "wing_area": 11.08812882118699,
+    "aspect_ratio": 8.140689816497053,
+    "structure_fraction": 0.24333393287289412,
+    "battery_specific_energy": 307.5976983290391,
+    "cruise_speed": 41.251099595470215,
+    "range_km": 93.56108306052897
+   },
+   "expected": {
+    "mtow": 485.7487761235454,
+    "battery_mass": 92.5945573244264,
+    "hover_power": 79.2671740571975,
+    "installed_power": 134.58897180071443,
+    "required_energy": 28.496977550470785,
+    "lift_to_drag": 11.639986415759589
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0034299824214334,
+    "n_rotor": 9.0,
+    "fm": 0.5910279165749345,
+    "eta_motor": 0.7892557214843948,
+    "wing_area": 6.921964638409155,
+    "aspect_ratio": 9.777131123113492,
+    "structure_fraction": 0.37462082458638135,
+    "battery_specific_energy": 379.7940265610359,
+    "cruise_speed": 69.49050125711804,
+    "range_km": 34.32352365372668
+   },
+   "expected": {
+    "mtow": 539.3042157234373,
+    "battery_mass": 53.9448696047571,
+    "hover_power": 101.9586278565078,
+    "installed_power": 183.18815987048058,
+    "required_energy": 20.45786034927798,
+    "lift_to_drag": 8.750101852360105
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8115588135651656,
+    "n_rotor": 8.0,
+    "fm": 0.7602150464380454,
+    "eta_motor": 0.8922787284616199,
+    "wing_area": 4.919107985573433,
+    "aspect_ratio": 8.63167852565243,
+    "structure_fraction": 0.279691420271567,
+    "battery_specific_energy": 290.51718442081227,
+    "cruise_speed": 41.06145186396529,
+    "range_km": 46.94076670445344
+   },
+   "expected": {
+    "mtow": 425.10672934129883,
+    "battery_mass": 43.19157874173921,
+    "hover_power": 64.491309866132,
+    "installed_power": 99.0387631220098,
+    "required_energy": 12.467458977480685,
+    "lift_to_drag": 13.82856512626613
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.587914509647438,
+    "n_rotor": 8.0,
+    "fm": 0.6721530970812354,
+    "eta_motor": 0.8624557852961914,
+    "wing_area": 9.866451018458509,
+    "aspect_ratio": 7.882260827212903,
+    "structure_fraction": 0.30314445512926413,
+    "battery_specific_energy": 313.3281093160754,
+    "cruise_speed": 71.02660295427583,
+    "range_km": 67.7567231112082
+   },
+   "expected": {
+    "mtow": 669.0223967437145,
+    "battery_mass": 157.04148155633118,
+    "hover_power": 206.0728712077452,
+    "installed_power": 307.6513559239527,
+    "required_energy": 49.110797312678066,
+    "lift_to_drag": 7.426550416070586
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.384325762012617,
+    "n_rotor": 5.0,
+    "fm": 0.6916485979456214,
+    "eta_motor": 0.9005413960475857,
+    "wing_area": 2.709737246007016,
+    "aspect_ratio": 5.135157357379591,
+    "structure_fraction": 0.3256248542561325,
+    "battery_specific_energy": 270.0922275480188,
+    "cruise_speed": 70.37573140612758,
+    "range_km": 34.49418793484986
+   },
+   "expected": {
+    "mtow": 459.3574394372795,
+    "battery_mass": 45.5098623693735,
+    "hover_power": 58.28688146847959,
+    "installed_power": 93.23289492784225,
+    "required_energy": 12.104899149571837,
+    "lift_to_drag": 10.70658897148456
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2973080041053549,
+    "n_rotor": 9.0,
+    "fm": 0.7803718424953201,
+    "eta_motor": 0.913633246895131,
+    "wing_area": 10.231363287824692,
+    "aspect_ratio": 11.370076176819058,
+    "structure_fraction": 0.302002320579653,
+    "battery_specific_energy": 245.45469682452824,
+    "cruise_speed": 47.4476799864036,
+    "range_km": 195.7512777316382
+   },
+   "expected": {
+    "mtow": 789.3407728618689,
+    "battery_mass": 258.4913396285568,
+    "hover_power": 90.99971585838573,
+    "installed_power": 142.36102986759977,
+    "required_energy": 63.64929302624191,
+    "lift_to_drag": 14.227566824038536
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.91382530177166,
+    "n_rotor": 7.0,
+    "fm": 0.749166995572146,
+    "eta_motor": 0.7934320365838571,
+    "wing_area": 10.63514428268984,
+    "aspect_ratio": 11.957405452641115,
+    "structure_fraction": 0.2308815817635739,
+    "battery_specific_energy": 324.41585219805734,
+    "cruise_speed": 67.27872035479815,
+    "range_km": 147.3296246145584
+   },
+   "expected": {
+    "mtow": 773.0034869680533,
+    "battery_mass": 280.18593276895007,
+    "hover_power": 171.55625804317063,
+    "installed_power": 287.67258469867414,
+    "required_energy": 90.74055706946545,
+    "lift_to_drag": 8.924552711364674
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.1793680527197314,
+    "n_rotor": 5.0,
+    "fm": 0.5944066696402461,
+    "eta_motor": 0.8416717261164958,
+    "wing_area": 3.6222031728593507,
+    "aspect_ratio": 10.037177019606663,
+    "structure_fraction": 0.2899729100736003,
+    "battery_specific_energy": 254.95283400302804,
+    "cruise_speed": 39.505683256594445,
+    "range_km": 94.29789923861628
+   },
+   "expected": {
+    "mtow": 677.647406645254,
+    "battery_mass": 177.40896385515438,
+    "hover_power": 151.13239598630258,
+    "installed_power": 243.9858744394671,
+    "required_energy": 45.26946951763977,
+    "lift_to_drag": 10.672785569009502
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.6704148022204887,
+    "n_rotor": 8.0,
+    "fm": 0.5888837939492207,
+    "eta_motor": 0.7880622769775569,
+    "wing_area": 8.246579932075374,
+    "aspect_ratio": 7.339229585464844,
+    "structure_fraction": 0.36892096511362626,
+    "battery_specific_energy": 313.5606883187033,
+    "cruise_speed": 65.85458964838874,
+    "range_km": 102.54958607935524
+   },
+   "expected": {
+    "mtow": 1124.3179146496639,
+    "battery_mass": 286.2971105674238,
+    "hover_power": 487.23307410432363,
+    "installed_power": 786.2458922929351,
+    "required_energy": 89.21592739495978,
+    "lift_to_drag": 12.174348032046996
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4351625892531197,
+    "n_rotor": 8.0,
+    "fm": 0.5953669228877319,
+    "eta_motor": 0.9429267772941023,
+    "wing_area": 3.627236486519332,
+    "aspect_ratio": 9.45674053789445,
+    "structure_fraction": 0.22792915726710133,
+    "battery_specific_energy": 276.75612249588875,
+    "cruise_speed": 57.34579694361455,
+    "range_km": 181.187159704268
+   },
+   "expected": {
+    "mtow": 536.1751475627381,
+    "battery_mass": 143.5124823297441,
+    "hover_power": 62.26699212881108,
+    "installed_power": 98.43277091427098,
+    "required_energy": 39.174979299290676,
+    "lift_to_drag": 14.469803910908219
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.5590831197446313,
+    "n_rotor": 8.0,
+    "fm": 0.7218334786420394,
+    "eta_motor": 0.8450209239979372,
+    "wing_area": 11.048818277620768,
+    "aspect_ratio": 9.537994263528368,
+    "structure_fraction": 0.27785645065282905,
+    "battery_specific_energy": 280.17311931093263,
+    "cruise_speed": 35.526799769862635,
+    "range_km": 137.3937043040508
+   },
+   "expected": {
+    "mtow": 704.5527008274017,
+    "battery_mass": 192.46770273307652,
+    "hover_power": 220.64194199230474,
+    "installed_power": 335.07144905240625,
+    "required_energy": 53.68871844841256,
+    "lift_to_drag": 14.599418051941656
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8640120976594683,
+    "n_rotor": 6.0,
+    "fm": 0.8008466269378489,
+    "eta_motor": 0.9227180610131035,
+    "wing_area": 2.2047971433553832,
+    "aspect_ratio": 5.925106632305297,
+    "structure_fraction": 0.3610777405728102,
+    "battery_specific_energy": 353.67512345393266,
+    "cruise_speed": 59.54192429047791,
+    "range_km": 88.28674045499149
+   },
+   "expected": {
+    "mtow": 617.1613509272286,
+    "battery_mass": 111.73524910373682,
+    "hover_power": 111.85975872432508,
+    "installed_power": 161.0000049414736,
+    "required_energy": 39.468506594107616,
+    "lift_to_drag": 9.213467723195935
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0329624740459824,
+    "n_rotor": 9.0,
+    "fm": 0.7193305423420379,
+    "eta_motor": 0.8439958257450106,
+    "wing_area": 3.363496747670858,
+    "aspect_ratio": 7.581477597510203,
+    "structure_fraction": 0.2343013122398188,
+    "battery_specific_energy": 333.2898737501374,
+    "cruise_speed": 69.66396240369886,
+    "range_km": 176.31651254183672
+   },
+   "expected": {
+    "mtow": 560.3029104109074,
+    "battery_mass": 150.7539297451204,
+    "hover_power": 81.02776679343287,
+    "installed_power": 135.76170369411275,
+    "required_energy": 50.09293283549179,
+    "lift_to_drag": 12.868530849045118
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8331203901456108,
+    "n_rotor": 8.0,
+    "fm": 0.6795673817288745,
+    "eta_motor": 0.9420483065437999,
+    "wing_area": 5.791892027975241,
+    "aspect_ratio": 9.410162728336502,
+    "structure_fraction": 0.33474994378119205,
+    "battery_specific_energy": 358.4415758942314,
+    "cruise_speed": 59.55636888228042,
+    "range_km": 172.72323232105785
+   },
+   "expected": {
+    "mtow": 659.8287136934682,
+    "battery_mass": 149.01487800559156,
+    "hover_power": 127.91806024284438,
+    "installed_power": 182.74679202971467,
+    "required_energy": 53.083808644918115,
+    "lift_to_drag": 13.341933896777748
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0867287945693833,
+    "n_rotor": 9.0,
+    "fm": 0.7583974373223084,
+    "eta_motor": 0.9050257524282488,
+    "wing_area": 6.988592600327946,
+    "aspect_ratio": 11.877154460638895,
+    "structure_fraction": 0.29015088462932864,
+    "battery_specific_energy": 219.02907667461707,
+    "cruise_speed": 57.35008954906256,
+    "range_km": 111.96043054649262
+   },
+   "expected": {
+    "mtow": 612.1196389523665,
+    "battery_mass": 156.77974653627032,
+    "hover_power": 77.41411679680793,
+    "installed_power": 120.55904479169423,
+    "required_energy": 34.29246885210227,
+    "lift_to_drag": 12.876211660971308
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.034702620540806,
+    "n_rotor": 9.0,
+    "fm": 0.7359254876418324,
+    "eta_motor": 0.9304501279907801,
+    "wing_area": 4.449576239539868,
+    "aspect_ratio": 9.057285865169003,
+    "structure_fraction": 0.35535867979629,
+    "battery_specific_energy": 317.6332349838114,
+    "cruise_speed": 38.61501496645217,
+    "range_km": 138.26442918407636
+   },
+   "expected": {
+    "mtow": 770.5511607654732,
+    "battery_mass": 203.663157249671,
+    "hover_power": 114.66263859034636,
+    "installed_power": 169.8580083003166,
+    "required_energy": 63.909054021448355,
+    "lift_to_drag": 9.990577664714538
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.468449221046053,
+    "n_rotor": 4.0,
+    "fm": 0.7188135819373925,
+    "eta_motor": 0.8245759422657174,
+    "wing_area": 10.104371144331406,
+    "aspect_ratio": 8.97306715342567,
+    "structure_fraction": 0.3541609581299904,
+    "battery_specific_energy": 232.0692721070601,
+    "cruise_speed": 63.233373114468236,
+    "range_km": 107.25235363455009
+   },
+   "expected": {
+    "mtow": 965.0024166220028,
+    "battery_mass": 289.72299523264957,
+    "hover_power": 193.0262483876687,
+    "installed_power": 315.7656977829531,
+    "required_energy": 67.35583229849824,
+    "lift_to_drag": 11.154471860109743
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7406811689061711,
+    "n_rotor": 6.0,
+    "fm": 0.619781586600204,
+    "eta_motor": 0.8785883058150832,
+    "wing_area": 5.693017236409921,
+    "aspect_ratio": 11.769088578088631,
+    "structure_fraction": 0.35378789916205955,
+    "battery_specific_energy": 235.4059511270952,
+    "cruise_speed": 55.467186299024995,
+    "range_km": 117.11022828233519
+   },
+   "expected": {
+    "mtow": 974.1662082187718,
+    "battery_mass": 263.559658134588,
+    "hover_power": 350.95567083963783,
+    "installed_power": 514.5851695286703,
+    "required_energy": 62.249201844424874,
+    "lift_to_drag": 16.17912167722702
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.6842919033853496,
+    "n_rotor": 9.0,
+    "fm": 0.750498367473638,
+    "eta_motor": 0.8002578869047366,
+    "wing_area": 11.498250784849231,
+    "aspect_ratio": 7.578339200927237,
+    "structure_fraction": 0.37055502567035614,
+    "battery_specific_energy": 291.34662480924476,
+    "cruise_speed": 69.86512282633822,
+    "range_km": 119.58777490495228
+   },
+   "expected": {
+    "mtow": 1228.6764070509714,
+    "battery_mass": 372.95126847096316,
+    "hover_power": 398.62286798589383,
+    "installed_power": 634.5931478360442,
+    "required_energy": 109.04776868986448,
+    "lift_to_drag": 10.550249472405632
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.6592204736470171,
+    "n_rotor": 9.0,
+    "fm": 0.7679522973678115,
+    "eta_motor": 0.9222485338509595,
+    "wing_area": 5.733855244011849,
+    "aspect_ratio": 6.09472346802699,
+    "structure_fraction": 0.3512120398136725,
+    "battery_specific_energy": 235.96828857437256,
+    "cruise_speed": 37.94425144002315,
+    "range_km": 70.42193434260662
+   },
+   "expected": {
+    "mtow": 824.9094404346935,
+    "battery_mass": 221.7867222692588,
+    "hover_power": 192.94664492196802,
+    "installed_power": 271.3385784144878,
+    "required_energy": 52.603123418385884,
+    "lift_to_drag": 7.917709960079554
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.1922133566660529,
+    "n_rotor": 9.0,
+    "fm": 0.5970236743726189,
+    "eta_motor": 0.8496184847140769,
+    "wing_area": 9.865264240865628,
+    "aspect_ratio": 7.470662742908258,
+    "structure_fraction": 0.2955014680523841,
+    "battery_specific_energy": 364.15665306018514,
+    "cruise_speed": 35.76380051313746,
+    "range_km": 190.35042249174234
+   },
+   "expected": {
+    "mtow": 671.6650719232739,
+    "battery_mass": 181.34408088715006,
+    "hover_power": 108.81284736331874,
+    "installed_power": 183.21700087620013,
+    "required_energy": 66.29236467838425,
+    "lift_to_drag": 12.670532968576953
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2939226239227932,
+    "n_rotor": 8.0,
+    "fm": 0.6498514814912608,
+    "eta_motor": 0.7910132546257513,
+    "wing_area": 3.8672665305256593,
+    "aspect_ratio": 5.067033035057508,
+    "structure_fraction": 0.285606682085099,
+    "battery_specific_energy": 290.76616800700725,
+    "cruise_speed": 46.801680631704585,
+    "range_km": 83.32926389439484
+   },
+   "expected": {
+    "mtow": 611.0992371135924,
+    "battery_mass": 153.8645170185018,
+    "hover_power": 91.96444857812087,
+    "installed_power": 167.62495921918566,
+    "required_energy": 44.27516917190212,
+    "lift_to_drag": 8.414543433049086
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4292777733425919,
+    "n_rotor": 5.0,
+    "fm": 0.7161672705784985,
+    "eta_motor": 0.8656232685025167,
+    "wing_area": 7.048913730734999,
+    "aspect_ratio": 10.225223815485013,
+    "structure_fraction": 0.3088857575088437,
+    "battery_specific_energy": 306.707629969654,
+    "cruise_speed": 41.75539020329079,
+    "range_km": 90.43587849617492
+   },
+   "expected": {
+    "mtow": 487.29614558607307,
+    "battery_mass": 69.8688555540726,
+    "hover_power": 62.236250274946826,
+    "installed_power": 102.99743505925483,
+    "required_energy": 21.294451143638263,
+    "lift_to_drag": 14.717600254502859
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.1133523653852186,
+    "n_rotor": 6.0,
+    "fm": 0.7209353308711597,
+    "eta_motor": 0.8866258121841463,
+    "wing_area": 3.9687331787595546,
+    "aspect_ratio": 6.855911324536676,
+    "structure_fraction": 0.29953968567122446,
+    "battery_specific_energy": 376.6821409980106,
+    "cruise_speed": 69.94975102140492,
+    "range_km": 142.9710882297502
+   },
+   "expected": {
+    "mtow": 565.0967171745411,
+    "battery_mass": 117.50852377095516,
+    "hover_power": 88.15756731699203,
+    "installed_power": 137.06001027465402,
+    "required_energy": 44.04977202560017,
+    "lift_to_drag": 11.716904336751313
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.325922117303695,
+    "n_rotor": 7.0,
+    "fm": 0.8020252005879909,
+    "eta_motor": 0.8588017154716818,
+    "wing_area": 9.967737680111089,
+    "aspect_ratio": 10.521464477157128,
+    "structure_fraction": 0.34822014654208955,
+    "battery_specific_energy": 257.04863496000297,
+    "cruise_speed": 60.22751905652311,
+    "range_km": 150.3542566884248
+   },
+   "expected": {
+    "mtow": 910.5777405030198,
+    "battery_mass": 286.28394201431956,
+    "hover_power": 130.89501572437086,
+    "installed_power": 211.26740746829262,
+    "required_energy": 72.64042271815921,
+    "lift_to_drag": 12.177177824396386
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4121291040918649,
+    "n_rotor": 4.0,
+    "fm": 0.8063213515781962,
+    "eta_motor": 0.8883606396756094,
+    "wing_area": 4.360469456098562,
+    "aspect_ratio": 10.11895645531293,
+    "structure_fraction": 0.30835343004793503,
+    "battery_specific_energy": 349.3269643168077,
+    "cruise_speed": 70.95552619257674,
+    "range_km": 184.4414092264625
+   },
+   "expected": {
+    "mtow": 643.8712698752225,
+    "battery_mass": 162.58650859658343,
+    "hover_power": 91.93540545422285,
+    "installed_power": 142.41164245868833,
+    "required_energy": 56.57368482668076,
+    "lift_to_drag": 13.131265253415652
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4789133320768233,
+    "n_rotor": 7.0,
+    "fm": 0.7521208772203674,
+    "eta_motor": 0.9494911637969735,
+    "wing_area": 4.297035308935662,
+    "aspect_ratio": 10.342390906433886,
+    "structure_fraction": 0.3082269762947134,
+    "battery_specific_energy": 379.3926216936295,
+    "cruise_speed": 37.72240347174516,
+    "range_km": 187.470147690622
+   },
+   "expected": {
+    "mtow": 555.0028981433344,
+    "battery_mass": 117.99194311907429,
+    "hover_power": 53.54865770481721,
+    "installed_power": 82.77613992000889,
+    "required_energy": 44.90121525924132,
+    "lift_to_drag": 13.196986229091685
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7660039953358064,
+    "n_rotor": 9.0,
+    "fm": 0.6239711036008201,
+    "eta_motor": 0.8100146706593477,
+    "wing_area": 10.516390952498085,
+    "aspect_ratio": 10.125036264129495,
+    "structure_fraction": 0.34907680690103504,
+    "battery_specific_energy": 375.14852294977743,
+    "cruise_speed": 69.55882399399098,
+    "range_km": 189.3511086324612
+   },
+   "expected": {
+    "mtow": 1233.8145005415424,
+    "battery_mass": 392.1429114598169,
+    "hover_power": 423.7701120294828,
+    "installed_power": 677.2338959298377,
+    "required_energy": 146.37514697206655,
+    "lift_to_drag": 11.819961019285659
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.918989539516968,
+    "n_rotor": 4.0,
+    "fm": 0.6573216402515275,
+    "eta_motor": 0.8453856554431701,
+    "wing_area": 7.615405094121239,
+    "aspect_ratio": 11.642201956264996,
+    "structure_fraction": 0.23350174756500777,
+    "battery_specific_energy": 264.02231619880575,
+    "cruise_speed": 50.83234090970726,
+    "range_km": 109.60974750139006
+   },
+   "expected": {
+    "mtow": 568.8137860259332,
+    "battery_mass": 139.32575504157938,
+    "hover_power": 150.7695397051288,
+    "installed_power": 234.63582661154652,
+    "required_energy": 36.78493628276708,
+    "lift_to_drag": 13.49113524374411
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4930755833482054,
+    "n_rotor": 5.0,
+    "fm": 0.6791037987366313,
+    "eta_motor": 0.7819616365850913,
+    "wing_area": 11.297409789396067,
+    "aspect_ratio": 10.755343844011705,
+    "structure_fraction": 0.26869397164957487,
+    "battery_specific_energy": 235.47869010180762,
+    "cruise_speed": 41.89530766441501,
+    "range_km": 77.98875348086139
+   },
+   "expected": {
+    "mtow": 530.137403314029,
+    "battery_mass": 110.20550389781017,
+    "hover_power": 79.1477439168414,
+    "installed_power": 144.23330474936824,
+    "required_energy": 26.213035398913945,
+    "lift_to_drag": 12.656418550422288
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4487182408471067,
+    "n_rotor": 6.0,
+    "fm": 0.7767106424442356,
+    "eta_motor": 0.7992320555362018,
+    "wing_area": 8.72521870648698,
+    "aspect_ratio": 9.332591997633472,
+    "structure_fraction": 0.3733549545200029,
+    "battery_specific_energy": 279.32099603467964,
+    "cruise_speed": 67.39353916271226,
+    "range_km": 150.4187955489007
+   },
+   "expected": {
+    "mtow": 1064.9336369830064,
+    "battery_mass": 334.45031684232407,
+    "hover_power": 180.06211000826016,
+    "installed_power": 310.1183241438568,
+    "required_energy": 92.9470856333559,
+    "lift_to_drag": 12.322859195347359
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3157155724625138,
+    "n_rotor": 6.0,
+    "fm": 0.7918985535249966,
+    "eta_motor": 0.9328094574904663,
+    "wing_area": 2.033860287553165,
+    "aspect_ratio": 10.368706848417595,
+    "structure_fraction": 0.3080347672385492,
+    "battery_specific_energy": 215.29935678122823,
+    "cruise_speed": 68.33512450917439,
+    "range_km": 61.15661054947875
+   },
+   "expected": {
+    "mtow": 469.43491812397485,
+    "battery_mass": 62.48082345312358,
+    "hover_power": 48.67191287358922,
+    "installed_power": 75.09412369985861,
+    "required_energy": 13.473225451283023,
+    "lift_to_drag": 15.294268637330566
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.458489685688917,
+    "n_rotor": 9.0,
+    "fm": 0.6878360495200674,
+    "eta_motor": 0.864131399874355,
+    "wing_area": 8.964403368106225,
+    "aspect_ratio": 9.254709293140351,
+    "structure_fraction": 0.35053683102090405,
+    "battery_specific_energy": 304.8682243833558,
+    "cruise_speed": 56.83285728534677,
+    "range_km": 182.39098907237013
+   },
+   "expected": {
+    "mtow": 850.9877509184209,
+    "battery_mass": 251.12647878097854,
+    "hover_power": 108.77917190267462,
+    "installed_power": 181.14420159859145,
+    "required_energy": 77.30803373639667,
+    "lift_to_drag": 12.828402709839667
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2687273731499134,
+    "n_rotor": 9.0,
+    "fm": 0.622955294026619,
+    "eta_motor": 0.9036712119758343,
+    "wing_area": 7.525508812808267,
+    "aspect_ratio": 10.313825133242212,
+    "structure_fraction": 0.2585311731543586,
+    "battery_specific_energy": 335.6886128033815,
+    "cruise_speed": 38.947546551974256,
+    "range_km": 133.0031211133791
+   },
+   "expected": {
+    "mtow": 462.2247185795854,
+    "battery_mass": 79.62365894868243,
+    "hover_power": 52.86132308896402,
+    "installed_power": 87.84079551419725,
+    "required_energy": 26.652153152729177,
+    "lift_to_drag": 14.818069224728918
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.9092442159596865,
+    "n_rotor": 7.0,
+    "fm": 0.6678803906674337,
+    "eta_motor": 0.8994814061069106,
+    "wing_area": 6.754276003012773,
+    "aspect_ratio": 5.928542439849815,
+    "structure_fraction": 0.31863140013541225,
+    "battery_specific_energy": 213.4642634041992,
+    "cruise_speed": 47.58973524145894,
+    "range_km": 69.57683638058475
+   },
+   "expected": {
+    "mtow": 621.2826211789633,
+    "battery_mass": 136.3179934130299,
+    "hover_power": 123.06384548629319,
+    "installed_power": 184.6495644458509,
+    "required_energy": 29.113468574849307,
+    "lift_to_drag": 11.482238770635579
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.9153945404445605,
+    "n_rotor": 6.0,
+    "fm": 0.6709810094139974,
+    "eta_motor": 0.9137059687083394,
+    "wing_area": 5.615728099943274,
+    "aspect_ratio": 5.894872454912174,
+    "structure_fraction": 0.3753520570599169,
+    "battery_specific_energy": 256.61868781400767,
+    "cruise_speed": 65.8587816596124,
+    "range_km": 77.4028185171617
+   },
+   "expected": {
+    "mtow": 739.1729007606602,
+    "battery_mass": 155.9657247721783,
+    "hover_power": 166.9466227297293,
+    "installed_power": 240.57087454255083,
+    "required_energy": 39.806468312542115,
+    "lift_to_drag": 10.929549232334233
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2973777394448707,
+    "n_rotor": 6.0,
+    "fm": 0.6296519938511889,
+    "eta_motor": 0.8834520050435178,
+    "wing_area": 5.75356287535285,
+    "aspect_ratio": 9.01574694852389,
+    "structure_fraction": 0.2920979721062531,
+    "battery_specific_energy": 233.99587276371875,
+    "cruise_speed": 38.897056623471414,
+    "range_km": 39.54485095460362
+   },
+   "expected": {
+    "mtow": 444.1778044067263,
+    "battery_mass": 48.029042324603545,
+    "hover_power": 60.2313543524549,
+    "installed_power": 98.68426168608917,
+    "required_energy": 11.277235543156628,
+    "lift_to_drag": 13.957721467201376
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2349840180047367,
+    "n_rotor": 6.0,
+    "fm": 0.613768995057456,
+    "eta_motor": 0.7922107049584186,
+    "wing_area": 6.36967980432538,
+    "aspect_ratio": 7.35264725850855,
+    "structure_fraction": 0.29967621974184716,
+    "battery_specific_energy": 250.52574396782302,
+    "cruise_speed": 59.08317658256409,
+    "range_km": 98.61162988545702
+   },
+   "expected": {
+    "mtow": 679.6543963634856,
+    "battery_mass": 174.67710510992723,
+    "hover_power": 138.33712196591947,
+    "installed_power": 240.53029512362062,
+    "required_energy": 43.58628545229707,
+    "lift_to_drag": 12.182323714398013
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7885707975334129,
+    "n_rotor": 10.0,
+    "fm": 0.7378291399950339,
+    "eta_motor": 0.8605050597046382,
+    "wing_area": 11.054053497523842,
+    "aspect_ratio": 10.057567188511864,
+    "structure_fraction": 0.22206618858873675,
+    "battery_specific_energy": 253.26496387615916,
+    "cruise_speed": 56.94927771681321,
+    "range_km": 148.83034585135906
+   },
+   "expected": {
+    "mtow": 739.7737390966038,
+    "battery_mass": 274.1660256884881,
+    "hover_power": 144.8555729545665,
+    "installed_power": 225.5406971374611,
+    "required_energy": 68.98112543895097,
+    "lift_to_drag": 10.639433141627979
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7146982887979485,
+    "n_rotor": 5.0,
+    "fm": 0.7172639600139139,
+    "eta_motor": 0.9062240434409108,
+    "wing_area": 7.4176323054198114,
+    "aspect_ratio": 7.847496754020583,
+    "structure_fraction": 0.3173504611965794,
+    "battery_specific_energy": 354.1907509385577,
+    "cruise_speed": 43.14757826319431,
+    "range_km": 158.25243314285137
+   },
+   "expected": {
+    "mtow": 693.9661619894459,
+    "battery_mass": 164.61409745367544,
+    "hover_power": 201.1496701143484,
+    "installed_power": 286.4211343169251,
+    "required_energy": 58.49045549497585,
+    "lift_to_drag": 12.966081285919174
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.19007036582978,
+    "n_rotor": 10.0,
+    "fm": 0.6214214184655127,
+    "eta_motor": 0.8896013934153016,
+    "wing_area": 2.101757224981801,
+    "aspect_ratio": 10.869886733605881,
+    "structure_fraction": 0.28695969867612686,
+    "battery_specific_energy": 326.6934156576937,
+    "cruise_speed": 50.73143347726206,
+    "range_km": 126.12687088615169
+   },
+   "expected": {
+    "mtow": 516.8093150837396,
+    "battery_mass": 99.24311543094653,
+    "hover_power": 64.31686360231383,
+    "installed_power": 106.59097350530524,
+    "required_energy": 32.31327204997787,
+    "lift_to_drag": 13.118521302822918
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.1051020456300629,
+    "n_rotor": 8.0,
+    "fm": 0.7381736277674327,
+    "eta_motor": 0.8145963489672156,
+    "wing_area": 5.559422716094582,
+    "aspect_ratio": 5.4043625714360335,
+    "structure_fraction": 0.2559941474180101,
+    "battery_specific_energy": 215.88247081976866,
+    "cruise_speed": 52.36358702411403,
+    "range_km": 51.808916699890915
+   },
+   "expected": {
+    "mtow": 472.94238740180396,
+    "battery_mass": 83.91028237637717,
+    "hover_power": 62.78242678600473,
+    "installed_power": 110.14351421427631,
+    "required_energy": 18.166252291354308,
+    "lift_to_drag": 10.82573588590418
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.57293215457896,
+    "n_rotor": 7.0,
+    "fm": 0.6256310304221625,
+    "eta_motor": 0.8890960877703888,
+    "wing_area": 4.9386704950676075,
+    "aspect_ratio": 5.8707472952199655,
+    "structure_fraction": 0.31978071417844567,
+    "battery_specific_energy": 374.9039053826621,
+    "cruise_speed": 38.42195108249908,
+    "range_km": 30.879688792639815
+   },
+   "expected": {
+    "mtow": 496.35940051647856,
+    "battery_mass": 49.88817953214622,
+    "hover_power": 150.69962698028874,
+    "installed_power": 218.90638087226108,
+    "required_energy": 18.789130512931923,
+    "lift_to_drag": 9.760332648119599
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2043993737321705,
+    "n_rotor": 5.0,
+    "fm": 0.8107077472644896,
+    "eta_motor": 0.8881363925417128,
+    "wing_area": 6.862669933542418,
+    "aspect_ratio": 9.863097532035805,
+    "structure_fraction": 0.3345549119940719,
+    "battery_specific_energy": 372.9993113544802,
+    "cruise_speed": 60.577343937379666,
+    "range_km": 132.3195424904985
+   },
+   "expected": {
+    "mtow": 595.765082440472,
+    "battery_mass": 117.11338436243133,
+    "hover_power": 85.07369846679187,
+    "installed_power": 130.69026111838087,
+    "required_energy": 43.813716934828655,
+    "lift_to_drag": 11.568797519915098
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.6780966994006459,
+    "n_rotor": 9.0,
+    "fm": 0.7911689784055769,
+    "eta_motor": 0.8743679559276523,
+    "wing_area": 4.555447907216361,
+    "aspect_ratio": 11.80357430953147,
+    "structure_fraction": 0.31290121937805193,
+    "battery_specific_energy": 275.74503813680866,
+    "cruise_speed": 48.955852383565386,
+    "range_km": 187.94117762864806
+   },
+   "expected": {
+    "mtow": 838.8235815913215,
+    "battery_mass": 258.39185968116067,
+    "hover_power": 199.007702044207,
+    "installed_power": 297.92673687351027,
+    "required_energy": 71.43703045930664,
+    "lift_to_drag": 15.313271473036089
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0888583909300924,
+    "n_rotor": 9.0,
+    "fm": 0.6557843782789936,
+    "eta_motor": 0.927476344436098,
+    "wing_area": 6.2124715146154825,
+    "aspect_ratio": 10.984500985279215,
+    "structure_fraction": 0.25369101034393926,
+    "battery_specific_energy": 220.43443393692817,
+    "cruise_speed": 70.77547212133967,
+    "range_km": 187.15730510786167
+   },
+   "expected": {
+    "mtow": 883.210204426298,
+    "battery_mass": 353.59968348887736,
+    "hover_power": 152.2766671719875,
+    "installed_power": 224.7760103403975,
+    "required_energy": 77.56038873455077,
+    "lift_to_drag": 13.183577714055062
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7035471256867692,
+    "n_rotor": 5.0,
+    "fm": 0.8159508269984,
+    "eta_motor": 0.8754925370680083,
+    "wing_area": 9.033664281289413,
+    "aspect_ratio": 9.399780466228812,
+    "structure_fraction": 0.25008399539051074,
+    "battery_specific_energy": 313.43310091895154,
+    "cruise_speed": 71.94469435053902,
+    "range_km": 148.7222646281278
+   },
+   "expected": {
+    "mtow": 816.2856331666345,
+    "battery_mass": 284.14673717923165,
+    "hover_power": 236.1564590713301,
+    "installed_power": 344.8680214643631,
+    "required_energy": 89.08652278393467,
+    "lift_to_drag": 9.252803122528432
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.315432302834258,
+    "n_rotor": 5.0,
+    "fm": 0.6637711322013202,
+    "eta_motor": 0.8234143133764478,
+    "wing_area": 7.896155228893799,
+    "aspect_ratio": 11.274184697811078,
+    "structure_fraction": 0.22567539596099992,
+    "battery_specific_energy": 363.30702695955677,
+    "cruise_speed": 53.34191782381777,
+    "range_km": 187.81596682118948
+   },
+   "expected": {
+    "mtow": 573.5468043621205,
+    "battery_mass": 161.57481951161938,
+    "hover_power": 97.88620219823392,
+    "installed_power": 165.53773722660137,
+    "required_energy": 58.70816349273728,
+    "lift_to_drag": 12.485171518738206
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.9288641668470543,
+    "n_rotor": 7.0,
+    "fm": 0.7795719754778054,
+    "eta_motor": 0.7851411370882662,
+    "wing_area": 11.497300393978675,
+    "aspect_ratio": 7.664799389058825,
+    "structure_fraction": 0.372480517742766,
+    "battery_specific_energy": 333.00228509270005,
+    "cruise_speed": 57.0433544857775,
+    "range_km": 78.2379529104274
+   },
+   "expected": {
+    "mtow": 716.2064395539525,
+    "battery_mass": 144.162910360319,
+    "hover_power": 145.6984808635605,
+    "installed_power": 247.5014366768418,
+    "required_energy": 47.691873276587515,
+    "lift_to_drag": 9.356001438096989
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.9258372334748055,
+    "n_rotor": 7.0,
+    "fm": 0.6730003420161373,
+    "eta_motor": 0.9233355311961529,
+    "wing_area": 4.665722570907776,
+    "aspect_ratio": 10.372676336913838,
+    "structure_fraction": 0.2569490689413753,
+    "battery_specific_energy": 303.67524978397086,
+    "cruise_speed": 68.35765670422917,
+    "range_km": 42.6494229830149
+   },
+   "expected": {
+    "mtow": 417.2656662365618,
+    "battery_mass": 44.53367674247461,
+    "hover_power": 64.08143464686908,
+    "installed_power": 96.17622772983373,
+    "required_energy": 13.610549928455084,
+    "lift_to_drag": 10.206029621013002
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7898487342049246,
+    "n_rotor": 9.0,
+    "fm": 0.6810397184974313,
+    "eta_motor": 0.8632365862544956,
+    "wing_area": 3.3722592422616255,
+    "aspect_ratio": 5.8443503497930305,
+    "structure_fraction": 0.34765701323720233,
+    "battery_specific_energy": 363.09869496992684,
+    "cruise_speed": 52.25723734971095,
+    "range_km": 100.7248768519092
+   },
+   "expected": {
+    "mtow": 670.0667239167778,
+    "battery_mass": 138.8066969346614,
+    "hover_power": 141.5384759800468,
+    "installed_power": 219.92992391402535,
+    "required_energy": 49.937345531280656,
+    "lift_to_drag": 9.418735000439133
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3240931177894089,
+    "n_rotor": 6.0,
+    "fm": 0.7849002482434594,
+    "eta_motor": 0.8112757456760727,
+    "wing_area": 11.746810292567488,
+    "aspect_ratio": 10.051138153872278,
+    "structure_fraction": 0.36634795953932625,
+    "battery_specific_energy": 303.79756415304627,
+    "cruise_speed": 68.99430575671909,
+    "range_km": 46.096733386292506
+   },
+   "expected": {
+    "mtow": 624.5050632760868,
+    "battery_mass": 111.13800497747258,
+    "hover_power": 85.78366351523854,
+    "installed_power": 148.9874292619015,
+    "required_energy": 33.53984629819851,
+    "lift_to_drag": 6.358238154030954
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.377547259555348,
+    "n_rotor": 5.0,
+    "fm": 0.6363023215921314,
+    "eta_motor": 0.9156527917793329,
+    "wing_area": 7.831359660742068,
+    "aspect_ratio": 10.723266024496333,
+    "structure_fraction": 0.24330693325116745,
+    "battery_specific_energy": 368.24028761807347,
+    "cruise_speed": 54.4695652675793,
+    "range_km": 113.7624657026142
+   },
+   "expected": {
+    "mtow": 464.3777231640557,
+    "battery_mass": 84.63902559482095,
+    "hover_power": 63.79735778945903,
+    "installed_power": 99.75245066898414,
+    "required_energy": 31.48256244361293,
+    "lift_to_drag": 10.439351423819303
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3257704118902713,
+    "n_rotor": 5.0,
+    "fm": 0.8110070279360364,
+    "eta_motor": 0.8300746277031056,
+    "wing_area": 4.979748819763286,
+    "aspect_ratio": 5.1652677878838,
+    "structure_fraction": 0.3340616798577339,
+    "battery_specific_energy": 300.5467802341849,
+    "cruise_speed": 46.50314148372343,
+    "range_km": 78.40428746529187
+   },
+   "expected": {
+    "mtow": 582.6017786903959,
+    "battery_mass": 109.34613833624259,
+    "hover_power": 81.01536032568188,
+    "installed_power": 135.144187913099,
+    "required_energy": 33.03689174932642,
+    "lift_to_drag": 9.916362967388295
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3964190510959393,
+    "n_rotor": 8.0,
+    "fm": 0.623150830447421,
+    "eta_motor": 0.7956077669515146,
+    "wing_area": 9.350722164768278,
+    "aspect_ratio": 6.828118576755999,
+    "structure_fraction": 0.32231014145400266,
+    "battery_specific_energy": 305.9761457570921,
+    "cruise_speed": 67.10599769468433,
+    "range_km": 151.68238791710968
+   },
+   "expected": {
+    "mtow": 941.5099554500646,
+    "battery_mass": 312.5830635129694,
+    "hover_power": 164.1424015195844,
+    "installed_power": 290.57611821654524,
+    "required_energy": 96.01157000577648,
+    "lift_to_drag": 10.222247300744462
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7106896477470799,
+    "n_rotor": 6.0,
+    "fm": 0.7572342447123792,
+    "eta_motor": 0.8146566308747423,
+    "wing_area": 9.422891403158282,
+    "aspect_ratio": 9.812278154547721,
+    "structure_fraction": 0.24945392291274052,
+    "battery_specific_energy": 227.87521937905336,
+    "cruise_speed": 51.950064098711096,
+    "range_km": 49.12996621847866
+   },
+   "expected": {
+    "mtow": 516.6140560131877,
+    "battery_mass": 101.1267870151955,
+    "hover_power": 124.28443683323304,
+    "installed_power": 199.85128055195622,
+    "required_energy": 23.021060720522254,
+    "lift_to_drag": 10.435687155452857
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8370478708429918,
+    "n_rotor": 7.0,
+    "fm": 0.583679746904356,
+    "eta_motor": 0.9307044419006307,
+    "wing_area": 10.019866826817815,
+    "aspect_ratio": 6.200744048632821,
+    "structure_fraction": 0.2509493884564729,
+    "battery_specific_energy": 267.78649791701804,
+    "cruise_speed": 48.52599616267239,
+    "range_km": 118.96585954931061
+   },
+   "expected": {
+    "mtow": 608.8740145878007,
+    "battery_mass": 164.20215728088775,
+    "hover_power": 143.55999771081903,
+    "installed_power": 205.84767793753193,
+    "required_energy": 43.59083798668198,
+    "lift_to_drag": 11.024934476891003
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.043386843755823,
+    "n_rotor": 9.0,
+    "fm": 0.6481767315058121,
+    "eta_motor": 0.8439610358915007,
+    "wing_area": 7.584019298098701,
+    "aspect_ratio": 9.372278473873816,
+    "structure_fraction": 0.2537430559312707,
+    "battery_specific_energy": 278.7954503148568,
+    "cruise_speed": 45.31372918844769,
+    "range_km": 98.2768222280948
+   },
+   "expected": {
+    "mtow": 491.3488883081797,
+    "battery_mass": 93.99568470671534,
+    "hover_power": 72.50462132024641,
+    "installed_power": 122.87053203096247,
+    "required_energy": 26.35622933100158,
+    "lift_to_drag": 13.248683646669619
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8012049573694228,
+    "n_rotor": 6.0,
+    "fm": 0.8190339582242243,
+    "eta_motor": 0.8460324211507553,
+    "wing_area": 7.695919954733783,
+    "aspect_ratio": 8.064519759694592,
+    "structure_fraction": 0.36144806577294963,
+    "battery_specific_energy": 356.6481895274088,
+    "cruise_speed": 50.25046211790487,
+    "range_km": 144.07701160980184
+   },
+   "expected": {
+    "mtow": 735.4305709244466,
+    "battery_mass": 160.53225869691366,
+    "hover_power": 164.20829245385448,
+    "installed_power": 255.28383645613738,
+    "required_energy": 57.48283250419658,
+    "lift_to_drag": 13.263983108600147
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0306001921451542,
+    "n_rotor": 6.0,
+    "fm": 0.6141959222047736,
+    "eta_motor": 0.8637998380061676,
+    "wing_area": 5.638444310502534,
+    "aspect_ratio": 8.25279605508385,
+    "structure_fraction": 0.33575647177006807,
+    "battery_specific_energy": 363.2688941567445,
+    "cruise_speed": 59.50698732947722,
+    "range_km": 146.33897093653772
+   },
+   "expected": {
+    "mtow": 670.855736301563,
+    "battery_mass": 146.04647277248662,
+    "hover_power": 148.19067333765952,
+    "installed_power": 231.59218525631923,
+    "required_energy": 53.05978286634481,
+    "lift_to_drag": 13.030369291909096
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3718469884237177,
+    "n_rotor": 9.0,
+    "fm": 0.6774408574386176,
+    "eta_motor": 0.8970388093920658,
+    "wing_area": 4.264054136965556,
+    "aspect_ratio": 5.1011871438025755,
+    "structure_fraction": 0.29315782584935657,
+    "battery_specific_energy": 264.9483885450194,
+    "cruise_speed": 60.442154961391935,
+    "range_km": 35.846890992453666
+   },
+   "expected": {
+    "mtow": 424.15651384753403,
+    "battery_mass": 41.67116577287336,
+    "hover_power": 40.19082103427396,
+    "installed_power": 68.67025454282668,
+    "required_energy": 11.065641958818123,
+    "lift_to_drag": 10.300078270827282
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7539846070032457,
+    "n_rotor": 4.0,
+    "fm": 0.7354699413748403,
+    "eta_motor": 0.8905886651339655,
+    "wing_area": 11.624255657776175,
+    "aspect_ratio": 5.527865271857001,
+    "structure_fraction": 0.35527371980057154,
+    "battery_specific_energy": 328.1353027524383,
+    "cruise_speed": 59.73217236254209,
+    "range_km": 95.02050096243116
+   },
+   "expected": {
+    "mtow": 826.3522191244361,
+    "battery_mass": 198.74164858913642,
+    "hover_power": 273.803430763922,
+    "installed_power": 390.76716648433836,
+    "required_energy": 64.55576093744669,
+    "lift_to_drag": 9.264273563558396
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.471160320464944,
+    "n_rotor": 5.0,
+    "fm": 0.5846954664146913,
+    "eta_motor": 0.9023309279335121,
+    "wing_area": 9.67183746871078,
+    "aspect_ratio": 7.274345575594925,
+    "structure_fraction": 0.32421246405548854,
+    "battery_specific_energy": 292.99190460390116,
+    "cruise_speed": 59.442913353758925,
+    "range_km": 142.05543440387038
+   },
+   "expected": {
+    "mtow": 800.926685309545,
+    "battery_mass": 229.69946102087673,
+    "hover_power": 148.84101367313548,
+    "installed_power": 228.3048792969841,
+    "required_energy": 67.75026562145209,
+    "lift_to_drag": 10.693630577126825
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4420992573521647,
+    "n_rotor": 10.0,
+    "fm": 0.8187796486417744,
+    "eta_motor": 0.8560391901673639,
+    "wing_area": 5.328021592590653,
+    "aspect_ratio": 5.328571822314085,
+    "structure_fraction": 0.350779037088029,
+    "battery_specific_energy": 332.6820722698675,
+    "cruise_speed": 72.84644398378535,
+    "range_km": 33.070038605783516
+   },
+   "expected": {
+    "mtow": 470.4664159899103,
+    "battery_mass": 40.659454119948485,
+    "hover_power": 35.96508588152258,
+    "installed_power": 82.22218588033445,
+    "required_energy": 13.501819061472307,
+    "lift_to_drag": 8.246279344355557
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.6152852847709865,
+    "n_rotor": 6.0,
+    "fm": 0.6251543943663253,
+    "eta_motor": 0.8689668050564304,
+    "wing_area": 8.017556372872853,
+    "aspect_ratio": 7.250257322288174,
+    "structure_fraction": 0.2895507316163362,
+    "battery_specific_energy": 330.85379103158965,
+    "cruise_speed": 44.07482390768945,
+    "range_km": 69.62133473994264
+   },
+   "expected": {
+    "mtow": 539.4281013271626,
+    "battery_mass": 86.85853613226266,
+    "hover_power": 177.1539313284725,
+    "installed_power": 261.99693878175407,
+    "required_energy": 28.804711059686763,
+    "lift_to_drag": 12.509004929630654
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.139573424139565,
+    "n_rotor": 10.0,
+    "fm": 0.7611254221623539,
+    "eta_motor": 0.7864271534506243,
+    "wing_area": 5.689243297754423,
+    "aspect_ratio": 7.40939095624549,
+    "structure_fraction": 0.22984063015833356,
+    "battery_specific_energy": 341.7756851744061,
+    "cruise_speed": 44.07142439247468,
+    "range_km": 104.77867052489985
+   },
+   "expected": {
+    "mtow": 440.4249655929177,
+    "battery_mass": 76.06266921231838,
+    "hover_power": 49.17579174605716,
+    "installed_power": 92.95427033136353,
+    "required_energy": 26.160248628843437,
+    "lift_to_drag": 12.891849504477653
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8878253069192648,
+    "n_rotor": 6.0,
+    "fm": 0.7881918896336454,
+    "eta_motor": 0.9263999004512873,
+    "wing_area": 7.461496455045692,
+    "aspect_ratio": 7.782702149419408,
+    "structure_fraction": 0.24157076125406104,
+    "battery_specific_energy": 346.0676189104465,
+    "cruise_speed": 45.99847066730935,
+    "range_km": 60.005779336022584
+   },
+   "expected": {
+    "mtow": 399.37190415643687,
+    "battery_mass": 43.046271625633864,
+    "hover_power": 57.48148030579162,
+    "installed_power": 84.35903082916296,
+    "required_energy": 14.931425920314547,
+    "lift_to_drag": 11.420690297210394
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7790622996580662,
+    "n_rotor": 8.0,
+    "fm": 0.5998476990273125,
+    "eta_motor": 0.7926980791635021,
+    "wing_area": 10.594846370448346,
+    "aspect_ratio": 5.661587780579268,
+    "structure_fraction": 0.22842827110860847,
+    "battery_specific_energy": 332.5337618147441,
+    "cruise_speed": 49.99086553700134,
+    "range_km": 129.7053463555216
+   },
+   "expected": {
+    "mtow": 647.6327219881249,
+    "battery_mass": 188.49106501671267,
+    "hover_power": 177.51512175685897,
+    "installed_power": 298.4002099120923,
+    "required_energy": 61.98984788319419,
+    "lift_to_drag": 10.322477245789807
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.6217260088912542,
+    "n_rotor": 8.0,
+    "fm": 0.7156808324064217,
+    "eta_motor": 0.8823192311684779,
+    "wing_area": 7.85661123473285,
+    "aspect_ratio": 8.961893504356137,
+    "structure_fraction": 0.2433723491686784,
+    "battery_specific_energy": 259.2560969986517,
+    "cruise_speed": 36.533632104530454,
+    "range_km": 85.64142845775649
+   },
+   "expected": {
+    "mtow": 490.7048347376446,
+    "battery_mass": 93.50477083839272,
+    "hover_power": 112.14660397647224,
+    "installed_power": 167.00008319794676,
+    "required_energy": 24.0690751284597,
+    "lift_to_drag": 14.199714081889894
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.1877473415150668,
+    "n_rotor": 5.0,
+    "fm": 0.667445771388546,
+    "eta_motor": 0.8826044672475424,
+    "wing_area": 10.41471547449988,
+    "aspect_ratio": 10.810235680638407,
+    "structure_fraction": 0.2919927139185262,
+    "battery_specific_energy": 229.02796963694664,
+    "cruise_speed": 53.375795742844815,
+    "range_km": 148.36884655520504
+   },
+   "expected": {
+    "mtow": 850.8743800606418,
+    "battery_mass": 288.80645196078854,
+    "hover_power": 181.99881026014174,
+    "installed_power": 275.0332145870115,
+    "required_energy": 66.14437544643738,
+    "lift_to_drag": 13.20507102302224
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8211660480834041,
+    "n_rotor": 8.0,
+    "fm": 0.7214989754351658,
+    "eta_motor": 0.7967990963130538,
+    "wing_area": 9.291761765592616,
+    "aspect_ratio": 8.824999233528949,
+    "structure_fraction": 0.3227022948417395,
+    "battery_specific_energy": 234.96320979887497,
+    "cruise_speed": 53.95693967098556,
+    "range_km": 91.44946266857819
+   },
+   "expected": {
+    "mtow": 760.7825086858376,
+    "battery_mass": 198.4244063484001,
+    "hover_power": 179.22672435518072,
+    "installed_power": 298.62774771893646,
+    "required_energy": 46.250714871756884,
+    "lift_to_drag": 12.423859413578837
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2203298357683856,
+    "n_rotor": 5.0,
+    "fm": 0.7066391595788316,
+    "eta_motor": 0.90917036233005,
+    "wing_area": 10.881148120941774,
+    "aspect_ratio": 11.416735717552868,
+    "structure_fraction": 0.28171238731117526,
+    "battery_specific_energy": 251.59006778854626,
+    "cruise_speed": 61.74388854530853,
+    "range_km": 174.0920494195667
+   },
+   "expected": {
+    "mtow": 946.6657782820992,
+    "battery_mass": 355.9259591661832,
+    "hover_power": 190.4271848180252,
+    "installed_power": 278.81509940484983,
+    "required_energy": 89.19066584999975,
+    "lift_to_drag": 11.577885376694452
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0651859670317245,
+    "n_rotor": 6.0,
+    "fm": 0.6164542918459731,
+    "eta_motor": 0.7950587561274585,
+    "wing_area": 6.463238998965386,
+    "aspect_ratio": 7.366622570470656,
+    "structure_fraction": 0.2250935497129049,
+    "battery_specific_energy": 373.111918056808,
+    "cruise_speed": 48.39945911499267,
+    "range_km": 67.21163993707265
+   },
+   "expected": {
+    "mtow": 416.4396855301178,
+    "battery_mass": 53.65020798032796,
+    "hover_power": 76.96329042020307,
+    "installed_power": 134.78040715854738,
+    "required_energy": 20.154862554379136,
+    "lift_to_drag": 11.735079470393172
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4476042931034248,
+    "n_rotor": 9.0,
+    "fm": 0.7420606400714866,
+    "eta_motor": 0.8860405578317715,
+    "wing_area": 2.7944441037607035,
+    "aspect_ratio": 7.8752558889751025,
+    "structure_fraction": 0.2476401345794353,
+    "battery_specific_energy": 335.49018385442974,
+    "cruise_speed": 68.35524092699161,
+    "range_km": 111.4182619815424
+   },
+   "expected": {
+    "mtow": 435.83155250232886,
+    "battery_mass": 71.27243533457884,
+    "hover_power": 37.200721721980884,
+    "installed_power": 64.50475638171592,
+    "required_energy": 23.71670105497845,
+    "lift_to_drag": 12.812176341753617
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7949252319457614,
+    "n_rotor": 9.0,
+    "fm": 0.6203381063065254,
+    "eta_motor": 0.7891769689735062,
+    "wing_area": 10.018029735410526,
+    "aspect_ratio": 5.387118070295614,
+    "structure_fraction": 0.3470240353629299,
+    "battery_specific_energy": 321.6206517512356,
+    "cruise_speed": 58.8771473216352,
+    "range_km": 147.30930710932444
+   },
+   "expected": {
+    "mtow": 1393.2824157529806,
+    "battery_mass": 466.82778579133026,
+    "hover_power": 507.2297295796434,
+    "installed_power": 831.9063222039009,
+    "required_energy": 149.90346463947623,
+    "lift_to_drag": 10.953376119444453
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0017680495116899,
+    "n_rotor": 9.0,
+    "fm": 0.6856563950139846,
+    "eta_motor": 0.8493433164203484,
+    "wing_area": 10.608096211472223,
+    "aspect_ratio": 5.817235444169248,
+    "structure_fraction": 0.2983624088412504,
+    "battery_specific_energy": 255.46859003486907,
+    "cruise_speed": 58.21867429783962,
+    "range_km": 62.34686225067152
+   },
+   "expected": {
+    "mtow": 576.1245804263311,
+    "battery_mass": 124.4009590710692,
+    "hover_power": 90.76919702894557,
+    "installed_power": 149.7386393870995,
+    "required_energy": 31.743994585790453,
+    "lift_to_drag": 8.173916074196665
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.5473202360839158,
+    "n_rotor": 7.0,
+    "fm": 0.7467129510324819,
+    "eta_motor": 0.9011661902576836,
+    "wing_area": 5.359374516921688,
+    "aspect_ratio": 10.84190362466537,
+    "structure_fraction": 0.3158848104976548,
+    "battery_specific_energy": 333.1182087979476,
+    "cruise_speed": 38.770053136516935,
+    "range_km": 90.64219595909024
+   },
+   "expected": {
+    "mtow": 543.8214407826746,
+    "battery_mass": 85.37743142674582,
+    "hover_power": 150.04292761979423,
+    "installed_power": 214.25703435289154,
+    "required_energy": 28.029050112211866,
+    "lift_to_drag": 15.05611141694441
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8123747991462378,
+    "n_rotor": 5.0,
+    "fm": 0.8113082377026226,
+    "eta_motor": 0.9048792947250671,
+    "wing_area": 5.7099351521693,
+    "aspect_ratio": 10.498774689334368,
+    "structure_fraction": 0.31088871547747826,
+    "battery_specific_energy": 321.79963614369336,
+    "cruise_speed": 69.96211813840213,
+    "range_km": 51.42630361103164
+   },
+   "expected": {
+    "mtow": 495.15766683863416,
+    "battery_mass": 67.08965306992349,
+    "hover_power": 95.31919459663663,
+    "installed_power": 138.70067798586737,
+    "required_energy": 21.389727487096916,
+    "lift_to_drag": 9.38199555408882
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.5895708443823128,
+    "n_rotor": 5.0,
+    "fm": 0.583914086584169,
+    "eta_motor": 0.8497842340103946,
+    "wing_area": 8.069599263804491,
+    "aspect_ratio": 10.066203052849392,
+    "structure_fraction": 0.26316759043751686,
+    "battery_specific_energy": 282.01131893028617,
+    "cruise_speed": 48.391293379224166,
+    "range_km": 102.22157955446856
+   },
+   "expected": {
+    "mtow": 750.0179834055069,
+    "battery_mass": 193.78142251169942,
+    "hover_power": 357.07796655543143,
+    "installed_power": 532.8930181251641,
+    "required_energy": 54.44133160503781,
+    "lift_to_drag": 14.574206279809756
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0410161617885465,
+    "n_rotor": 6.0,
+    "fm": 0.7415213008589616,
+    "eta_motor": 0.8249035201059325,
+    "wing_area": 4.552733482880589,
+    "aspect_ratio": 8.368012801268026,
+    "structure_fraction": 0.23647217324841832,
+    "battery_specific_energy": 202.00453654817662,
+    "cruise_speed": 60.152863603518675,
+    "range_km": 151.30871943250492
+   },
+   "expected": {
+    "mtow": 889.0462518328208,
+    "battery_mass": 350.76164974618297,
+    "hover_power": 194.95058639732983,
+    "installed_power": 315.0779874188082,
+    "required_energy": 71.03028942160898,
+    "lift_to_drag": 13.92046045550748
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.1308313024288945,
+    "n_rotor": 7.0,
+    "fm": 0.6246600794539312,
+    "eta_motor": 0.9288120872117466,
+    "wing_area": 8.08611253677104,
+    "aspect_ratio": 11.714611026886907,
+    "structure_fraction": 0.22095083387388217,
+    "battery_specific_energy": 355.8659926213044,
+    "cruise_speed": 72.62945949975992,
+    "range_km": 57.60457623185522
+   },
+   "expected": {
+    "mtow": 432.6945856640123,
+    "battery_mass": 73.66833637836453,
+    "hover_power": 58.873016952664884,
+    "installed_power": 91.39314693812842,
+    "required_energy": 26.282054899009545,
+    "lift_to_drag": 5.9744363329560874
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.9539090914797617,
+    "n_rotor": 8.0,
+    "fm": 0.6267451760557164,
+    "eta_motor": 0.9446339627952989,
+    "wing_area": 5.265395735333689,
+    "aspect_ratio": 6.8448241645815795,
+    "structure_fraction": 0.3221210610041622,
+    "battery_specific_energy": 357.75593457848413,
+    "cruise_speed": 64.776171912781,
+    "range_km": 186.22736899684972
+   },
+   "expected": {
+    "mtow": 711.0547225685601,
+    "battery_mass": 181.5883526425617,
+    "hover_power": 135.46032121611458,
+    "installed_power": 194.3670967374753,
+    "required_energy": 65.07743405008466,
+    "lift_to_drag": 12.06471531136514
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.80840784953245,
+    "n_rotor": 10.0,
+    "fm": 0.7290735552375862,
+    "eta_motor": 0.8258386554245241,
+    "wing_area": 9.430208709671936,
+    "aspect_ratio": 5.286960698128285,
+    "structure_fraction": 0.2951669592068486,
+    "battery_specific_energy": 378.9849866982181,
+    "cruise_speed": 44.57230478216455,
+    "range_km": 83.02352291713696
+   },
+   "expected": {
+    "mtow": 502.77412435118015,
+    "battery_mass": 78.12294227119492,
+    "hover_power": 82.73964115194083,
+    "installed_power": 138.33055504226755,
+    "required_energy": 29.597529801574904,
+    "lift_to_drag": 10.39930022115238
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2096119894119362,
+    "n_rotor": 7.0,
+    "fm": 0.6677535259574456,
+    "eta_motor": 0.9052429502014647,
+    "wing_area": 5.533679247408428,
+    "aspect_ratio": 5.139676065113782,
+    "structure_fraction": 0.3393258520283412,
+    "battery_specific_energy": 342.26558159897075,
+    "cruise_speed": 59.563293960440234,
+    "range_km": 167.70765187850301
+   },
+   "expected": {
+    "mtow": 797.2625267994628,
+    "battery_mass": 226.119425975194,
+    "hover_power": 133.08584640118292,
+    "installed_power": 202.56521484751036,
+    "required_energy": 77.58785068136933,
+    "lift_to_drag": 10.632384134042788
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3550851662131338,
+    "n_rotor": 5.0,
+    "fm": 0.6108836074972842,
+    "eta_motor": 0.9203331441706353,
+    "wing_area": 4.66954930890857,
+    "aspect_ratio": 6.614387647223676,
+    "structure_fraction": 0.2933934632791822,
+    "battery_specific_energy": 265.70996512425097,
+    "cruise_speed": 59.476376596881046,
+    "range_km": 129.26659071358947
+   },
+   "expected": {
+    "mtow": 637.7282008945613,
+    "battery_mass": 164.81616419932297,
+    "hover_power": 108.38073185867384,
+    "installed_power": 163.7570544333228,
+    "required_energy": 43.75223390617499,
+    "lift_to_drag": 12.220740081306833
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.088419336264602,
+    "n_rotor": 9.0,
+    "fm": 0.7853110125864748,
+    "eta_motor": 0.9467450693252804,
+    "wing_area": 8.396691760802415,
+    "aspect_ratio": 11.42561542716658,
+    "structure_fraction": 0.2667816985850521,
+    "battery_specific_energy": 278.05902177347116,
+    "cruise_speed": 66.95559644407803,
+    "range_km": 32.09388163596626
+   },
+   "expected": {
+    "mtow": 419.64138497038266,
+    "battery_mass": 49.963503195050535,
+    "hover_power": 40.50486825215411,
+    "installed_power": 70.81584187986635,
+    "required_energy": 13.81871162666873,
+    "lift_to_drag": 6.419828548338565
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.1560455229004538,
+    "n_rotor": 9.0,
+    "fm": 0.7925567761540073,
+    "eta_motor": 0.79583679325788,
+    "wing_area": 11.87217880180169,
+    "aspect_ratio": 7.7238903970139745,
+    "structure_fraction": 0.22341447646160048,
+    "battery_specific_energy": 203.64233819058094,
+    "cruise_speed": 55.957884889039676,
+    "range_km": 124.74801272922231
+   },
+   "expected": {
+    "mtow": 871.6822501641367,
+    "battery_mass": 352.8989467324687,
+    "hover_power": 135.9414515722498,
+    "installed_power": 237.03321915820607,
+    "required_energy": 71.93748481181558,
+    "lift_to_drag": 10.958858286008297
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4115060968715727,
+    "n_rotor": 5.0,
+    "fm": 0.6618208922837325,
+    "eta_motor": 0.885887439325202,
+    "wing_area": 11.272443167709044,
+    "aspect_ratio": 7.619564396984419,
+    "structure_fraction": 0.31420979601078547,
+    "battery_specific_energy": 225.67297763392594,
+    "cruise_speed": 38.168570291886574,
+    "range_km": 96.64833542814019
+   },
+   "expected": {
+    "mtow": 622.9561177570637,
+    "battery_mass": 143.51357501895126,
+    "hover_power": 96.68239735368549,
+    "installed_power": 152.68462146608195,
+    "required_energy": 32.349881351235176,
+    "lift_to_drag": 12.971654161388184
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3406851414509828,
+    "n_rotor": 8.0,
+    "fm": 0.8177382930707248,
+    "eta_motor": 0.8766500096259806,
+    "wing_area": 7.771462348767771,
+    "aspect_ratio": 8.17631368669404,
+    "structure_fraction": 0.2792673300693495,
+    "battery_specific_energy": 255.82341420319494,
+    "cruise_speed": 57.0539738751783,
+    "range_km": 137.8731853636022
+   },
+   "expected": {
+    "mtow": 643.9785525181712,
+    "battery_mass": 188.11012572481079,
+    "hover_power": 69.06289933889977,
+    "installed_power": 113.08163398646582,
+    "required_energy": 47.89789618493096,
+    "lift_to_drag": 11.600750074103276
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7974256684212893,
+    "n_rotor": 8.0,
+    "fm": 0.7938463899180327,
+    "eta_motor": 0.8251495450161518,
+    "wing_area": 3.4326202029947237,
+    "aspect_ratio": 8.64008297866162,
+    "structure_fraction": 0.36935787219481653,
+    "battery_specific_energy": 376.31882661591584,
+    "cruise_speed": 58.65252828105898,
+    "range_km": 163.45983618232466
+   },
+   "expected": {
+    "mtow": 809.6176648991551,
+    "battery_mass": 193.3134948745038,
+    "hover_power": 175.87038681031535,
+    "installed_power": 282.49789697735196,
+    "required_energy": 72.42156729105055,
+    "lift_to_drag": 12.948330740394491
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2926513140299434,
+    "n_rotor": 10.0,
+    "fm": 0.6790356047896433,
+    "eta_motor": 0.8374606099961224,
+    "wing_area": 11.03067140066643,
+    "aspect_ratio": 11.179611389191386,
+    "structure_fraction": 0.2943703161541966,
+    "battery_specific_energy": 238.36852911952118,
+    "cruise_speed": 55.78232502145158,
+    "range_km": 189.03514354966222
+   },
+   "expected": {
+    "mtow": 1023.307023687286,
+    "battery_mass": 392.8517327002889,
+    "hover_power": 160.8637744973062,
+    "installed_power": 269.97989680439423,
+    "required_energy": 93.46175833943262,
+    "lift_to_drag": 13.708928094680985
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.9930898057667373,
+    "n_rotor": 6.0,
+    "fm": 0.719696574731709,
+    "eta_motor": 0.8615202742451185,
+    "wing_area": 6.4049313194876785,
+    "aspect_ratio": 6.223926513454064,
+    "structure_fraction": 0.23904964597425488,
+    "battery_specific_energy": 277.9604373614782,
+    "cruise_speed": 63.17180558775541,
+    "range_km": 199.19431760919883
+   },
+   "expected": {
+    "mtow": 919.7983904239699,
+    "battery_mass": 371.2998629956536,
+    "hover_power": 210.6879557797648,
+    "installed_power": 323.9241734605685,
+    "required_energy": 102.502564616791,
+    "lift_to_drag": 11.752652660318455
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.5521685176859464,
+    "n_rotor": 10.0,
+    "fm": 0.6327903501577014,
+    "eta_motor": 0.8907281813103346,
+    "wing_area": 11.882337731500746,
+    "aspect_ratio": 6.158248461497484,
+    "structure_fraction": 0.2723057988992639,
+    "battery_specific_energy": 345.62680181211135,
+    "cruise_speed": 63.84259245343607,
+    "range_km": 78.08171553868229
+   },
+   "expected": {
+    "mtow": 614.7276658706186,
+    "battery_mass": 144.7078960713632,
+    "hover_power": 175.202660614572,
+    "installed_power": 257.13729335612436,
+    "required_energy": 50.19889557294521,
+    "lift_to_drag": 6.881650317779946
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.6472685224287873,
+    "n_rotor": 8.0,
+    "fm": 0.6121305454244849,
+    "eta_motor": 0.8774372187757602,
+    "wing_area": 9.310734036785945,
+    "aspect_ratio": 10.637225020371819,
+    "structure_fraction": 0.37424986158844786,
+    "battery_specific_energy": 316.7896024490855,
+    "cruise_speed": 71.515197009183,
+    "range_km": 121.98387025537711
+   },
+   "expected": {
+    "mtow": 1100.7183714272091,
+    "battery_mass": 292.46358860547116,
+    "hover_power": 429.16041097620604,
+    "installed_power": 625.0854130253383,
+    "required_energy": 92.72911946142868,
+    "lift_to_drag": 11.460673394124598
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.5381337406809719,
+    "n_rotor": 8.0,
+    "fm": 0.698895763084955,
+    "eta_motor": 0.8578318013709515,
+    "wing_area": 8.030289951893527,
+    "aspect_ratio": 11.322300091654883,
+    "structure_fraction": 0.2919528888047851,
+    "battery_specific_energy": 305.4084493865075,
+    "cruise_speed": 35.993203050038574,
+    "range_km": 127.94149654434833
+   },
+   "expected": {
+    "mtow": 631.8336758516664,
+    "battery_mass": 139.01233513083412,
+    "hover_power": 199.983758925745,
+    "installed_power": 300.21928419119564,
+    "required_energy": 42.37608704011724,
+    "lift_to_drag": 15.85768355193613
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.302905078216172,
+    "n_rotor": 9.0,
+    "fm": 0.634012921595947,
+    "eta_motor": 0.9162779011666121,
+    "wing_area": 10.475181175656768,
+    "aspect_ratio": 5.118929360480606,
+    "structure_fraction": 0.2584121112151216,
+    "battery_specific_energy": 367.5145116487754,
+    "cruise_speed": 74.83999774039751,
+    "range_km": 170.0281648676274
+   },
+   "expected": {
+    "mtow": 808.395532693353,
+    "battery_mass": 299.7158384865698,
+    "hover_power": 115.75924291084698,
+    "installed_power": 180.28175294627925,
+    "required_energy": 110.70095303644374,
+    "lift_to_drag": 7.210344593798074
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4905229837424756,
+    "n_rotor": 8.0,
+    "fm": 0.6184750648548549,
+    "eta_motor": 0.8281250896658454,
+    "wing_area": 7.215441653535862,
+    "aspect_ratio": 7.981734272527126,
+    "structure_fraction": 0.3343512653956395,
+    "battery_specific_energy": 247.55672052612366,
+    "cruise_speed": 56.6185753457185,
+    "range_km": 111.24587418577258
+   },
+   "expected": {
+    "mtow": 710.5075698228959,
+    "battery_mass": 181.59075399404347,
+    "hover_power": 100.36423475902872,
+    "installed_power": 177.18328538491338,
+    "required_energy": 45.16384448729056,
+    "lift_to_drag": 12.53712025129955
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2148386533643654,
+    "n_rotor": 10.0,
+    "fm": 0.6006415461311418,
+    "eta_motor": 0.8165011268026294,
+    "wing_area": 7.525421503376925,
+    "aspect_ratio": 11.234555618877486,
+    "structure_fraction": 0.36260445395609975,
+    "battery_specific_energy": 350.35237696240813,
+    "cruise_speed": 56.88798521399109,
+    "range_km": 131.94143641310572
+   },
+   "expected": {
+    "mtow": 681.1881860451538,
+    "battery_mass": 138.20170406789825,
+    "hover_power": 107.17292082240365,
+    "installed_power": 189.27025386642836,
+    "required_energy": 48.58932001698833,
+    "lift_to_drag": 13.083511674194874
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3823826000604782,
+    "n_rotor": 9.0,
+    "fm": 0.6412351248034347,
+    "eta_motor": 0.9352267392642917,
+    "wing_area": 2.897446053661075,
+    "aspect_ratio": 11.498160516677014,
+    "structure_fraction": 0.36632376040348086,
+    "battery_specific_energy": 290.20298928663766,
+    "cruise_speed": 46.9376674704272,
+    "range_km": 91.09696380425683
+   },
+   "expected": {
+    "mtow": 536.9259215734777,
+    "battery_mass": 78.33913122787055,
+    "hover_power": 56.9954576143774,
+    "installed_power": 91.2805469600334,
+    "required_energy": 22.531763743271835,
+    "lift_to_drag": 14.189922200630678
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.9265595230610906,
+    "n_rotor": 6.0,
+    "fm": 0.6512605790344042,
+    "eta_motor": 0.7926118381815028,
+    "wing_area": 9.732533293300161,
+    "aspect_ratio": 5.378136236808746,
+    "structure_fraction": 0.22403290399728237,
+    "battery_specific_energy": 325.9549916811956,
+    "cruise_speed": 74.82507933864741,
+    "range_km": 175.9922929313526
+   },
+   "expected": {
+    "mtow": 1074.797434333603,
+    "battery_mass": 469.70656658748,
+    "hover_power": 347.52992832086596,
+    "installed_power": 574.1885716650999,
+    "required_energy": 152.04379832316187,
+    "lift_to_drag": 9.120710348989023
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8825048205084454,
+    "n_rotor": 9.0,
+    "fm": 0.8175926680835948,
+    "eta_motor": 0.9168748775976626,
+    "wing_area": 4.934839792154644,
+    "aspect_ratio": 6.778717959651606,
+    "structure_fraction": 0.22238214125085495,
+    "battery_specific_energy": 202.10667502195685,
+    "cruise_speed": 62.40755986691086,
+    "range_km": 61.08993372023189
+   },
+   "expected": {
+    "mtow": 450.1682928536842,
+    "battery_mass": 87.98346457387288,
+    "hover_power": 55.126559096051906,
+    "installed_power": 83.72875004397326,
+    "required_energy": 17.79164010387366,
+    "lift_to_drag": 10.616991472226472
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4223997075792791,
+    "n_rotor": 6.0,
+    "fm": 0.7433413447979599,
+    "eta_motor": 0.9303688073658523,
+    "wing_area": 2.649098358496175,
+    "aspect_ratio": 8.45406078771779,
+    "structure_fraction": 0.22266815066272128,
+    "battery_specific_energy": 213.51812641206868,
+    "cruise_speed": 60.204007726584,
+    "range_km": 110.8846539239539
+   },
+   "expected": {
+    "mtow": 485.25297507885944,
+    "battery_mass": 114.87134581622743,
+    "hover_power": 51.14155489141404,
+    "installed_power": 80.22551305166094,
+    "required_energy": 24.507555074444195,
+    "lift_to_drag": 13.742697173240977
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.5204375333950536,
+    "n_rotor": 6.0,
+    "fm": 0.639682172147871,
+    "eta_motor": 0.9063119902111347,
+    "wing_area": 11.181461939368356,
+    "aspect_ratio": 11.839990074769972,
+    "structure_fraction": 0.2801491479683587,
+    "battery_specific_energy": 284.23239033616534,
+    "cruise_speed": 52.85780501341506,
+    "range_km": 115.66549193321615
+   },
+   "expected": {
+    "mtow": 778.8771520769234,
+    "battery_mass": 216.1325087928585,
+    "hover_power": 339.2526766449001,
+    "installed_power": 469.6462372428044,
+    "required_energy": 61.600427131763475,
+    "lift_to_drag": 12.535321963204343
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4503040691345224,
+    "n_rotor": 8.0,
+    "fm": 0.6552899002867282,
+    "eta_motor": 0.8803735793484035,
+    "wing_area": 9.930876537016136,
+    "aspect_ratio": 11.72382549713394,
+    "structure_fraction": 0.3327662256006253,
+    "battery_specific_energy": 320.57447778221496,
+    "cruise_speed": 65.64734980104922,
+    "range_km": 147.43356835366978
+   },
+   "expected": {
+    "mtow": 784.9502437727284,
+    "battery_mass": 227.33587188660593,
+    "hover_power": 106.32560379721062,
+    "installed_power": 173.70519971951933,
+    "required_energy": 73.2311843917677,
+    "lift_to_drag": 9.731526919534758
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.6532244578133113,
+    "n_rotor": 6.0,
+    "fm": 0.690208518197408,
+    "eta_motor": 0.8528701640594663,
+    "wing_area": 4.807787089162306,
+    "aspect_ratio": 8.233760967027639,
+    "structure_fraction": 0.2398000889135209,
+    "battery_specific_energy": 234.34809001363266,
+    "cruise_speed": 51.718849782105565,
+    "range_km": 31.81131427797742
+   },
+   "expected": {
+    "mtow": 443.11507594300963,
+    "battery_mass": 58.266803102413775,
+    "hover_power": 112.8196520227648,
+    "installed_power": 173.0831421885074,
+    "required_energy": 13.715882856376089,
+    "lift_to_drag": 13.120848441194042
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0139133478079663,
+    "n_rotor": 8.0,
+    "fm": 0.7184906269085723,
+    "eta_motor": 0.8991500789532018,
+    "wing_area": 5.738378779840695,
+    "aspect_ratio": 7.3352126137464335,
+    "structure_fraction": 0.3548970054301873,
+    "battery_specific_energy": 271.7962892792555,
+    "cruise_speed": 60.5429019670955,
+    "range_km": 75.33919232991013
+   },
+   "expected": {
+    "mtow": 579.4777509932662,
+    "battery_mass": 98.01338749003612,
+    "hover_power": 86.66046380276363,
+    "installed_power": 133.8850599168571,
+    "required_energy": 26.469144079627807,
+    "lift_to_drag": 11.66775630760842
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8110857013766464,
+    "n_rotor": 10.0,
+    "fm": 0.7191257063952949,
+    "eta_motor": 0.7981133219369371,
+    "wing_area": 7.577230425932703,
+    "aspect_ratio": 5.666674040355093,
+    "structure_fraction": 0.33198793999387755,
+    "battery_specific_energy": 258.89679319255697,
+    "cruise_speed": 37.515024620746814,
+    "range_km": 34.34304575457159
+   },
+   "expected": {
+    "mtow": 507.3359175119917,
+    "battery_mass": 62.081617447609766,
+    "hover_power": 88.69139916831912,
+    "installed_power": 152.74923193368264,
+    "required_energy": 15.919713184814466,
+    "lift_to_drag": 10.954554270205008
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3404602231222746,
+    "n_rotor": 5.0,
+    "fm": 0.7322133643804807,
+    "eta_motor": 0.8016282582990453,
+    "wing_area": 10.62936421032521,
+    "aspect_ratio": 8.943121473861401,
+    "structure_fraction": 0.2609381954540399,
+    "battery_specific_energy": 277.48226112824227,
+    "cruise_speed": 38.254422722539076,
+    "range_km": 169.41373036046838
+   },
+   "expected": {
+    "mtow": 686.3085868589454,
+    "battery_mass": 211.31743637922884,
+    "hover_power": 116.38459991639314,
+    "installed_power": 200.87691572800918,
+    "required_energy": 58.68643188974295,
+    "lift_to_drag": 14.11327119147296
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7880145812346284,
+    "n_rotor": 10.0,
+    "fm": 0.6161313942652341,
+    "eta_motor": 0.8620632549182563,
+    "wing_area": 4.249455113251681,
+    "aspect_ratio": 5.418487181275346,
+    "structure_fraction": 0.3344328386230133,
+    "battery_specific_energy": 268.98080671183357,
+    "cruise_speed": 52.64275897620664,
+    "range_km": 92.67955746211624
+   },
+   "expected": {
+    "mtow": 871.8598869688121,
+    "battery_mass": 251.59767790447063,
+    "hover_power": 220.8854506018216,
+    "installed_power": 341.1296892022921,
+    "required_energy": 67.48016266543827,
+    "lift_to_drag": 8.770618160592312
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.9979416934515954,
+    "n_rotor": 7.0,
+    "fm": 0.7114127541514668,
+    "eta_motor": 0.9396606236927136,
+    "wing_area": 7.37402968929409,
+    "aspect_ratio": 9.194631161700643,
+    "structure_fraction": 0.3099161273960307,
+    "battery_specific_energy": 360.7263307133872,
+    "cruise_speed": 57.326709283627196,
+    "range_km": 53.8433123717502
+   },
+   "expected": {
+    "mtow": 453.9107985022684,
+    "battery_mass": 48.717618286112376,
+    "hover_power": 62.52497675961188,
+    "installed_power": 92.92652198087595,
+    "required_energy": 17.609463938803874,
+    "lift_to_drag": 9.715347855488687
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8902232123619245,
+    "n_rotor": 8.0,
+    "fm": 0.7343734577491103,
+    "eta_motor": 0.9013638834517866,
+    "wing_area": 8.197148067838405,
+    "aspect_ratio": 11.311440638953085,
+    "structure_fraction": 0.2696976922714124,
+    "battery_specific_energy": 290.2591467717747,
+    "cruise_speed": 55.279467263024195,
+    "range_km": 79.21826366875055
+   },
+   "expected": {
+    "mtow": 490.18108636745046,
+    "battery_mass": 88.37567245596233,
+    "hover_power": 74.16662709564243,
+    "installed_power": 112.9420621427115,
+    "required_energy": 25.78708494686475,
+    "lift_to_drag": 10.358565030208556
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8739908329136725,
+    "n_rotor": 7.0,
+    "fm": 0.7895134648254832,
+    "eta_motor": 0.7876862555707126,
+    "wing_area": 6.198939388760033,
+    "aspect_ratio": 7.379137401613875,
+    "structure_fraction": 0.3166881802803525,
+    "battery_specific_energy": 304.06263540573235,
+    "cruise_speed": 61.57398018320872,
+    "range_km": 84.46502959593052
+   },
+   "expected": {
+    "mtow": 592.7476341683728,
+    "battery_mass": 114.84405992880241,
+    "hover_power": 113.28209370698468,
+    "installed_power": 193.5827995166379,
+    "required_energy": 34.992064601032325,
+    "lift_to_drag": 11.284275480508802
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.848416153413847,
+    "n_rotor": 5.0,
+    "fm": 0.6114957718762426,
+    "eta_motor": 0.9466438821495778,
+    "wing_area": 6.886913621579938,
+    "aspect_ratio": 7.947281223388549,
+    "structure_fraction": 0.3476203902004278,
+    "battery_specific_energy": 316.35102378890804,
+    "cruise_speed": 49.70054740026032,
+    "range_km": 111.26390425943947
+   },
+   "expected": {
+    "mtow": 655.9414628016626,
+    "battery_mass": 127.97244665914575,
+    "hover_power": 175.12561862235862,
+    "installed_power": 242.5827053169599,
+    "required_energy": 40.30910291546407,
+    "lift_to_drag": 13.216134683566512
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4295707780614788,
+    "n_rotor": 4.0,
+    "fm": 0.759229458959018,
+    "eta_motor": 0.8629967290843336,
+    "wing_area": 11.575466724202762,
+    "aspect_ratio": 5.856729291728971,
+    "structure_fraction": 0.3212853492891735,
+    "battery_specific_energy": 207.95989655573067,
+    "cruise_speed": 42.56213452031939,
+    "range_km": 47.13403662263133
+   },
+   "expected": {
+    "mtow": 534.3453093003365,
+    "battery_mass": 91.33286365318915,
+    "hover_power": 76.16455617108187,
+    "installed_power": 123.2677072890497,
+    "required_energy": 18.92564314303201,
+    "lift_to_drag": 10.548125741738755
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3324405938459516,
+    "n_rotor": 5.0,
+    "fm": 0.7267180010597898,
+    "eta_motor": 0.8133249041677186,
+    "wing_area": 4.5295434319634005,
+    "aspect_ratio": 9.704558219670412,
+    "structure_fraction": 0.2765476063038379,
+    "battery_specific_energy": 300.71823564197507,
+    "cruise_speed": 54.33326604843152,
+    "range_km": 43.90086199860329
+   },
+   "expected": {
+    "mtow": 421.28127960046123,
+    "battery_mass": 41.15105457936911,
+    "hover_power": 56.308340350470516,
+    "installed_power": 99.0051077343587,
+    "required_energy": 12.234080784646892,
+    "lift_to_drag": 13.38922315078124
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.2132068994935623,
+    "n_rotor": 7.0,
+    "fm": 0.6605636608363938,
+    "eta_motor": 0.8207681430022908,
+    "wing_area": 11.632398747084395,
+    "aspect_ratio": 11.270153310226373,
+    "structure_fraction": 0.3284266134053955,
+    "battery_specific_energy": 218.8480044912099,
+    "cruise_speed": 43.69598437922139,
+    "range_km": 47.04658037548325
+   },
+   "expected": {
+    "mtow": 541.4811642860948,
+    "battery_mass": 82.50298014755343,
+    "hover_power": 82.23414017243815,
+    "installed_power": 141.92087666439556,
+    "required_energy": 18.398133600517614,
+    "lift_to_drag": 11.88998587693288
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.9243536197071573,
+    "n_rotor": 6.0,
+    "fm": 0.7064930152152678,
+    "eta_motor": 0.9113159345054516,
+    "wing_area": 6.792007554590839,
+    "aspect_ratio": 10.723599236328372,
+    "structure_fraction": 0.3042433569238714,
+    "battery_specific_energy": 307.1053760378831,
+    "cruise_speed": 66.13687256078238,
+    "range_km": 70.96173889276348
+   },
+   "expected": {
+    "mtow": 528.3416958890128,
+    "battery_mass": 90.01117529048648,
+    "hover_power": 95.22908425505229,
+    "installed_power": 140.89860099408804,
+    "required_energy": 27.668148913309082,
+    "lift_to_drag": 9.51671258227661
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.059115672028739,
+    "n_rotor": 8.0,
+    "fm": 0.6613288494417285,
+    "eta_motor": 0.8603885228061485,
+    "wing_area": 4.951077427989103,
+    "aspect_ratio": 6.938988001997975,
+    "structure_fraction": 0.2785964322476786,
+    "battery_specific_energy": 225.13367389737704,
+    "cruise_speed": 40.460498075203716,
+    "range_km": 81.54351494025124
+   },
+   "expected": {
+    "mtow": 591.3051103175007,
+    "battery_mass": 145.01151528640492,
+    "hover_power": 96.89624454889945,
+    "installed_power": 156.73653605009994,
+    "required_energy": 32.39433356861709,
+    "lift_to_drag": 10.724073762411328
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8230639449319961,
+    "n_rotor": 10.0,
+    "fm": 0.6241427600556567,
+    "eta_motor": 0.9174254605946084,
+    "wing_area": 8.042080190183036,
+    "aspect_ratio": 7.144132400467206,
+    "structure_fraction": 0.2952219863778929,
+    "battery_specific_energy": 282.99626272214095,
+    "cruise_speed": 60.32954580943877,
+    "range_km": 83.58099643856815
+   },
+   "expected": {
+    "mtow": 571.1420552195331,
+    "battery_mass": 121.02720463533083,
+    "hover_power": 105.66663137300228,
+    "installed_power": 156.9343546476358,
+    "required_energy": 34.48028602464857,
+    "lift_to_drag": 9.534129178770279
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.318904813661334,
+    "n_rotor": 8.0,
+    "fm": 0.6475462798691283,
+    "eta_motor": 0.9125943947403425,
+    "wing_area": 3.7760435882179584,
+    "aspect_ratio": 9.50014093739868,
+    "structure_fraction": 0.26107574294563335,
+    "battery_specific_energy": 346.03202230666636,
+    "cruise_speed": 35.28977095887017,
+    "range_km": 36.939859109327784
+   },
+   "expected": {
+    "mtow": 381.07174525441644,
+    "battery_mass": 25.399816562216266,
+    "hover_power": 38.15671450660623,
+    "installed_power": 63.71069839293937,
+    "required_energy": 8.869931654275364,
+    "lift_to_drag": 12.960537227332537
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8768944384364166,
+    "n_rotor": 7.0,
+    "fm": 0.5921743198049094,
+    "eta_motor": 0.8788286187165879,
+    "wing_area": 5.550902656615029,
+    "aspect_ratio": 5.185108854617311,
+    "structure_fraction": 0.2685245759004068,
+    "battery_specific_energy": 335.61857869826156,
+    "cruise_speed": 46.31799027404188,
+    "range_km": 111.01480149705799
+   },
+   "expected": {
+    "mtow": 568.8307855652281,
+    "battery_mass": 128.55145634400836,
+    "hover_power": 128.41015174671247,
+    "installed_power": 196.89830995344926,
+    "required_energy": 43.10678578325267,
+    "lift_to_drag": 10.381758812844081
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0263408171822697,
+    "n_rotor": 8.0,
+    "fm": 0.8083206065544208,
+    "eta_motor": 0.7829911839802726,
+    "wing_area": 10.352241549212726,
+    "aspect_ratio": 11.629057340708325,
+    "structure_fraction": 0.23771057385747066,
+    "battery_specific_energy": 283.3758357173321,
+    "cruise_speed": 53.109523790797205,
+    "range_km": 53.77979186518482
+   },
+   "expected": {
+    "mtow": 451.8274939256188,
+    "battery_mass": 77.5613722407572,
+    "hover_power": 60.00115961005607,
+    "installed_power": 107.96936297486276,
+    "required_energy": 21.968029173183194,
+    "lift_to_drag": 8.605734281166951
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.6875859009929204,
+    "n_rotor": 9.0,
+    "fm": 0.6660545708698155,
+    "eta_motor": 0.84436194785511,
+    "wing_area": 3.997815023815033,
+    "aspect_ratio": 7.982554660226096,
+    "structure_fraction": 0.22658163496305125,
+    "battery_specific_energy": 288.8645125483236,
+    "cruise_speed": 47.462904844877734,
+    "range_km": 128.53614222856527
+   },
+   "expected": {
+    "mtow": 565.0150647894643,
+    "battery_mass": 147.0708803006295,
+    "hover_power": 132.2337817635323,
+    "installed_power": 209.08854215361345,
+    "required_energy": 42.44779717303506,
+    "lift_to_drag": 12.624121327840045
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.6801084735745838,
+    "n_rotor": 9.0,
+    "fm": 0.6984432918367283,
+    "eta_motor": 0.9053037325791969,
+    "wing_area": 11.652395305949518,
+    "aspect_ratio": 8.028320139676811,
+    "structure_fraction": 0.3232601014432024,
+    "battery_specific_energy": 338.4395635510498,
+    "cruise_speed": 68.79595030145208,
+    "range_km": 52.68531144412894
+   },
+   "expected": {
+    "mtow": 584.4171998108251,
+    "battery_mass": 108.00080179694864,
+    "hover_power": 124.75652900012346,
+    "installed_power": 181.60341897037108,
+    "required_energy": 37.05786590901758,
+    "lift_to_drag": 6.054494733160337
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3477898760162024,
+    "n_rotor": 4.0,
+    "fm": 0.796411314966342,
+    "eta_motor": 0.9079609447415532,
+    "wing_area": 8.435441845921357,
+    "aspect_ratio": 7.980403189933044,
+    "structure_fraction": 0.26921599338746116,
+    "battery_specific_energy": 223.25312771847433,
+    "cruise_speed": 53.2748685714978,
+    "range_km": 43.44096621765576
+   },
+   "expected": {
+    "mtow": 453.77675385516727,
+    "battery_mass": 66.82167880398042,
+    "hover_power": 56.19690969056014,
+    "installed_power": 86.9267476782262,
+    "required_energy": 14.939385617760097,
+    "lift_to_drag": 9.59774313547413
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0021744721995964,
+    "n_rotor": 6.0,
+    "fm": 0.6432377090588652,
+    "eta_motor": 0.9319915639293485,
+    "wing_area": 10.037605450554524,
+    "aspect_ratio": 9.979329454400819,
+    "structure_fraction": 0.33755547068180314,
+    "battery_specific_energy": 301.52670529589506,
+    "cruise_speed": 38.69996928453449,
+    "range_km": 58.13307898879869
+   },
+   "expected": {
+    "mtow": 496.8191264086936,
+    "battery_mass": 56.26572987491302,
+    "hover_power": 84.8396479761457,
+    "installed_power": 124.74396068378141,
+    "required_energy": 17.08091591692524,
+    "lift_to_drag": 13.73852003554264
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.3717699098042173,
+    "n_rotor": 7.0,
+    "fm": 0.7332868079053362,
+    "eta_motor": 0.8826379460093142,
+    "wing_area": 7.457976178063019,
+    "aspect_ratio": 6.078101428705137,
+    "structure_fraction": 0.24427062964852495,
+    "battery_specific_energy": 236.80138810100604,
+    "cruise_speed": 54.62484353749478,
+    "range_km": 92.58224641417969
+   },
+   "expected": {
+    "mtow": 526.7222996363809,
+    "battery_mass": 128.61549796662513,
+    "hover_power": 58.79307596541267,
+    "installed_power": 96.71681164063062,
+    "required_energy": 30.384323591559703,
+    "lift_to_drag": 10.535453186555765
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.7744287762780492,
+    "n_rotor": 7.0,
+    "fm": 0.7401660915952621,
+    "eta_motor": 0.9496894853267299,
+    "wing_area": 2.490162412343289,
+    "aspect_ratio": 11.830896063084221,
+    "structure_fraction": 0.33546367322210496,
+    "battery_specific_energy": 365.2145888811678,
+    "cruise_speed": 61.965751091908785,
+    "range_km": 58.64833157229299
+   },
+   "expected": {
+    "mtow": 458.14867394133046,
+    "battery_mass": 38.34449990651103,
+    "hover_power": 78.62630838214989,
+    "installed_power": 111.65987954983943,
+    "required_energy": 13.962891385115208,
+    "lift_to_drag": 16.20181264534744
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.0959229710318494,
+    "n_rotor": 6.0,
+    "fm": 0.7933519384858387,
+    "eta_motor": 0.9146124609482249,
+    "wing_area": 7.191381937786699,
+    "aspect_ratio": 10.257854514233227,
+    "structure_fraction": 0.2697886621559509,
+    "battery_specific_energy": 257.8788692756913,
+    "cruise_speed": 41.49395395963166,
+    "range_km": 43.85741299799032
+   },
+   "expected": {
+    "mtow": 409.31862630485597,
+    "battery_mass": 40.523829149720505,
+    "hover_power": 48.880831521498834,
+    "installed_power": 75.22666808807197,
+    "required_energy": 10.382183774991194,
+    "lift_to_drag": 13.940648483716437
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.621833040653974,
+    "n_rotor": 7.0,
+    "fm": 0.7063332293367044,
+    "eta_motor": 0.9437450442085837,
+    "wing_area": 4.380713904442819,
+    "aspect_ratio": 10.676816602728866,
+    "structure_fraction": 0.3112489694984337,
+    "battery_specific_energy": 361.25633895516154,
+    "cruise_speed": 73.6863886621454,
+    "range_km": 83.9226452277083
+   },
+   "expected": {
+    "mtow": 523.5214571933391,
+    "battery_mass": 79.7096423750299,
+    "hover_power": 124.85614974069918,
+    "installed_power": 173.39353362946946,
+    "required_energy": 28.825066541799863,
+    "lift_to_drag": 11.223260156473506
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8513420686412281,
+    "n_rotor": 8.0,
+    "fm": 0.5840993467982163,
+    "eta_motor": 0.9263999186333439,
+    "wing_area": 11.022393581753628,
+    "aspect_ratio": 9.228389613989393,
+    "structure_fraction": 0.3424168620109842,
+    "battery_specific_energy": 352.72507907612203,
+    "cruise_speed": 64.6872510687184,
+    "range_km": 99.27470033340552
+   },
+   "expected": {
+    "mtow": 690.4737937673307,
+    "battery_mass": 154.1476672847296,
+    "hover_power": 158.2886388447157,
+    "installed_power": 227.8852155783626,
+    "required_energy": 54.30983557670475,
+    "lift_to_drag": 8.250833495707703
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 0.8569674090170725,
+    "n_rotor": 6.0,
+    "fm": 0.8111802810619134,
+    "eta_motor": 0.8581235658156535,
+    "wing_area": 2.4082335063317957,
+    "aspect_ratio": 8.59409581148488,
+    "structure_fraction": 0.28930108474791344,
+    "battery_specific_energy": 369.56393770241596,
+    "cruise_speed": 52.03619340523179,
+    "range_km": 107.84270419453023
+   },
+   "expected": {
+    "mtow": 496.8523220790856,
+    "battery_mass": 83.59786465692765,
+    "hover_power": 85.9694097638858,
+    "installed_power": 134.63144548202771,
+    "required_energy": 30.81192898266325,
+    "lift_to_drag": 12.46950108513747
+   }
+  },
+  {
+   "inputs": {
+    "rotor_radius": 1.4980989261089506,
+    "n_rotor": 9.0,
+    "fm": 0.7848075738087756,
+    "eta_motor": 0.863452277027049,
+    "wing_area": 2.582224119026841,
+    "aspect_ratio": 9.645317430701418,
+    "structure_fraction": 0.2675712968623579,
+    "battery_specific_energy": 369.769989873144,
+    "cruise_speed": 49.391892481286455,
+    "range_km": 37.883647081373546
+   },
+   "expected": {
+    "mtow": 372.95500564688143,
+    "battery_mass": 20.696099599821494,
+    "hover_power": 27.026003786430028,
+    "installed_power": 50.08148463069945,
+    "required_energy": 7.709232372063926,
+    "lift_to_drag": 14.426280874063742
+   }
+  }
+ ]
+}
